@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<div>
+<div class="container add-post-form">
 <h1>Share a spot</h1>
-<form method="POST">
+<form method="POST" class="add-post" id="addpost_form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-secondary">Share</button>
+    <button type="submit">Share</button>
 </form>
 </div>
 
