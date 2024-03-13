@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container add-post-form">
+
+  <h1>Delete your post</h1>
+  <br/>
+  <h3>{{ post.title }}</h3>
+  <div> {{ post.location}}</div>
+  <br/>
+  <div>{{ post.body }}</div>
+
+  <br/>
+  <form method="POST" class="add-post" id="addpost_form">
+    {% csrf_token %}
+
+    <button type="submit">Delete Post</button>
+  </form>
+</div>
+
+{% endblock %}
