@@ -6,7 +6,7 @@
 <ul> 
 {% for post in object_list %}
 
-   <li><a href ="{% url 'blog-details' post.pk %}">Location - {{ post.title }}</a> - {{ post.author.first_name }}
+   <li><a href ="{% url 'blog-details' post.pk %}">Spot Location - {{ post.location }}</a> - Posted by: {{ post.author.first_name }}
    {{ post.author.last_name }}<br/>
    {{ post.body }}</li>
 
