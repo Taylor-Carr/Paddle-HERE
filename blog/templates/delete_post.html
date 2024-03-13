@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 <div class="container add-post-form">
 
   <h1>Delete your post</h1>
@@ -18,5 +18,10 @@
     <button type="submit">Delete Post</button>
   </form>
 </div>
+{% else %}
+<div class="container">
+<h1>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
+</div>
+{% endif %}
 
 {% endblock %}

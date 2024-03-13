@@ -2,10 +2,11 @@
 
     {% block content %}
 
+    {% if user.is_authenticated %}
+
     <h1>Spot Location - {{ post.location }}</h1> 
     Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
-    {{ post.post_date}} - 
-    <a href="{% url 'delete_post' post.pk %}">Delete post</a><br/>
+    {{ post.post_date}} <br/>
     <hr>
     <br/>
     {{ post.title}}
@@ -13,5 +14,22 @@
     {{ post.body }} 
     <br/>
     <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
+    <a href="{% url 'delete_post' post.pk %}">Delete post</a>
+
+    {% else %}
+
+    <h1>Spot Location - {{ post.location }}</h1> 
+    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
+    {{ post.post_date}} 
+    <br/>
+    <hr>
+    <br/>
+    {{ post.title}}
+    <br/>
+    {{ post.body }} 
+    <br/>
+    <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
+
+    {% endif %}
 
     {% endblock %}

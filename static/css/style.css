@@ -4,9 +4,20 @@ body {
 }
 
 /*     Nav Bar  */
-.navbar {
-    color: black;
-    background-color: #FFF9E2;
+.nav-link {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color:black;
+    margin-left: 18px;
+    margin-right: 18px;
+    padding:0px 0px 0px 8px;
+    border-bottom: 2px solid transparent; 
+    transition: border-color 0.2s ease; 
+}
+
+.nav-link:hover {
+  border-color: black;
 }
 
 /* Add blog post styling */
