@@ -4,15 +4,17 @@ body {
 }
 
 /*     Nav Bar  */
+
+ 
 .nav-link {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 20px;
     color:black;
     margin-left: 18px;
     margin-right: 18px;
     padding:0px 0px 0px 8px;
-    border-bottom: 2px solid transparent; 
+    border-bottom: 3px solid transparent; 
     transition: border-color 0.2s ease; 
 }
 
@@ -25,12 +27,12 @@ body {
 .add-post-form {
     max-width: 400px;
     margin: 0 auto;
-    font-family: 'Merriweather', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
   }
 
-  .add-post-form button[type="submit"] {
-    font-family:'Merriweather', sans serif;
+.add-post-form button[type="submit"] {
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
     font-weight: bold;
     background-color: white;
@@ -43,14 +45,83 @@ body {
   }
 
   /* Footer */
+
+.blue {
+  position: relative;
+  margin: 0.1px;
+  border: 3.5px solid #75c8ae;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.brown {
+  height:100%;
+  width:100%;
+  position: relative;
+  margin: 0.1px;
+  border: 3.5px solid #5a3d2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
   
+}
+.beige {
+   height:100%;
+  width:100%;
+  position: relative;
+  margin: 0.1px;
+  border: 3.5px solid #ffecb4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
+.aubun {
+  height:100%;
+  width:100%;
+  position: relative;
+  margin: 0.1px;
+  border: 3.5px solid #e5771e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   
+}
+.orange {
+  height:100%;
+  width:100%;
+  position: relative;
+  margin:0.1px;
+  border: 3.5px solid #f4a127;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.footer-text {
+  background-color: #fff9e2;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  animation: slide 5s infinite linear;
+  z-index:-900;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
   .github-link-text {
     color: black;
-    text-decoration: none;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    display: inline-block; 
-    justify-content: center; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     padding-top: 5px;
-    padding-bottom: 5px;  
+    padding-bottom: 5px; 
 }
