@@ -3,13 +3,14 @@
     {% block content %}
 
     <h1>Spot Location - {{ post.location }}</h1> 
-    <small>Posted by - {{ post.author.first_name}} {{ post.author.last_name}}</small> - <a href="{% url 'delete_post' post.pk %}">Delete post</a><br/>
+    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
+    {{ post.post_date}} - 
+    <a href="{% url 'delete_post' post.pk %}">Delete post</a><br/>
     <hr>
     <br/>
     {{ post.title}}
     <br/>
     {{ post.body }} 
-
     <br/>
     <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
 

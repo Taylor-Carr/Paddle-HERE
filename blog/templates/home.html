@@ -6,8 +6,8 @@
 <ul> 
 {% for post in object_list %}
 
-   <li><a href ="{% url 'blog-details' post.pk %}">Spot Location - {{ post.location }}</a> - Posted by: {{ post.author.first_name }}
-   {{ post.author.last_name }} - <a href="{% url 'update_post' post.pk %}">Edit post</a><br/>
+   <li><a href ="{% url 'blog-details' post.pk %}">Spot Location - {{ post.location }}</a> - Posted by: {{ post.author.first_name }} 
+   {{ post.author.last_name }} - {{ post.post_date}} - <a href="{% url 'update_post' post.pk %}">Edit post</a><br/>
    {{ post.body }}</li><a href="{% url 'delete_post' post.pk %}">Delete post</a><br/>
 
 {% endfor %}
