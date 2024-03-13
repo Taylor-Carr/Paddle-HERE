@@ -13,7 +13,7 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       
       <a class="active  brand" href="{% url 'home' %}">Paddle Here</a>
@@ -27,7 +27,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         </li>
           <li class="nav-item">
-            <a>Find a Spot</a>
+            <a href="{% url 'add_post' %}">Find a Spot</a>
           <li class="nav-item">
             <a>Logout</a>
           </li>
