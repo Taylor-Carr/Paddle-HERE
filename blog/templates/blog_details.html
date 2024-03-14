@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
     {% if user.is_authenticated and user.id == post.author.id%}
-
+    <!--Post content-->
     <h1>Spot Location - {{ post.location }}</h1> 
     Posted by - {{ post.author.first_name}} {{ post.author.last_name}} {{ post.author.id}} - 
     {{ post.post_date}} <br/>
@@ -9,14 +9,22 @@
     <br/>
     {{ post.title}}
     <br/>
-    {{ post.body }} 
+    {{ post.body }}
+    <hr>
+    <!----Like button-->
+    <br/>
+    <form action="{% url 'like_post' post.pk %}" method="POST">
+      {% csrf_token%}
+      <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">Like</button> - {{ total_likes }} Likes
+    </form>
+    <!--Delete and edit buttons-->
     <br/>
     <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
     <a href="{% url 'delete_post' post.pk %}">Delete post</a>
 
     {% else %}
     
-
+    <!---Only post content displayed if not signed in-->
     <h1>Spot Location - {{ post.location }}</h1> 
     Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
     {{ post.post_date}} 
