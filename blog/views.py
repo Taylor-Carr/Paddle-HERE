@@ -12,7 +12,8 @@ class HomeView(ListView):
 
 class BlogDetailView(DetailView):
     model = Post
-    template_name = 'blog_details.html'   
+    template_name = 'blog_details.html'
+
 
 
 class AddPostView(CreateView):
