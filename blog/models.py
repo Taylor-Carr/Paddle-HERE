@@ -4,7 +4,7 @@ from django.urls import reverse
 from datetime import datetime, date
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=100)
     body = models.TextField()
