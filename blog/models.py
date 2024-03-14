@@ -9,6 +9,7 @@ class Post(models.Model):
     location = models.CharField(max_length=100)
     body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name='blog_posts')
 
     def __str__(self):
         return self.title + ' ¦ ' + str(self.author)
