@@ -8,6 +8,7 @@ class PostForm(forms.ModelForm):
 
         widgets = {
            'title': forms.TextInput(attrs={'class': 'add-post' }),
+           'author': forms.TextInput(attrs={'class': 'add-post', 'value' : '', 'id': 'userid', 'type': 'hidden' }),
            'location': forms.TextInput(attrs={'class': 'add-post', 'placeholder': 'eg. Newquay, Cornwall'}),
            'body': forms.Textarea(attrs={'class': 'add-post' }),
         }

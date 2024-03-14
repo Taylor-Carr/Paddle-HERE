@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import PostForm
 from django.urls import reverse_lazy
 
-class LandingPageView(TemplateView):
-    template_name = 'landing_page.html'
 
 class HomeView(ListView):
     model = Post

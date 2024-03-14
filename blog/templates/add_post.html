@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <div class="container add-post-form">
 <h1>Share a spot</h1>
 <form method="POST" class="add-post" id="addpost_form">
@@ -10,5 +12,29 @@
     <button type="submit">Create post</button>
 </form>
 </div>
+
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("userid").value = 
+    names;
+</script>
+
+{% else %}
+
+<h1>Please Log in to create a post.</h1>
+
+
+
+<div class="container add-post-form">
+<h1>Login</h1>
+<form method="POST" class="add-post" id="addpost_form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+</div>
+
+
+{% endif %}
 
 {% endblock %}
