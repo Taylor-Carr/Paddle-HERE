@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
     {% if user.is_authenticated and user.id == post.author.id%}
+
     <!--Post content-->
     <h1>Spot Location - {{ post.location }}</h1> 
     Posted by - {{ post.author.first_name}} {{ post.author.last_name}} {{ post.author.id}} - 
@@ -11,20 +12,36 @@
     <br/>
     {{ post.body }}
     <hr>
-    <!----Like button-->
+
+    <!---- Like button -->
     <br/>
     <form action="{% url 'like_post' post.pk %}" method="POST">
       {% csrf_token%}
       <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">Like</button> - {{ total_likes }} Likes
     </form>
-    <!--Delete and edit buttons-->
+
+    <!-- comment section -->
     <br/>
+    <h2>Comment Section</h2>
+    {% if not post.comments.all %}
+      <h2>No comments yet</h2>
+    {% else %}
+    {% for comments in post.comments.all %}
+    {{ comment.name }} - {{ comment.date_added }}
+    </br>
+    {{ comments.body }}
+    </br>
+    {% endfor %}
+    {% endif %}
+    <br/>
+
+     <!-- Delete and edit buttons -->
     <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
     <a href="{% url 'delete_post' post.pk %}">Delete post</a>
 
     {% else %}
     
-    <!---Only post content displayed if not signed in-->
+    <!--- post content displayed if not signed in -->
     <h1>Spot Location - {{ post.location }}</h1> 
     Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
     {{ post.post_date}} 
