@@ -21,8 +21,8 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid d-flex justify-content-center">
-      <div>
+    <div class="container-fluid">
+      <div class="container-fluid d-flex justify-content-center">
         <a class="active brand" href="{% url 'home' %}">
           <img src="/static/images/paddle here logo new.png">
           </a>
@@ -65,11 +65,11 @@
 
 <!--- Main --->
 <main>
-<div >
+
     {% block content %}
     <!--- Content Goes here -->
     {% endblock content %}
-  </div>
+
 </main>
 
 <!--- Footer -->
@@ -79,7 +79,7 @@
       <div class="beige">
         <div class="aubun">
           <div class="orange">
-            <div class="footer-text"> A Taylor Made Website -<a href="https://github.com/Taylor-Carr" target="_blank" class="github-link-text"><i class="fab fa-github ms-3 github-link"></i>Taylor</a></div> 
+            <div class="footer-text"> A Taylor Made Website -<a href="https://github.com/Taylor-Carr" target="_blank" class="github-link-text"><i class="fab fa-github ms-3 github-link"></i></a></div> 
           </div>
         </div>
       </div>

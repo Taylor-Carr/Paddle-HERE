@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.id == post.author.id%}
 <div class="container add-post-form">
 
   <h1>Delete your post</h1>

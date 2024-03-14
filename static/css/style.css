@@ -106,7 +106,7 @@ body {
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  animation: slide 5s infinite linear;
+  /*animation: slide 5s infinite linear;*/
   z-index:-900;
 }
 

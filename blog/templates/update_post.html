@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.id == post.author.id %}
 <div class="container add-post-form">
 <h1>Update your post</h1>
 <form method="POST" class="add-post" id="addpost_form">

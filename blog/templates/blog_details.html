@@ -1,11 +1,9 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %} {% block content %}
 
-    {% block content %}
-
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.id == post.author.id%}
 
     <h1>Spot Location - {{ post.location }}</h1> 
-    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
+    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} {{ post.author.id}} - 
     {{ post.post_date}} <br/>
     <hr>
     <br/>
@@ -17,6 +15,7 @@
     <a href="{% url 'delete_post' post.pk %}">Delete post</a>
 
     {% else %}
+    
 
     <h1>Spot Location - {{ post.location }}</h1> 
     Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
@@ -31,5 +30,6 @@
     <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
 
     {% endif %}
+    
 
-    {% endblock %}
+  {% endblock %}
