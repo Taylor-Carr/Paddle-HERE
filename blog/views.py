@@ -6,6 +6,7 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
 
+
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     post.likes.add(request.user)
@@ -21,7 +22,7 @@ class HomeView(ListView):
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'blog_details.html'
-
+    
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         stuff = get_object_or_404(Post, id=self.kwargs['pk'])
@@ -47,6 +48,12 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+
+
+
+
+
 
 
 
