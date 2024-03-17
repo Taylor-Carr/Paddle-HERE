@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container add-post-form">
+<h1>Add Comment</h1>
+<form method="POST" class="add-post" id="addpost_form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create post</button>
+</form>
+</div>
+
+{% else %}
+
+<h1>Please <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Sign Up</a> to post a comment.</h1>
+
+{% endif %}
+
+{% endblock %}

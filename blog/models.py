@@ -29,6 +29,12 @@ class Post(models.Model):
     def total_likes(self):
         return self.likes.count()
 
+    def total_comment_likes(self):
+        total_likes = 0
+        for comment in self.comments.all():
+            total_likes += comment.likes.count()
+        return total_likes
+
     def __str__(self):
         return self.title + ' ¦ ' + str(self.author)
 
