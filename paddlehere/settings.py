@@ -31,7 +31,7 @@ SECRET_KEY = 'mangos12'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-taylorcarr-paddlehere-v52dqduycsq.ws-eu110.gitpod.io', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-taylorcarr-paddlehere-p8v53ugj200.ws-eu110.gitpod.io', '.herokuapp.com']
 
 
 # Application definition

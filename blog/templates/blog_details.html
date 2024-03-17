@@ -21,7 +21,26 @@
       {% csrf_token%}
       <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">Like</button> - {{ total_likes }} Likes
     </form>
-    
+    <!--comment section-->
+    <br/>
+    <h2>Comments</h2>
+
+    {% if not post.comments.all %}
+
+    No comments yet <a href="#"></a> Add one</a>
+
+    {% else %}
+
+      {% for comment in post.comments %}
+      {{ comment.name }} - 
+      {{ comment.date_added }}
+      <br/>
+      {{comment.body}}
+      <br/>
+      {{ comment.likes}}
+     {% endfor %}
+    {% endif %}
+
      <!-- Delete and edit buttons -->
 
     <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
