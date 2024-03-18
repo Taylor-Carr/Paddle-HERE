@@ -1,35 +1,35 @@
 
 
 main {
-    color: black;
-    background-color:  white;
+    background-color: #3aafa9;
 }
 
 /*     Nav Bar  */
 
 nav {
-  background-color: #FFF9E2;
+  background: #3aafa9;
 }
 
 nav img {
   margin-top: 15px;
-  margin-left: 15px;
+  margin-left: 1.6em;
 }
  
-.nav-link {
+.navbar-nav .nav-item:nth-child(1) .nav-link,
+.navbar-nav .nav-item:nth-child(2) .nav-link,
+.navbar-nav .nav-item:nth-child(3) .nav-link,
+.navbar-nav .nav-item:nth-child(4) .nav-link {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 17px;
-    color:black;
-    margin-left: 25px;
-    padding:0px 0px 0px 8px;
-    border-bottom: 3px solid transparent; 
+    font-size: 20px;
+    color:#F5FBF9;
+    margin-left: 3em;
+    margin-right: 25px;
+    border-bottom: 2px solid transparent; 
     transition: border-color 0.2s ease;
     position: relative;
-}
-
-.nav-link:hover {
-  border-color: black;
+    padding-bottom: 0;
+    box-sizing: border-box;
 }
 
 /* Add blog post styling */
@@ -49,31 +49,58 @@ nav img {
 
 }
 
-.card{
-
+.card {
+  margin-left: 15px;
+  margin-right: 25px;
+  width: 100%;
+  max-width: 390px;
+  height: 460px;
+  background: white;
+  border: solid black 2px;
+  border-radius: 10px;
+  margin: 15px;
 }
-
-.post-caption {
-
+.underline-removed {
+  text-decoration: none !important;
+}
+.post-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px;
 }
 
 .post-body {
+  max-width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px;
 
 }
 
-.card__content {
-
+.card-author-content  {
+ 
 }
 
 .post-location {
-
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1vw;
+  font-weight: bold;
+ 
 
 }
 .post-author {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1vw;
+  font-weight: bold;
+  
 
 }
 
 .post-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1vw;
+  font-weight: bold;
+ 
 
 }
 
@@ -104,11 +131,11 @@ nav img {
 
   /* Footer */
 
-.beige {
+.white {
   position: relative;
   padding: 0.1px;
-  border: 5px solid #FFF9E2;
-  background-color: #FFF9E2;
+  border: 5px solid #3aafa9;
+  background-color: #3aafa9;
   display: flex;
   align-items: center;
 }
@@ -207,4 +234,13 @@ nav img {
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px; 
+}
+
+
+/* Media Querys */
+
+@media (max-width: 768px) {
+  nav img {
+      margin-left: 0.3em;
+  }
 }

@@ -1,11 +1,11 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static %}
 
     {% if user.is_authenticated and user.id == post.author.id%}
 
     <!--Post content-->
 
     <h1>Spot Location - {{ post.location }}</h1> 
-    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} {{ post.author.id}} - 
+    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} <!-- commenting out the ide might cause issues{{ post.author.id}}---> - 
     {{ post.post_date}} <br/>
     <hr>
     <br/>
@@ -28,6 +28,7 @@
     {% if not post.comments.all %}
 
     No comments yet <a href="#"></a> Add one</a>
+    </br>
 
     {% else %}
 <!---Comment body when comment is displayed--->
@@ -37,7 +38,7 @@
       <br/>
       {{comment.body}}
       <br/>
-      <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">Like</button> - {{ total_comment_likes }}
+      <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">likes</button> - {{ total_comment_likes }}
     </form>
     {% endfor %}
     {% endif %}
@@ -45,7 +46,7 @@
      <!-- Delete and edit buttons -->
 
     <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
-    <a href="{% url 'delete_post' post.pk %}">Delete post</a>
+    <a href="{% url 'delete_post' post.pk %}">Delete post</a> - <a href="{% url 'update_post' post.pk %}"> Edit post</a>
 
     {% else %}
     
@@ -78,7 +79,7 @@
 
       <form method="post" action="{% url 'like_comment' comment.id %}">
         {% csrf_token %}
-        <button type="submit" class="btn btn-sm like-button">Like</button> - {{ comment.total_comment_likes }}
+        <button type="submit" class="btn btn-sm like-button">likes</button> - {{ comment.total_comment_likes }}
     </form>
     </form>
      {% endfor %}
