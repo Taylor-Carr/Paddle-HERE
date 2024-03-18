@@ -75,7 +75,11 @@
       <br/>
       {{comment.body}}
       <br/>
-      <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">Like</button> - {{ total_comment_likes }}
+
+      <form method="post" action="{% url 'like_comment' comment.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-sm like-button">Like</button> - {{ comment.total_comment_likes }}
+    </form>
     </form>
      {% endfor %}
      <!---Commented out add comment section when not signed in-->

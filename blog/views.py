@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Comment, Category
 from .forms import PostForm, CommentForm
@@ -12,10 +12,21 @@ def LikeView(request, pk):
     post.likes.add(request.user)
     return HttpResponseRedirect(reverse('blog_details', args=[str(pk)]))
 
-def LikeCommentView(request, pk):
-    comment = get_object_or_404(Comment, id=pk)
-    comment.likes.add(request.user) 
-    return HttpResponseRedirect(reverse('blog_details', args=[str(comment.post.pk)]))
+def like_comment(request, pk):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(Comment, id=pk)
+        if comment.likes.filter(id=request.user.id):
+            comment.likes.remove(request.user)
+        
+        else:
+            comment.likes.add(request.user)
+
+        return redirect(request.META.get('HTTP_REFERER', 'home'))
+    
+    else:
+        messages.success(request, ("You must be logged in to like a comment."))
+        return redirect ('home')
+  
 
 
 class HomeView(ListView):
@@ -60,29 +71,11 @@ class AddCommentView(CreateView):
     template_name = 'add_comment.html'
     success_url = reverse_lazy('home')
 
-    #def form_valid(self, form):
-        #form.instance.post_id = self.kwargs['pk']
-        #return super().form_valid(form)
-    
-    #def get_context_data(self, *args, **kwargs):
-        #context = super().get_context_data(*args, **kwargs)
-        #stuff = get_object_or_404(Post, id=self.kwargs['pk'])
-        #total_comment_likes = stuff.total_comment_likes()
-        #context["total_comment_likes"] = total_comment_likes
-        #return context
-
     def form_valid(self, form):
         post = get_object_or_404(Post, pk=self.kwargs['pk'])
         form.instance.post = post
         return super().form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        post = get_object_or_404(Post, pk=self.kwargs['pk'])
-        total_comment_likes = post.total_comment_likes()
-        context["total_comment_likes"] = total_comment_likes
-        return context
-  
 
 
 

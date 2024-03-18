@@ -1,14 +1,14 @@
 
 
-body {
+main {
     color: black;
-    background-color: #fff9e2;
+    background-color:  white;
 }
 
 /*     Nav Bar  */
 
 nav {
-  background-color: #fff9e2;
+  background-color: #FFF9E2;
 }
 
 nav img {
@@ -34,6 +34,54 @@ nav img {
 
 /* Add blog post styling */
 
+/*blog post home page*/
+
+.container {
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+}
+/*product-grig*/
+.blog-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.card{
+
+}
+
+.post-caption {
+
+}
+
+.post-body {
+
+}
+
+.card__content {
+
+}
+
+.post-location {
+
+
+}
+.post-author {
+
+}
+
+.post-date {
+
+}
+
+
+
+
+
+/* add post form also applys to log in and register*/
 .add-post-form {
     max-width: 400px;
     margin: 0 auto;
@@ -59,8 +107,8 @@ nav img {
 .beige {
   position: relative;
   padding: 0.1px;
-  border: 5px solid #fff9e2;
-  background-color: #fff9e2;
+  border: 5px solid #FFF9E2;
+  background-color: #FFF9E2;
   display: flex;
   align-items: center;
 }
@@ -137,7 +185,7 @@ nav img {
 }
 
 .footer-text {
-  background-color: #fff9e2;
+  background-color: black;
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
