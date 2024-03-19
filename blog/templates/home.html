@@ -1,56 +1,61 @@
 {% extends 'base.html' %} 
+
 {% block content %}
-<!-- Show posts for authenticated user only -->
-<div class="hero-container">
-   {% if user.is_authenticated %}
-    <h1>Find a spot</h1>
-    {% for post in object_list %}
-    <div class="blog-grid">
-        <div class="card">
-            <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
-                <div class="post-title">{{ post.title }}</div>
-                <div class="post-body">
-                    <p>{{ post.body | slice:":150" }}</p>
+    <!-- Show posts for authenticated user only -->
+    <div class="blog-container">
+        {% if user.is_authenticated %}
+            <h1 class="blog-title">Find a spot</h1>
+            {% for post in object_list %}
+                <div class="blog-grid">
+                    <div class="card">
+                        <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                            <div class="post-title">{{ post.title }}</div>
+                            <div class="post-body">
+                                <p>{{ post.body | slice:":150" }}</p>
+                            </div>
+                            <div class="card-author-content">
+                                <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                                <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
+                                <h3 class="post-date">{{ post.post_date }}</h3>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-author-content">
-                    <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                    <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
-                    <h3 class="post-date">{{ post.post_date }}</h3>
-                </div>
-            </a>
-        </div>
+            {% endfor %}
+        </div> <!-- Closing container for authenticated user posts -->
     </div>
-    {% endfor %}
-    {% else %}
-    <!--Hero Section -->
-    <div class="wrapper">
-    <div class="hero">
-        <div class="hero-container">
-            <div class="hero-media-query">
-            <h2>PaddleHere - a place to share and find new paddle boarding spots in and around the UK.</h2>
-            <p>sign up or login to find a spot or share a spot</p>
+        {% else %}
+    <!-- Hero Section -->
+        <div class="wrapper">
+            <div class="hero">
+                <div class="hero-container">
+                    <div class="hero-media-query">
+                        <h2>PaddleHere - a place to share and find new paddle boarding spots in and around the UK.</h2>
+                        <p>Sign up or login to find a spot or share a spot</p>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-    <!-- Loop through all posts -->
-    {% for post in object_list %}
-    <div class="blog-grid">
-        <div class="card">
-            <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
-                <div class="post-title">{{ post.title }}</div>
-                <div class="post-body">
-                    <p>{{ post.body | slice:":150" }}</p>
+    <!-- Container for blog posts -->
+    <div class="blog-container">
+        <h1 class="blog-title">Find a spot</h1>
+        <!-- Loop through all posts -->
+        {% for post in object_list %}
+            <div class="blog-grid">
+                <div class="card">
+                    <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                        <div class="post-title">{{ post.title }}</div>
+                        <div class="post-body">
+                            <p>{{ post.body | slice:":150" }}</p>
+                        </div>
+                        <div class="card-author-content">
+                            <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                            <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
+                            <h3 class="post-date">{{ post.post_date }}</h3>
+                        </div>
+                    </a>
                 </div>
-                <div class="card-author-content">
-                    <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                    <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
-                    <h3 class="post-date">{{ post.post_date }}</h3>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-    {% endfor %}
-</div>
-{% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
