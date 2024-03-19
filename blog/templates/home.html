@@ -10,20 +10,19 @@
                     <div class="card">
                         <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
                             <div class="post-title">{{ post.title }}</div>
+                            <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
                             <div class="post-body">
-                                <p>{{ post.body | slice:":150" }}</p>
+                                <p>{{ post.body | slice:":300" }}{% if post.body.length > 300 %}...{% endif %}</p>
                             </div>
                             <div class="card-author-content">
-                                <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                                <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
-                                <h3 class="post-date">{{ post.post_date }}</h3>
+                                <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
                             </div>
                         </a>
                     </div>
                 </div>
             {% endfor %}
-        </div> <!-- Closing container for authenticated user posts -->
-    </div>
+    </div> <!-- Closing container for authenticated user posts -->
+   
         {% else %}
     <!-- Hero Section -->
         <div class="wrapper">
@@ -45,17 +44,17 @@
                 <div class="card">
                     <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
                         <div class="post-title">{{ post.title }}</div>
+                        <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
                         <div class="post-body">
-                            <p>{{ post.body | slice:":150" }}</p>
+                            <p>{{ post.body | slice:":300" }}{% if post.body.length > 300 %}...{% endif %}</p>
                         </div>
                         <div class="card-author-content">
-                            <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                            <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
-                            <h3 class="post-date">{{ post.post_date }}</h3>
+                            <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
                         </div>
                     </a>
                 </div>
             </div>
+    </div>
         {% endfor %}
     {% endif %}
 {% endblock %}
