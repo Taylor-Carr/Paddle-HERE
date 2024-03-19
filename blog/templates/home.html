@@ -1,37 +1,56 @@
 {% extends 'base.html' %} 
 {% block content %}
-
-
-<h1>Find a spot</h1>
-<div class="container">
-   {% for post in object_list %}
-   <div class="blog-grid">
-      <div class="card" >
-         <a href ="{% url 'blog_details' post.pk %}" class="underline-removed">
-            <div class="post-title">{{ post.title}}</div>
-               <div class="post-body"><p>{{ post.body | slice:":150" }}</p></div>
-                   <div class="card-author-content">
-                  <!---Add category location-->
-                     <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                     <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
-                     <h3 class="post-date">{{ post.post_date}}</h3>
-               <!---this might not look right on the home page <a href="{% url 'delete_post' post.pk %}">Delete post</a> - <a href="{% url 'update_post' post.pk %}"> Edit post</a>--->
-                     <br/>
+<!-- Show posts for authenticated user only -->
+<div class="hero-container">
+   {% if user.is_authenticated %}
+    <h1>Find a spot</h1>
+    {% for post in object_list %}
+    <div class="blog-grid">
+        <div class="card">
+            <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                <div class="post-title">{{ post.title }}</div>
+                <div class="post-body">
+                    <p>{{ post.body | slice:":150" }}</p>
+                </div>
+                <div class="card-author-content">
+                    <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                    <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
+                    <h3 class="post-date">{{ post.post_date }}</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <!--Hero Section -->
+    <div class="wrapper">
+    <div class="hero">
+        <div class="hero-container">
+            <div class="hero-media-query">
+            <h2>PaddleHere - a place to share and find new paddle boarding spots in and around the UK.</h2>
+            <p>sign up or login to find a spot or share a spot</p>
             </div>
-         </a>
+        </div>
       </div>
-   </div>
+    <!-- Loop through all posts -->
+    {% for post in object_list %}
+    <div class="blog-grid">
+        <div class="card">
+            <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                <div class="post-title">{{ post.title }}</div>
+                <div class="post-body">
+                    <p>{{ post.body | slice:":150" }}</p>
+                </div>
+                <div class="card-author-content">
+                    <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                    <h3 class="post-author">Posted by: {{ post.author.first_name }} {{ post.author.last_name }}</h3>
+                    <h3 class="post-date">{{ post.post_date }}</h3>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
-
-{% if user.is_authenticated and user.id == post.author.id%}<!---update this so delete and edit don't show for other users
-
-   <a href="{% url 'delete_post' post.pk %}">Delete post</a> - <a href="{% url 'update_post' post.pk %}"> Edit post</a>
-   <br/>-->
-
-{% else %}
-
+    {% endfor %}
+</div>
 {% endif %}
-
-{% endfor %}
-
 {% endblock %}

@@ -11,8 +11,11 @@ nav {
 }
 
 nav img {
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 1.6em;
+  margin-right: 1em;
+  width: 100px;
+  height: auto; 
 }
  
 .navbar-nav .nav-item:nth-child(1) .nav-link,
@@ -21,9 +24,9 @@ nav img {
 .navbar-nav .nav-item:nth-child(4) .nav-link {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     color:#F5FBF9;
-    margin-left: 3em;
+    margin-left: 0.5em;
     margin-right: 25px;
     border-bottom: 2px solid transparent; 
     transition: border-color 0.2s ease;
@@ -32,15 +35,64 @@ nav img {
     box-sizing: border-box;
 }
 
+
+/* Hero Section */
+
+.hero {
+background-color: white;
+background-image: url("/static/images/heroimage2.jpg");
+color: white;
+margin-bottom: 50px;
+padding-top: 100px;
+padding-bottom: 100px;
+padding-bottom: 100px;
+padding-right: 9em;
+background-size: cover;
+background-position: center; 
+background-blend-mode: multiply;
+background-repeat: no-repeat; 
+}
+
+.hero h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 5px; 
+  margin-left: 60px;
+}
+
+.hero p {
+  font-family: 'Montserrat', sans-serif;;
+  font-size: 1.2em; 
+  margin-bottom: 30px;
+  margin-left: 60px; 
+}
+
+.hero-container {
+  width: 100%; 
+  max-width: 100%; 
+  height: 20vw; 
+
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
 /* Add blog post styling */
 
 /*blog post home page*/
 
 .container {
+  margin-top: auto;
   max-width: 100rem;
   margin-inline: auto;
   padding-inline: 2rem;
-
+  background-color: #3aafa9;
 }
 /*product-grig*/
 .blog-grid{
@@ -242,5 +294,19 @@ nav img {
 @media (max-width: 768px) {
   nav img {
       margin-left: 0.3em;
+  }
+}
+.hero {
+ 
+}
+@media screen and (max-width: 768px) {
+  .hero-media-query {
+    font-size: 2vw;
+    margin-bottom: 15vw;
+    margin-left: 10vw; 
+    padding-bottom: 40px;
+  }
+  .hero-container {
+    height: 20vw; 
   }
 }
