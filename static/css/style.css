@@ -3,10 +3,6 @@
 body {
     background-color: #f9f9f9;
 }
-main {
-  padding-bottom: 50px;
-}
-
 /*     Nav Bar  */
 
 nav {
@@ -83,11 +79,6 @@ background-repeat: no-repeat;
 
 }
 
-.wrapper {
-  
-}
-
-
 /* Add blog post title styling */
 .blog-title {
   text-align: center;
@@ -106,7 +97,6 @@ background-repeat: no-repeat;
 /*blog post home page*/
 
 .blog-container {
-  margin-bottom: 100px;
   max-width: auto;
   margin-inline: auto;
   background-color: #f9f9f9;
@@ -124,15 +114,13 @@ background-repeat: no-repeat;
 }
 
 .card {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 10px 50px 25px 50px;
+  padding: 10px;
   flex: 1 0 200px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 16;
+  border-radius: 16px;
   border: 1.5px solid white;
-  margin-top: 10px;
-  padding: 10px;
 }
 
 .underline-removed {
@@ -147,6 +135,8 @@ background-repeat: no-repeat;
   text-transform: uppercase;
   color:black;
   padding-top: 0.5rem;
+  padding-bottom: 5px;
+  margin-left: 20px;
 }
 
 .post-body {
@@ -157,6 +147,7 @@ background-repeat: no-repeat;
   border-radius: 5px;
   margin: 30px;
   padding: 2rem;
+  margin-left: 20px;
 }
 
 .post-location {
@@ -166,6 +157,7 @@ background-repeat: no-repeat;
   font-weight: 700;
   color: black;
   padding-top: 0.3rem;
+  margin-left: 20px;
 }
 
 .post-author {
@@ -174,6 +166,7 @@ background-repeat: no-repeat;
   font-weight: bold;
   color: #7f7f7f;
   padding-left: 0.5rem;
+  margin-left: 20px;  
 }
 
 .post-date {
@@ -183,123 +176,101 @@ background-repeat: no-repeat;
   color:#7f7f7f;
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
+  margin-left: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  max-width: 400px; 
+  padding: 20px;
+  border-radius: 10px; 
+  border: 1px solid white;
+  background-color: white; 
+}
+
+form h1 {
+  color: #3aafa9;
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+
+}
+
+form p a {
+  color: #3aafa9; 
+  margin-left: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+
+}
+
+form button[type="submit"] {
+  font-weight: 600;
+  background-color: #3aafa9; 
+  color: #f5fbf9; 
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="title"],
+form input[type="category"],
+form input[type="location"],
+form textarea {
+  width: 100%;
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border-radius: 5px; 
+}
+
+.container {
+  background-color: #3aafa9;
+  height: 87vh;
+  width: 100%;
 }
 
 
-
-
-
-/* add post form also applys to log in and register*/
-.add-post-form {
-    max-width: 400px;
-    margin: 0 auto;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-  }
-
-.add-post-form button[type="submit"] {
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    font-weight: bold;
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    border: solid 4px black;
-    cursor: pointer;
-    font-size: 16px;
-    animation: bounce 0.5s infinite alternate;
-  }
- 
-  /* Footer */
   footer {
-    margin-top: 300px;
     position: relative;
     bottom: 0;
     width:100%;
   }
 
-.blue-background {
+.white-background {
   position: relative;
   padding: 0.1px;
-  border: 5px solid #3aafa9;
-  background-color: #3aafa9;
+  border: 5px solid #f9f9f9;
+  background-color: #f9f9f9;
   display: flex;
   align-items: center;
 }
   
 .blue {
-  height: 100%;
   width: 100%;
   position: relative;
-  border: 3.5px solid #669fb2;
-  background-color: #669fb2;
-  border-radius: 4px;
-  margin: 0.1px;
+  background-color: #3aafa9;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.brown {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  margin: 0.1px;
-  border: 3.5px solid #5a3d2b;
-  background-color: #5a3d2b;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
- 
-  
-}
-
-.yellow {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  margin: 0.1px;
-  border: 4px solid #ffecb4;
-  background-color:  #ffecb4;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  
-}
-
-.auburn {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  margin: 0.1px;
-  border: 4px solid #e5771e;
-  background-color:  #e5771e;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-   
-}
-
-.orange {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  margin:0.1px;
-  border: 2px solid #f4a127;
-  background-color:  #f4a127;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  padding: 5px;
 }
 
 .footer-text p,
 .footer-text a {
+  display: flex;
+  align-items: center;
   display: inline;
   color: black;
   font-family: 'Montserrat', sans-serif;
@@ -330,4 +301,51 @@ background-repeat: no-repeat;
   .blog-title {
       font-size: 1.5em;
   }
+}
+@media (max-width: 768px) {
+  .blog-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1.5rem;
+    background-color: #f9f9f9;
+  }
+  
+  .card {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex: 1 0 100px;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  .post-title, .post-location {
+    font-size: 2.8vw;
+    letter-spacing: 0.5px;
+    padding-top: 0.5rem;
+  }
+  
+  .post-body {
+    margin: 15px;
+    padding: 1rem;
+  }
+  
+  .post-author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4vw;
+    font-weight: bold;
+    color: #7f7f7f;
+    padding-left: 0.5rem;
+  }
+  
+  .post-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4vw;
+    font-weight: bold;
+    color:#7f7f7f;
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
 }

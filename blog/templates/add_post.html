@@ -4,9 +4,9 @@
 
 {% if user.is_authenticated %}
 
-<div class="container add-post-form">
-<h1>Share a spot</h1>
-<form method="POST" class="add-post" id="addpost_form">
+<div>
+<form method="POST">
+    <h1 class="form-heading">Share a spot</h1>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Create post</button>
@@ -21,13 +21,10 @@
 
 {% else %}
 
-<h1>Please Log in to create a post.</h1>
 
-
-
-<div class="container add-post-form">
-<h1>Login</h1>
-<form method="POST" class="add-post" id="addpost_form">
+<form method="POST">
+    <h1 class="form-heading">Please Log in to create a post.</h1>
+    <h1 class="form-heading">Login</h1>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>

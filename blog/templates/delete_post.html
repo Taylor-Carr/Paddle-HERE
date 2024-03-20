@@ -2,7 +2,7 @@
 
 {% block content %}
 {% if user.is_authenticated and user.id == post.author.id%}
-<div class="container add-post-form">
+<div class="delete-post-form">
 
   <h1>Delete your post</h1>
   <br/>
@@ -12,10 +12,10 @@
   <div>{{ post.body }}</div>
 
   <br/>
-  <form method="POST" class="add-post" id="addpost_form">
+  <form method="POST" class="delete-post">
     {% csrf_token %}
 
-    <button type="submit">Delete Post</button>
+    <button type="submit" class="button">Delete Post</button>
   </form>
 </div>
 {% else %}

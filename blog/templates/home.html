@@ -12,7 +12,7 @@
                             <div class="post-title">{{ post.title }}</div>
                             <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
                             <div class="post-body">
-                                <p>{{ post.body | slice:":300" }}{% if post.body.length > 300 %}...{% endif %}</p>
+                                <p>{{ post.body | slice:":350" }}...</p>
                             </div>
                             <div class="card-author-content">
                                 <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
@@ -22,10 +22,8 @@
                 </div>
             {% endfor %}
     </div> <!-- Closing container for authenticated user posts -->
-   
         {% else %}
     <!-- Hero Section -->
-        <div class="wrapper">
             <div class="hero">
                 <div class="hero-container">
                     <div class="hero-media-query">
@@ -34,7 +32,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     <!-- Container for blog posts -->
     <div class="blog-container">
         <h1 class="blog-title">Find a spot</h1>
@@ -46,7 +43,7 @@
                         <div class="post-title">{{ post.title }}</div>
                         <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
                         <div class="post-body">
-                            <p>{{ post.body | slice:":300" }}{% if post.body.length > 300 %}...{% endif %}</p>
+                            <p>{{ post.body | slice:":350" }}....</p>
                         </div>
                         <div class="card-author-content">
                             <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
