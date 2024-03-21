@@ -1,27 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated and user.id == post.author.id%}
-<div class="delete-post-form">
 
+{% if user.is_authenticated and user.id == post.author.id%}
+
+<div id="main-content">
+  <form method="POST">
   <h1>Delete your post</h1>
   <br/>
   <h3>{{ post.title }}</h3>
   <div> {{ post.location}}</div>
   <br/>
   <div>{{ post.body }}</div>
-
   <br/>
-  <form method="POST" class="delete-post">
+  
     {% csrf_token %}
-
-    <button type="submit" class="button">Delete Post</button>
+    <button type="submit">Delete Post</button>
   </form>
 </div>
+
 {% else %}
-<div class="container">
+
+<div class="main-content">
 <h1>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
 </div>
+
 {% endif %}
 
 {% endblock %}

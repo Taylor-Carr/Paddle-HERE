@@ -2,12 +2,13 @@
 
 body {
     background-color: #f9f9f9;
+    height: 100%;
 }
 /*     Nav Bar  */
 
 nav {
-  background: #3aafa9;
-  border-bottom: 1px solid white;
+  background: #94C5CC;
+  border-bottom: 1px solid #F5FBF9;
 }
 
 nav img {
@@ -80,20 +81,28 @@ background-repeat: no-repeat;
 }
 
 /* Add blog post title styling */
+
 .blog-title {
   text-align: center;
+  align-items: center; 
+  justify-content: center; 
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color:#F5FBF9;
-  background-color: #3aafa9;
-  font-size: 2.2em;
-  letter-spacing: -2px;
-  padding-top: 5px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
+  font-weight: 400;
+  color: black;
+  font-size: 2.8em;
+  letter-spacing: 3px;
+  border-bottom: 2px solid #94C5CC;
+  line-height: normal;
 }
-
+.title-circle {
+  margin-left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4em;
+  color: #94C5CC;
+  display:inline;
+}
 /*blog post home page*/
 
 .blog-container {
@@ -102,15 +111,12 @@ background-repeat: no-repeat;
   background-color: #f9f9f9;
 }
 
-/* product-grid */
 .blog-grid {
   display: flex;
   flex-wrap: wrap; 
   justify-content: center; 
   gap: 1.5rem;
   background-color: #f9f9f9;
-
-
 }
 
 .card {
@@ -147,7 +153,7 @@ background-repeat: no-repeat;
   border-radius: 5px;
   margin: 30px;
   padding: 2rem;
-  margin-left: 20px;
+
 }
 
 .post-location {
@@ -178,23 +184,25 @@ background-repeat: no-repeat;
   padding-bottom: 0.5rem;
   margin-left: 20px;
 }
-
+/* Forms login, signup, share, delete */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
   margin: auto;
-  margin-bottom: 20px;
-  margin-top: 40px;
+  margin-bottom: 10px;
+  margin-top: 20px;
   max-width: 400px; 
   padding: 20px;
   border-radius: 10px; 
   border: 1px solid white;
-  background-color: white; 
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 form h1 {
-  color: #3aafa9;
+  color: #94C5CC;
   margin-bottom: 5px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -203,9 +211,8 @@ form h1 {
 }
 
 form p a {
-  color: #3aafa9; 
+  color: #B4D2E7; 
   margin-left: 5px;
-  text-decoration: none;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -214,7 +221,7 @@ form p a {
 
 form button[type="submit"] {
   font-weight: 600;
-  background-color: #3aafa9; 
+  background-color: #94C5CC; 
   color: #f5fbf9; 
   border: none;
   padding: 10px 20px;
@@ -229,38 +236,34 @@ form input[type="title"],
 form input[type="category"],
 form input[type="location"],
 form textarea {
-  width: 100%;
+  width: 320px;
   padding: 10px; 
   margin-bottom: 10px; 
   border-radius: 5px; 
 }
 
-.container {
-  background-color: #3aafa9;
-  height: 87vh;
-  width: 100%;
+/* Background for form pages*/
+#main-content {
+  min-height: calc(100vh - 115px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
 }
 
+/*Footer*/
 
-  footer {
-    position: relative;
-    bottom: 0;
-    width:100%;
+footer {
+  position: relative;
+  bottom: 0;
+  width:100%;
   }
 
-.white-background {
-  position: relative;
-  padding: 0.1px;
-  border: 5px solid #f9f9f9;
-  background-color: #f9f9f9;
-  display: flex;
-  align-items: center;
-}
-  
 .blue {
   width: 100%;
   position: relative;
-  background-color: #3aafa9;
+  background-color: white;
+  border-top: 2px solid #94C5CC;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -348,4 +351,16 @@ form textarea {
     padding-bottom: 0.5rem;
   }
   
+}
+@media screen and (max-width: 767px) {
+  form input[type="text"],
+  form input[type="password"],
+  form input[type="email"],
+  form input[type="title"],
+  form input[type="category"],
+  form input[type="location"],
+  form textarea {
+    width: 270px;
+    max-width: none;
+  }
 }

@@ -4,7 +4,7 @@
     <!-- Show posts for authenticated user only -->
     <div class="blog-container">
         {% if user.is_authenticated %}
-            <h1 class="blog-title">Find a spot</h1>
+        <h1 class="blog-title">Find a spot<p class="title-circle">.</p></h1>
             {% for post in object_list %}
                 <div class="blog-grid">
                     <div class="card">
@@ -28,13 +28,13 @@
                 <div class="hero-container">
                     <div class="hero-media-query">
                         <h2>PaddleHere - a place to share and find new paddle boarding spots in and around the UK.</h2>
-                        <p>Sign up or login to find a spot or share a spot</p>
+                        <p>Sign up or login to find a spot or share a spot.</p>
                     </div>
                 </div>
             </div>
     <!-- Container for blog posts -->
     <div class="blog-container">
-        <h1 class="blog-title">Find a spot</h1>
+        <h1 class="blog-title">Find a spot<div class="title-circle">.</div></h1>
         <!-- Loop through all posts -->
         {% for post in object_list %}
             <div class="blog-grid">

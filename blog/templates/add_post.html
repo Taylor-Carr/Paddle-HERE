@@ -4,7 +4,7 @@
 
 {% if user.is_authenticated %}
 
-<div>
+<div id="main-content">
 <form method="POST">
     <h1 class="form-heading">Share a spot</h1>
     {% csrf_token %}
@@ -21,7 +21,7 @@
 
 {% else %}
 
-
+<div id="main-content">
 <form method="POST">
     <h1 class="form-heading">Please Log in to create a post.</h1>
     <h1 class="form-heading">Login</h1>

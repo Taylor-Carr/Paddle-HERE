@@ -2,16 +2,16 @@
 
 {% block content %}
 {% if user.is_authenticated and user.id == post.author.id %}
-<div class="container add-post-form">
-<h1>Update your post</h1>
-<form method="POST" class="add-post" id="addpost_form">
+<div class="main-content">
+<form method="POST">
+    <h1>Update your post</h1>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Update</button>
 </form>
 </div>
 {% else %}
-<div class="container">
+<div class="main-content">
 <h1>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
 </div>
 {% endif %}
