@@ -1,97 +1,56 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
 
-    {% if user.is_authenticated and user.id == post.author.id%}
-
-    <!--Post content-->
-
-    <h1>Spot Location - {{ post.location }}</h1> 
-    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} <!-- commenting out the ide might cause issues{{ post.author.id}}---> - 
-    {{ post.post_date}} <br/>
+  <div class="card">
+    <div class="post-title">{{ post.title }}</div>
+    <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
     <hr>
-    <br/>
-    {{ post.title}}
-    <br/>
-    {{ post.body }}
-    <hr>
-
-    <!---- Like post button -->
-
-    <br/>
-    <form action="{% url 'like_post' post.pk %}" method="POST">
-      {% csrf_token%}
-      <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">Like</button> - {{ total_likes }} Likes
-    </form>
-    <!--comment section-->
-    <br/>
-    <h2>Comments</h2>
-
-    {% if not post.comments.all %}
-
-    No comments yet <a href="#"></a> Add one</a>
+    <div class="post-body">
+      <p>{{ post.body }}</p>
+    </div>
     </br>
-
-    {% else %}
-<!---Comment body when comment is displayed--->
-      {% for comment in post.comments.all %}
-      {{ comment.name }} - 
-      {{ comment.date_added }}
-      <br/>
-      {{comment.body}}
-      <br/>
-      <button type="submit", name ="post_id", value="{{post.id}}", class="btn btn-sm">likes</button> - {{ total_comment_likes }}
-    </form>
-    {% endfor %}
-    {% endif %}
-
-     <!-- Delete and edit buttons -->
-
-    <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
+    <div class="card-author-content">
+      <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
+    </div>
+    {% if user.is_authenticated and user.id == post.author.id %}
     <a href="{% url 'delete_post' post.pk %}">Delete post</a> - <a href="{% url 'update_post' post.pk %}"> Edit post</a>
-
-    {% else %}
-    
-    <!--- post content displayed if not signed in -->
-
-    <h1>Spot Located - {{ post.location }}</h1> 
-    Posted by - {{ post.author.first_name}} {{ post.author.last_name}} - 
-    {{ post.post_date}} 
-    <br/>
-    <hr>
-    <br/>
-    {{ post.title}}
-    <br/>
-    {{ post.body }} 
-    <br/>
-  <!--Comments-->
-    <h2>Comments</h2>
-
-    {% if not post.comments.all %}
-
-    No comments yet - <a href="{% url 'add_comment' post.pk %}">Add one</a>
-
-    {% else %}
-      {% for comment in post.comments.all %}
-      {{ comment.name }} - 
-      {{ comment.date_added }}
+    {% endif %}
+    <!---- Like post button -->
+    <div id="like-form">
+      <form action="{% url 'like_post' post.pk %}" method="POST">
+        <div id="like-button">
+          {% csrf_token %}
+          <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-sm">Like</button>
+          <p>{{ total_likes }} Likes</p>
+        </div>
+      </form>
+    </div>
+  <!--comment section-->
+  <hr>
+  <h2>Comments</h2>
+ 
+  {% if not post.comments.all %}
+    <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+  {% else %}
+    <!---Comment body when comment is displayed--->
+    {% for comment in post.comments.all %}
+    Posted by: {{ comment.author.first_name }} {{ comment.author.last_name }} - {{ comment.date_added }}
       <br/>
       {{comment.body}}
       <br/>
-
       <form method="post" action="{% url 'like_comment' comment.id %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-sm like-button">likes</button> - {{ comment.total_comment_likes }}
-    </form>
-    </form>
-     {% endfor %}
-     <!---Commented out add comment section when not signed in-->
-     <br/>
-     <!--<a href="{% url 'add_comment' post.pk %}">Add Comment</a>--->
-     <br/>
-    {% endif %}
-    <br/>
-    <a href=" {% url 'home' %}" class="btn btn-primary"> Back</a>
+      </form>
+      {% if user.is_authenticated and user.id == comment.author.id%}
+      <a href="{% url 'delete_comment' comment.pk %}">delete comment</a> - <a href="{% url 'comment_update' comment.pk %}"> Edit post</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  {% endif %}
+  <hr>
+  <!-- Delete and edit buttons -->
+  <a href="{% url 'home' %}" class="btn btn-primary"> Back</a>
 
-    {% endif %}
-    
-
-  {% endblock %}
+{% endblock %}

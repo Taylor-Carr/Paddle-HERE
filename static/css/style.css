@@ -149,6 +149,7 @@ background-repeat: no-repeat;
   max-width: 100%;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  text-align: center;
   color:black;
   border-radius: 5px;
   margin: 30px;
@@ -184,7 +185,68 @@ background-repeat: no-repeat;
   padding-bottom: 0.5rem;
   margin-left: 20px;
 }
+
+/* Blog Post Detail */
+
+
+/* like button */
+/*#like-button form {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding: 20px;
+}
+#like-button p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding: 20px;
+}*/
+
+/* resets inhereted form styling */
+
+#like-form form {
+  border-radius: initial;
+  border: initial;
+  box-shadow: initial;
+  margin: initial;
+  padding: initial;
+  font-size: initial;
+}
+
+#like-form {
+  margin-right: 80%;
+}
+
+#like-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+#like-button form,
+#like-button p {
+  font-family: 'Montserrat', sans-serif;
+  display: inline;
+  vertical-align: bottom;
+  font-weight: 500;
+  margin:0;
+}
+
+#like-button button {
+  margin-right: 10px; 
+}
+
+#like-button p {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.8em;
+}
+
 /* Forms login, signup, share, delete */
+
 form {
   display: flex;
   flex-direction: column;
@@ -203,7 +265,8 @@ form {
 
 form h1 {
   color: #94C5CC;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -262,7 +325,7 @@ footer {
 .blue {
   width: 100%;
   position: relative;
-  background-color: white;
+  background-color: #94C5CC;
   border-top: 2px solid #94C5CC;
   display: flex;
   align-items: center;
@@ -275,7 +338,7 @@ footer {
   display: flex;
   align-items: center;
   display: inline;
-  color: black;
+  color: #F5FBF9;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
@@ -326,17 +389,17 @@ footer {
   .post-title, .post-location {
     font-size: 2.8vw;
     letter-spacing: 0.5px;
-    padding-top: 0.5rem;
+    padding-top: 0.2rem;
   }
   
   .post-body {
-    margin: 15px;
-    padding: 1rem;
+    text-align: left;
+    margin: 3px;
   }
   
   .post-author {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.4vw;
+    font-size: 2.6vw;
     font-weight: bold;
     color: #7f7f7f;
     padding-left: 0.5rem;
@@ -344,7 +407,7 @@ footer {
   
   .post-date {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.4vw;
+    font-size: 2.6vw;
     font-weight: bold;
     color:#7f7f7f;
     padding-left: 0.5rem;

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated and user.id == post.author.id %}
+{% if user.is_authenticated and user.id == comment.author.id%}
 <div class="main-content">
 <form method="POST">
-    <h1>Update your post</h1>
+    <h1>Update your comment</h1>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Update</button>

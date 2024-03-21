@@ -18,10 +18,21 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(CommentForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        instance = super(CommentForm, self).save(commit=False)
+        if self.user:
+            instance.author = self.user  # Set the author field
+        if commit:
+            instance.save()
+        return instance
+
     class Meta:
         model = Comment
-        fields = ('name', 'body')
+        fields = ('body',)
         widgets = {
-           'name': forms.TextInput(attrs={'class': 'add-post' }),
-           'body': forms.Textarea(attrs={'class': 'add-post' }),
+           'body': forms.Textarea(attrs={'class': 'add-post'}),
         }

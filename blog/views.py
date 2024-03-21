@@ -74,8 +74,19 @@ class AddCommentView(CreateView):
     def form_valid(self, form):
         post = get_object_or_404(Post, pk=self.kwargs['pk'])
         form.instance.post = post
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
+class UpdateCommentView(UpdateView):
+    model = Comment
+    template_name= 'comment_update.html'
+    fields = ['body']
+    success_url = reverse_lazy('home')
+
+class DeleteCommentView(DeleteView):
+    model = Comment
+    template_name = 'delete_comment.html'
+    success_url = reverse_lazy('home')
 
 
 

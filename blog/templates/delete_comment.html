@@ -2,20 +2,16 @@
 
 {% block content %}
 
-{% if user.is_authenticated and user.id == post.author.id%}
+{% if user.is_authenticated and user.id == comment.author.id%}
 
 <div id="main-content">
   <form method="POST">
-  <h1>Delete your post</h1>
+  <h1>Delete your comment</h1>
+  </br>
+  <div>{{ comment.body }}</div>
   <br/>
-  <h3>{{ post.title }}</h3>
-  <div> {{ post.location}}</div>
-  <br/>
-  <div>{{ post.body }}</div>
-  <br/>
-  
     {% csrf_token %}
-    <button type="submit">Delete Post</button>
+    <button type="submit">Delete Comment</button>
   </form>
 </div>
 
