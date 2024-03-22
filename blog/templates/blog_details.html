@@ -10,13 +10,6 @@
       <p>{{ post.body }}</p>
     </div>
     </br>
-    <div class="card-author-content">
-      <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
-      <div class="edit-delete-container"> {% if user.is_authenticated and user.id == post.author.id %}
-        <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post">Delete post -</a><a href="{% url 'update_post' post.pk %}" class="edit-delete-post"> Edit post</a></div>
-    </div>
-    {% endif %}
-    <!---- Like post button -->
     <div id="like-form">
       <form action="{% url 'like_post' post.pk %}" method="POST">
         <div id="like-button">
@@ -26,26 +19,49 @@
         </div>
       </form>
     </div>
-  <!--comment section-->
-  <hr>
-  <h2 class="comments-title">Comments</h2>
-  
+    <br>
+    <div class="card-author-content">
+      <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
+      <div class="edit-delete-container"> {% if user.is_authenticated and user.id == post.author.id %}
+        <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post"> Delete </a><a href="{% url 'update_post' post.pk %}" class="edit-delete-post"> Edit </a></div>
+    </div>
+  </br>
+</br>
+    {% endif %}
+    <!---- Like post button
+    <div id="like-form">
+      <form action="{% url 'like_post' post.pk %}" method="POST">
+        <div id="like-button">
+          {% csrf_token %}
+          <button type="submit" name="post_id" value="{{post.id}}" class="btn like-button">Like</button>
+          <p>{{ total_likes }} likes</p>
+        </div>
+      </form>
+    </div>-->
+  <!--comment section--->
   {% if not post.comments.all %}
     
   {% else %}
+  <hr class="colored-hr">
+  <h2 class="comments-title">Comments</h2>
     <!---Comment body when comment is displayed--->
     {% for comment in post.comments.all %}
     <!--Comment container-->
     <div class="comment">
-      <div class="comment-author">
-        Posted by: {{ comment.author.first_name }} {{ comment.author.last_name }} - {{ comment.date_added }}
-      </div>
-      <br/>
+      <br>
+      <br>
       <!--Comment body-->
       <div class="comment-body">
         <p>{{comment.body}}</p>
       </div>
-      <br/>
+      <br>
+      <div class="card-author-content">
+      <h3 class="post-author post-date">Posted by: {{ comment.author.first_name }} {{ comment.author.last_name }} - {{ comment.date_added }}</h3>
+      {% if user.is_authenticated and user.id == comment.author.id%}
+      <div class="edit-delete-container">
+        <a href="{% url 'delete_comment' comment.pk %}" class="edit-delete-post"> Delete </a><a href="{% url 'comment_update' comment.pk %}" class="edit-delete-post"> Edit </a>
+      </div>
+    </div>
       <!--Comment actions like comment delete etc-->
       <div class="comment-actions">
         <div id="like-form">
@@ -57,8 +73,6 @@
             </div>
           </form>
         </div>
-      {% if user.is_authenticated and user.id == comment.author.id%}
-      <a href="{% url 'delete_comment' comment.pk %}">delete comment</a> - <a href="{% url 'comment_update' comment.pk %}"> Edit Comment</a>
       {% endif %}
     </div>
   </div>
@@ -67,7 +81,7 @@
   <hr>
   <!-- back and add comment buttons -->
   <div class="button-container">
-  <a href="{% url 'add_comment' post.pk %}" class="btn comment-button">Add a comment</a>
-  <a href="{% url 'home' %}" class="btn back-button"> Back</a>
+  <a href="{% url 'add_comment' post.pk %}" class="btn comment-button"> Add a comment </a>
+  <a href="{% url 'home' %}" class="btn back-button"> Back </a>
 </div>
 {% endblock %}

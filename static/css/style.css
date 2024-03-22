@@ -154,8 +154,8 @@ background-repeat: no-repeat;
   text-align: center;
   color:black;
   border-radius: 5px;
-  margin: 30px;
-  padding: 2rem;
+  margin: 15px;
+  padding: 1rem;
 
 }
 
@@ -189,6 +189,7 @@ background-repeat: no-repeat;
 }
 
 /* Edit and delete post links */
+
 .card-author-content {
   display: flex;
   justify-content: space-between;
@@ -197,13 +198,14 @@ background-repeat: no-repeat;
 
 .edit-delete-container {
   display:flex;
-  gap: 2px;
+  gap: 1px;
 }
 
 .edit-delete-post {
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
-  font-size: 1vw;
+  text-transform: uppercase;
+  font-size: 0.7vw;
   font-weight: bold;
   font-weight: 500;
   color: #94C5CC;
@@ -211,6 +213,7 @@ background-repeat: no-repeat;
 }
 
 /* prohibits inherited styles*/
+
 #like-form form {
   border-radius: initial;
   border: initial;
@@ -224,11 +227,12 @@ background-repeat: no-repeat;
   margin-right: 85%;
 }
 /* Styles text and center with button */
+
 #like-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 2.4vh;
+  font-size: 2.6vh;
   border-radius: 2px;
 }
 
@@ -256,13 +260,23 @@ background-repeat: no-repeat;
   font-size: 0.8em;
 }
 
+/*Colored hr comment section */
+
+.colored-hr {
+  color:#B4D2E7;
+  border-style: solid;
+  border-width: 1px;
+}
+
 /* Comment Section */
+
  .comments-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   margin-left: 20px;
   font-size: 1.8em;
   letter-spacing: -1px;
+  padding-bottom: 30px;
 
  }
 
@@ -362,7 +376,7 @@ form textarea {
   border-radius: 5px; 
 }
 
-/* Background for form pages*/
+/* Background for form pages */
 #main-content {
   min-height: calc(100vh - 115px);
   display: flex;
@@ -371,7 +385,7 @@ form textarea {
   background-color: #f9f9f9;
 }
 
-/*Footer*/
+/* Footer */
 
 footer {
   position: relative;
@@ -404,11 +418,15 @@ footer {
 
 /* Media Querys */
 
+/* Nav Bar */
 @media (max-width: 768px) {
   nav img {
       margin-left: 0.3em;
   }
 }
+
+/* Hero Section */
+
 @media screen and (max-width: 768px) {
   .hero-media-query {
     font-size: 1.9vw;
@@ -420,12 +438,13 @@ footer {
     height: 20vw; 
   }
 }
+
+/* Blog post home and details, edit delete post*/
+
 @media (max-width: 768px) {
   .blog-title {
-      font-size: 1.5em;
-  }
+    font-size: 1.5em;
 }
-@media (max-width: 768px) {
   .blog-grid {
     display: flex;
     flex-wrap: wrap; 
@@ -440,7 +459,7 @@ footer {
     flex: 1 0 100px;
     background-color: white;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 5px;
   }
   
   .post-title, .post-location {
@@ -459,7 +478,7 @@ footer {
     font-size: 2.6vw;
     font-weight: bold;
     color: #7f7f7f;
-    padding-left: 0.5rem;
+    padding-left: 0rem;
   }
   
   .post-date {
@@ -467,11 +486,26 @@ footer {
     font-size: 2.6vw;
     font-weight: bold;
     color:#7f7f7f;
-    padding-left: 0.5rem;
+    padding-left: 0.3rem;
     padding-bottom: 0.5rem;
+  }
+  .edit-delete-post {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    font-size: 2.6vw;
+    font-weight: bold;
+    font-weight: 500;
+    color: #94C5CC;
+    padding-top: 1vh;
+    margin-right: 8px;
+    margin-bottom: 22px;
   }
   
 }
+/* form inputs*/
+
 @media screen and (max-width: 767px) {
   form input[type="text"],
   form input[type="password"],
@@ -482,5 +516,30 @@ footer {
   form textarea {
     width: 270px;
     max-width: none;
+  }
+}
+
+/* Like buttons for post and comment*/
+
+@media screen and (max-width: 767px) {
+  #like-form form {
+    border-radius: initial;
+    border: initial;
+    box-shadow: initial;
+    margin: initial;
+    padding: initial;
+    font-size: initial;
+  }
+  
+  #like-form {
+    margin-right: 55%;
+  }
+  
+  #like-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.3vh;
+    border-radius: 2px;
   }
 }

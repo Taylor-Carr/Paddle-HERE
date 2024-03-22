@@ -20,7 +20,7 @@ class Post(models.Model):
     title = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=100)
-    body = models.TextField()
+    body = models.TextField(max_length=800)
     post_date = models.DateField(auto_now_add=True)
     category = models.CharField(max_length=100, default= 'England')
     likes = models.ManyToManyField(User, related_name='blog_posts')
