@@ -10,6 +10,7 @@
     <button type="submit">Update</button>
 </form>
 </div>
+<a href="{% url 'home' %}" class="btn back-button"> Back</a>
 {% else %}
 <div class="card">
 <h1>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>

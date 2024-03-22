@@ -3,54 +3,71 @@
   {% load static %}
 
   <div class="card">
+    <!---Post Content-->
     <div class="post-title">{{ post.title }}</div>
     <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-    <hr>
     <div class="post-body">
       <p>{{ post.body }}</p>
     </div>
     </br>
     <div class="card-author-content">
       <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
+      <div class="edit-delete-container"> {% if user.is_authenticated and user.id == post.author.id %}
+        <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post">Delete post -</a><a href="{% url 'update_post' post.pk %}" class="edit-delete-post"> Edit post</a></div>
     </div>
-    {% if user.is_authenticated and user.id == post.author.id %}
-    <a href="{% url 'delete_post' post.pk %}">Delete post</a> - <a href="{% url 'update_post' post.pk %}"> Edit post</a>
     {% endif %}
     <!---- Like post button -->
     <div id="like-form">
       <form action="{% url 'like_post' post.pk %}" method="POST">
         <div id="like-button">
           {% csrf_token %}
-          <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-sm">Like</button>
-          <p>{{ total_likes }} Likes</p>
+          <button type="submit" name="post_id" value="{{post.id}}" class="btn like-button">Like</button>
+          <p>{{ total_likes }} likes</p>
         </div>
       </form>
     </div>
   <!--comment section-->
   <hr>
-  <h2>Comments</h2>
- 
+  <h2 class="comments-title">Comments</h2>
+  
   {% if not post.comments.all %}
-    <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+    
   {% else %}
     <!---Comment body when comment is displayed--->
     {% for comment in post.comments.all %}
-    Posted by: {{ comment.author.first_name }} {{ comment.author.last_name }} - {{ comment.date_added }}
+    <!--Comment container-->
+    <div class="comment">
+      <div class="comment-author">
+        Posted by: {{ comment.author.first_name }} {{ comment.author.last_name }} - {{ comment.date_added }}
+      </div>
       <br/>
-      {{comment.body}}
+      <!--Comment body-->
+      <div class="comment-body">
+        <p>{{comment.body}}</p>
+      </div>
       <br/>
-      <form method="post" action="{% url 'like_comment' comment.id %}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-sm like-button">likes</button> - {{ comment.total_comment_likes }}
-      </form>
+      <!--Comment actions like comment delete etc-->
+      <div class="comment-actions">
+        <div id="like-form">
+          <form action="{% url 'like_comment' comment.id %}" method="POST">
+            <div id="like-button">
+              {% csrf_token %}
+              <button type="submit" name="post_id" value="{{post.id}}" class="btn like-button">Like</button>
+              <p>{{ comment.total_comment_likes }} likes</p>
+            </div>
+          </form>
+        </div>
       {% if user.is_authenticated and user.id == comment.author.id%}
-      <a href="{% url 'delete_comment' comment.pk %}">delete comment</a> - <a href="{% url 'comment_update' comment.pk %}"> Edit post</a>
+      <a href="{% url 'delete_comment' comment.pk %}">delete comment</a> - <a href="{% url 'comment_update' comment.pk %}"> Edit Comment</a>
       {% endif %}
     </div>
+  </div>
     {% endfor %}
   {% endif %}
   <hr>
-  <!-- Delete and edit buttons -->
-  <a href="{% url 'home' %}" class="btn btn-primary"> Back</a>
-
+  <!-- back and add comment buttons -->
+  <div class="button-container">
+  <a href="{% url 'add_comment' post.pk %}" class="btn comment-button">Add a comment</a>
+  <a href="{% url 'home' %}" class="btn back-button"> Back</a>
+</div>
 {% endblock %}

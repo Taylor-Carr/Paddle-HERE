@@ -12,7 +12,7 @@
     <button type="submit">Create post</button>
 </form>
 </div>
-
+<a href="{% url 'home' %}" class="btn back-button"> Back</a>
 <script>
     var name = "{{ user.id }}";
     document.getElementById("userid").value = 
@@ -30,7 +30,7 @@
     <button type="submit">Login</button>
 </form>
 </div>
-
+<a href="{% url 'home' %}" class="btn back-button"> Back</a>
 
 {% endif %}
 

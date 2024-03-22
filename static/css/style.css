@@ -94,6 +94,7 @@ background-repeat: no-repeat;
   border-bottom: 2px solid #94C5CC;
   line-height: normal;
 }
+
 .title-circle {
   margin-left: 3px;
   display: flex;
@@ -103,7 +104,7 @@ background-repeat: no-repeat;
   color: #94C5CC;
   display:inline;
 }
-/*blog post home page*/
+/*blog post home and details page*/
 
 .blog-container {
   max-width: auto;
@@ -120,6 +121,7 @@ background-repeat: no-repeat;
 }
 
 .card {
+  position: relative;
   margin: 10px 50px 25px 50px;
   padding: 10px;
   flex: 1 0 200px;
@@ -169,7 +171,7 @@ background-repeat: no-repeat;
 
 .post-author {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.9vw;
+  font-size: 1vw;
   font-weight: bold;
   color: #7f7f7f;
   padding-left: 0.5rem;
@@ -186,27 +188,29 @@ background-repeat: no-repeat;
   margin-left: 20px;
 }
 
-/* Blog Post Detail */
-
-
-/* like button */
-/*#like-button form {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  padding: 20px;
+/* Edit and delete post links */
+.card-author-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-#like-button p {
+
+.edit-delete-container {
+  display:flex;
+  gap: 2px;
+}
+
+.edit-delete-post {
   font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  font-size: 1vw;
+  font-weight: bold;
   font-weight: 500;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  padding: 20px;
-}*/
+  color: #94C5CC;
+  margin-right: 20px;
+}
 
-/* resets inhereted form styling */
-
+/* prohibits inherited styles*/
 #like-form form {
   border-radius: initial;
   border: initial;
@@ -217,13 +221,15 @@ background-repeat: no-repeat;
 }
 
 #like-form {
-  margin-right: 80%;
+  margin-right: 85%;
 }
-
+/* Styles text and center with button */
 #like-button {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
+  font-size: 2.4vh;
+  border-radius: 2px;
 }
 
 #like-button form,
@@ -231,18 +237,69 @@ background-repeat: no-repeat;
   font-family: 'Montserrat', sans-serif;
   display: inline;
   vertical-align: bottom;
-  font-weight: 500;
+  font-weight: 600;
   margin:0;
 }
 
 #like-button button {
-  margin-right: 10px; 
+  font-size: 2.4vh;
+  margin-right: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
 }
 
 #like-button p {
   display: inline-block;
   vertical-align: middle;
   font-size: 0.8em;
+}
+
+/* Comment Section */
+ .comments-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-left: 20px;
+  font-size: 1.8em;
+  letter-spacing: -1px;
+
+ }
+
+
+/* Back and Add comment Button*/
+
+.button-container {
+  margin-top: 30px;
+}
+
+.comment-button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #f5fbf9;
+  max-width: 180px; 
+  background-color: #94C5CC;
+  border-bottom-right-radius: 14px;
+  border: 1px solid transparent;
+  display: inline-block;
+  
+}
+
+.back-button {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #f5fbf9;
+  max-width: 90px; 
+  background-color: #94C5CC;
+  border-bottom-left-radius: 14px;
+  border: 1px solid transparent;
+  display: inline-block;
 }
 
 /* Forms login, signup, share, delete */
