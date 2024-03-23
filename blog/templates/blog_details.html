@@ -16,7 +16,7 @@
             <form action="{% url 'like_post' post.pk %}" method="POST">
                 <div id="like-button">
                     {% csrf_token %}
-                    <button type="submit" name="post_id" value="{{post.id}}" class="like-button">Like</button>
+                    <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like blog post button">Like</button>
                     <p>{{ total_likes }} likes</p>
                 </div>
             </form>
@@ -24,8 +24,8 @@
         <br>
         <div class="edit-delete-container">
             {% if user.is_authenticated and user.id == post.author.id %}
-                <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post"> Delete </a>
-                <a href="{% url 'update_post' post.pk %}" class="edit-delete-post"> Edit </a>
+                <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post" aria-label="delete blog post"> Delete </a>
+                <a href="{% url 'update_post' post.pk %}" class="edit-delete-post" aria-label="edit blog post"> Edit </a>
             {% endif %}
         </div>
     </div>
@@ -53,15 +53,15 @@
                         <form action="{% url 'like_comment' comment.id %}" method="POST">
                             <div id="like-button">
                                 {% csrf_token %}
-                                <button type="submit" name="post_id" value="{{post.id}}" class="like-button">Like</button>
+                                <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like comment button">Like</button>
                                 <p>{{ comment.total_comment_likes }} likes</p>
                             </div>
                         </form>
                     </div>
                     {% if user.is_authenticated and user.id == comment.author.id%}
                         <div class="edit-delete-container">
-                            <a href="{% url 'delete_comment' comment.pk %}" class="edit-delete-post"> Delete </a>
-                            <a href="{% url 'comment_update' comment.pk %}" class="edit-delete-post"> Edit </a>
+                            <a href="{% url 'delete_comment' comment.pk %}" class="edit-delete-comment"> Delete </a>
+                            <a href="{% url 'comment_update' comment.pk %}" class="edit-delete-comment"> Edit </a>
                         </div>
                     {% endif %}
                 </div>
@@ -73,7 +73,7 @@
     <hr>
     <div class="button-container">
         <a href="{% url 'add_comment' post.pk %}" class="btn comment-button"> Add a comment </a>
-        <a href="{% url 'home' %}" class="btn back-button"> Back </a>
+        <a href="{% url 'home' %}" class="btn back-button" aria-label="back button"> Back </a>
     </div>
 </div>
 {% endblock %}  

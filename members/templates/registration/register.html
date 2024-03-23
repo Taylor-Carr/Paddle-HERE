@@ -3,7 +3,7 @@
 {% block content %}
 <div id="main-content">
     <form method="POST">
-        <a href="#" onclick="history.back();" class="btn form-back-button">Back</a>
+        <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
         <h1 class="form-heading">Sign Up</h1>
         <p>Already have an account? <a href="{% url 'login' %}" class="signin-text">Sign in here</a></p>
         {% csrf_token %}
