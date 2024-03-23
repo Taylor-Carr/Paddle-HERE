@@ -1,5 +1,4 @@
 
-
 html, body {
   height: 100%;
   margin: 0;
@@ -90,7 +89,8 @@ background-repeat: no-repeat;
   height: 20vw; 
 
 }
-/* Unauth user templates */
+/* Unauthorised user templates ie sign up sign in links */
+
 .unauth-titles {
   color: black;
   margin-top: 5vh;
@@ -608,5 +608,59 @@ footer {
   }
 }
 
+/* Media Querys for tablets 768 - 1200 */
 
-/* Media Querys for tablets 820 - 1200 */
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .edit-delete-post {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    font-size: 1.2vw;
+    font-weight: bold;
+    font-weight: 500;
+    color: #94C5CC;
+    padding-top: 1vh;
+    margin-right: 8px;
+    margin-bottom: 22px;
+  }
+
+  #like-button button {
+    border-radius: 0;
+    height: 2vh;
+    font-size: 1vh;
+    margin-right: 10px;
+    padding: 3px 8px;
+    
+  }
+  #like-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2vh;
+    border-radius: 2px;
+    margin-left: 2vh;
+  }
+
+.post-title, .post-location {
+  font-size: 2.5vw;
+  letter-spacing: 0.5px;
+  padding-top: 0.4rem;
+}
+.post-author {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4vw;
+  font-weight: bold;
+  color: #7f7f7f;
+  padding-left: 0rem;
+}
+
+.post-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4vw;
+  font-weight: bold;
+  color:#7f7f7f;
+  padding-left: 0.3rem;
+  padding-bottom: 0.5rem;
+}
+}
