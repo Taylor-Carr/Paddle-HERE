@@ -2,28 +2,23 @@
 
 {% block content %}
 
-{% if user.is_authenticated and user.id == post.author.id%}
-
+{% if user.is_authenticated and user.id == post.author.id %}
 <div id="main-content">
   <form method="POST">
-    <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
-  <h1>Delete your post</h1>
-  <br/>
-  <h3>{{ post.title }}</h3>
-  <div> {{ post.location}}</div>
-  <br/>
-  <div>{{ post.body }}</div>
-  <br/>
-  
+    <a href="#" onclick="history.back();" class="btn form-back-button">Back</a>
+    <h1>Delete your post</h1>
+    <br>
+    <h3>{{ post.title }}</h3>
+    <div>{{ post.location }}</div>
+    <br>
+    <div>{{ post.body }}</div>
+    <br>
     {% csrf_token %}
     <button type="submit">Delete Post</button>
   </form>
 </div>
 {% else %}
-
 <h1 class="unauth-titles">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
-
-
 {% endif %}
 
 {% endblock %}

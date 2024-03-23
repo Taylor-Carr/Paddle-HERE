@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated and user.id == post.author.id %}
-<div class="main-content">
-<form method="POST">
-    <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
-    <h1>Update your post</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update</button>
-</form>
-</div>
-{% else %}
-
-<h1 class="unauth-titles">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
-
-
-{% endif %}
-
+  {% if user.is_authenticated and user.id == post.author.id %}
+    <div class="main-content">
+      <form method="POST">
+        <a href="#" onclick="history.back();" class="btn form-back-button">Back</a>
+        <h1>Update your post</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  {% else %}
+    <h1 class="unauth-titles">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
+  {% endif %}
 {% endblock %}
