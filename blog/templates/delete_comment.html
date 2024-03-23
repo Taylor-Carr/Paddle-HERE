@@ -6,6 +6,7 @@
 
 <div id="main-content">
   <form method="POST">
+  <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
   <h1>Delete your comment</h1>
   </br>
   <div>{{ comment.body }}</div>
@@ -14,14 +15,10 @@
     <button type="submit">Delete Comment</button>
   </form>
 </div>
-<a href="{% url 'home' %}" class="btn back-button"> Back</a>
 
 {% else %}
 
-<div class="card">
-<h1>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
-</div>
 
-{% endif %}
+<h1 class="unauth-titles">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
 
 {% endblock %}

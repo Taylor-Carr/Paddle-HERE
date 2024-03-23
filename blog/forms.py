@@ -12,7 +12,7 @@ class PostForm(forms.ModelForm):
            'title': forms.TextInput(attrs={'class': 'add-post' }),
            'location': forms.TextInput(attrs={'class': 'add-post', 'placeholder': 'eg. Newquay, Cornwall'}),
            'author': forms.TextInput(attrs={'class': 'add-post', 'value':'', 'id': 'userid', 'type': 'hidden' }),
-           'category': forms.Select(attrs={'class': 'category' 'form-control'}, choices = countries,),
+           'category': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = countries,),
            'body': forms.Textarea(attrs={'class': 'post-body' 'add-post' }),
         }
 

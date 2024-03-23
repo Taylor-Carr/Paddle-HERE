@@ -6,13 +6,13 @@
 
 <div id="main-content">
 <form method="POST">
+    <a href="#" onclick= "history.back();" class="btn form-back-button"> Back </a>
     <h1 class="form-heading">Share a spot</h1>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Create post</button>
 </form>
 </div>
-<a href="{% url 'home' %}" class="btn back-button"> Back</a>
 <script>
     var name = "{{ user.id }}";
     document.getElementById("userid").value = 
@@ -23,6 +23,7 @@
 
 <div id="main-content">
 <form method="POST">
+    <a href="{% url 'home' %}" class="btn form-back-button"> Back</a>
     <h1 class="form-heading">Please Log in to create a post.</h1>
     <h1 class="form-heading">Login</h1>
     {% csrf_token %}
@@ -30,7 +31,7 @@
     <button type="submit">Login</button>
 </form>
 </div>
-<a href="{% url 'home' %}" class="btn back-button"> Back</a>
+
 
 {% endif %}
 

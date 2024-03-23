@@ -1,8 +1,19 @@
 
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-color: #f9f9f9;
-    height: 100%;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 /*     Nav Bar  */
 
@@ -78,6 +89,16 @@ background-repeat: no-repeat;
   max-width: 100%; 
   height: 20vw; 
 
+}
+/* Unauth user templates */
+.unauth-titles {
+  color: black;
+  margin-top: 5vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
 /* Add blog post title styling */
@@ -198,7 +219,8 @@ background-repeat: no-repeat;
 
 .edit-delete-container {
   display:flex;
-  gap: 1px;
+  justify-content: space-between;
+  align-items:center;
 }
 
 .edit-delete-post {
@@ -224,7 +246,8 @@ background-repeat: no-repeat;
 }
 
 #like-form {
-  margin-right: 85%;
+  order: -1;
+  margin-left: 5px;
 }
 /* Styles text and center with button */
 
@@ -232,25 +255,28 @@ background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 2.6vh;
-  border-radius: 2px;
+  display: inline-block;
+  font-size: 2.4vh;
+  padding-top: 0.2vh;
+  width:auto;
+  margin-left: 5px;
 }
 
 #like-button form,
 #like-button p {
   font-family: 'Montserrat', sans-serif;
-  display: inline;
-  vertical-align: bottom;
-  font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
   margin:0;
+  font-weight: 600;
 }
 
 #like-button button {
-  font-size: 2.4vh;
+  border-radius: 0;
+  height: 3vh;
+  font-size: 1.5vh;
   margin-right: 10px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 3px 8px;
   
 }
 
@@ -258,6 +284,7 @@ background-repeat: no-repeat;
   display: inline-block;
   vertical-align: middle;
   font-size: 0.8em;
+  white-space: nowrap
 }
 
 /*Colored hr comment section */
@@ -273,14 +300,36 @@ background-repeat: no-repeat;
  .comments-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+  text-align: center;
   margin-left: 20px;
   font-size: 1.8em;
   letter-spacing: -1px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 
  }
 
+ .comment-body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-top: 0;
+  margin-left: 20px;
+  padding-left: 0.5rem;
+ }
 
+/* form back button */
+
+.form-back-button {
+  margin-bottom: 2vh;
+  margin-right: 80%;
+  left: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #f5fbf9;
+  max-width: 90px; 
+  background-color: #94C5CC;
+  border: 1px solid transparent;
+  
+}
 /* Back and Add comment Button*/
 
 .button-container {
@@ -336,8 +385,8 @@ form {
 
 form h1 {
   color: #94C5CC;
+  padding: 0.3vh;
   margin-bottom: 15px;
-  
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -370,8 +419,10 @@ form input[type="title"],
 form input[type="category"],
 form input[type="location"],
 form textarea {
-  width: 320px;
-  padding: 10px; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  width: 100%;
+  padding: 5px; 
   margin-bottom: 10px; 
   border-radius: 5px; 
 }
@@ -388,6 +439,7 @@ form textarea {
 /* Footer */
 
 footer {
+  flex-shrink: 0;
   position: relative;
   bottom: 0;
   width:100%;
@@ -416,7 +468,7 @@ footer {
 
 
 
-/* Media Querys */
+/* Media Querys for mobile 768 and under */
 
 /* Nav Bar */
 @media (max-width: 768px) {
@@ -465,7 +517,7 @@ footer {
   .post-title, .post-location {
     font-size: 2.8vw;
     letter-spacing: 0.5px;
-    padding-top: 0.2rem;
+    padding-top: 0.4rem;
   }
   
   .post-body {
@@ -483,7 +535,7 @@ footer {
   
   .post-date {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.6vw;
+    font-size: 2.2vw;
     font-weight: bold;
     color:#7f7f7f;
     padding-left: 0.3rem;
@@ -494,7 +546,7 @@ footer {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    font-size: 2.6vw;
+    font-size: 2.2vw;
     font-weight: bold;
     font-weight: 500;
     color: #94C5CC;
@@ -504,6 +556,17 @@ footer {
   }
   
 }
+
+/* Comment Section */
+
+@media screen and (max-width: 767px) {
+  .comments-title {
+    font-size: 1.5em;
+    letter-spacing: -1px;
+   }
+}
+
+
 /* form inputs*/
 
 @media screen and (max-width: 767px) {
@@ -532,14 +595,18 @@ footer {
   }
   
   #like-form {
-    margin-right: 55%;
+    margin-right: auto;
   }
   
   #like-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 2.3vh;
+    font-size: 2vh;
     border-radius: 2px;
+    margin-left: 2vh;
   }
 }
+
+
+/* Media Querys for tablets 820 - 1200 */
