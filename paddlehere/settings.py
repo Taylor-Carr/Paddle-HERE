@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+#DEBUG = True
 
 ALLOWED_HOSTS = ['8000-taylorcarr-paddlehere-p8v53ugj200.ws-eu110.gitpod.io', '.herokuapp.com']
 
