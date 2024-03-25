@@ -29,7 +29,7 @@ SECRET_KEY = 'mangos12'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-taylorcarr-paddlehere-p8v53ugj200.ws-eu110.gitpod.io', '.herokuapp.com']
 
