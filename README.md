@@ -103,7 +103,7 @@ Un - Registered users can browse authorised users blog post. To access full CRUD
 
   
 
-![Project ERD](static/images/readme/ph datachsheme.png)
+![Project ERD](/static/images/readme/phdatachsheme.png)
 
   
 
@@ -111,7 +111,7 @@ Un - Registered users can browse authorised users blog post. To access full CRUD
 
   
 
-![FlowChart](static/images/readme/ph flowchart.png)
+![FlowChart](/static/images/readme/phflowchart.png)
 
   
 
@@ -120,7 +120,7 @@ Un - Registered users can browse authorised users blog post. To access full CRUD
   
 To support an agile development methodology my chosen tool was GitHub projects. I outlined my prioritised user stories and extra features to ensure a MVP would be achieved.
 
-![GitHub Projects](/static/images/readme/kanban ph.png)
+![GitHub Projects](/static/images/readme/kanbanph.png)
 
   
 
