@@ -46,7 +46,7 @@ PaddleHere - a blogging platform enabling users to share and find paddle boardin
 
 
 
-![iamresponsive]()
+
 
   
 
