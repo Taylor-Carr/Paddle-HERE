@@ -46,7 +46,7 @@ PaddleHere - a blogging platform enabling users to share and find paddle boardin
 
 
 
-![iamresponsive](/assets/images/readme/iamresponsive.png)
+![iamresponsive]()
 
   
 
@@ -88,22 +88,22 @@ Un - Registered users can browse authorised users blog post. To access full CRUD
 ## Balsamiq - Wireframes
 
   
-![PaddleHere - Landing Page](/assets/images/readme/wf1.png)
+![PaddleHere - Landing Page](/static/images/readme/wf1.png)
 
   
 
-![PaddleHere - Blog Posts Page](/assets/images/readme/wf2.png)
+![PaddleHere - Blog Posts Page](/static/images/readme/wf2.png)
 
   
 
-![PaddleHere - Blog Details Page](/assets/images/readme/wf3.png)
+![PaddleHere - Blog Details Page](/static/images/readme/wf3.png)
   
 
 ### Project ERD's and Data base design
 
   
 
-![Project ERD](/assets/images/ph datachsheme.png)
+![Project ERD](/static/images/ph datachsheme.png)
 
   
 
@@ -111,7 +111,7 @@ Un - Registered users can browse authorised users blog post. To access full CRUD
 
   
 
-![FlowChart](/assets/images/readme/ph flowchart.png)
+![FlowChart](/static/images/readme/ph flowchart.png)
 
   
 
@@ -120,7 +120,7 @@ Un - Registered users can browse authorised users blog post. To access full CRUD
   
 To support an agile development methodology my chosen tool was GitHub projects. I outlined my prioritised user stories and extra features to ensure a MVP would be achieved.
 
-![Git Hub Project](/assets/images/readme/kanban ph.png)
+![Git Hub Project](/static/images/readme/kanban ph.png)
 
   
 
