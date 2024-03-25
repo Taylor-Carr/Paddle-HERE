@@ -137,6 +137,11 @@ The font pairing was chosen for readability and to apply a brand image. To suppo
 
 
 ## Manual Testing
+ 
+ Exstensive manual testing was carried out through out the project. Multiple accounts were registered through the sign up form. Logged out to, then signed back in to test the respective forms.
+ 
+Both accounts were then used to test the share blog functionality, update blog functionality, comment, comment update, delete comment and like / unlike. Only authorised users were shown the appropriate content and able to update or delete, their own posts and comments. 
+
 
 - All Navigation links work.
 
@@ -148,11 +153,12 @@ The font pairing was chosen for readability and to apply a brand image. To suppo
 
 - User sign in and logout work as expected.
 
-- Blog post works as expected with full CRUD functionality.
+- Blog post works as expected with full CRUD functionality, create, update and delete. Posts also display the correct 
+  author and date/time.
 
 - Post likes work as expected.
 
-- Blog post comment work as intended with full CRUD functionality.
+- Blog post comment work as intended with full CRUD functionality, create, update and delete.
 
 - Comment like and unlike works as intended.
 
