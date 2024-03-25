@@ -24,8 +24,7 @@ def like_comment(request, pk):
         return redirect(request.META.get('HTTP_REFERER', 'home'))
     
     else:
-        messages.success(request, ("You must be logged in to like a comment."))
-        return redirect ('home')
+        return redirect ('register')
   
 
 

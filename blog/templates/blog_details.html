@@ -16,7 +16,9 @@
             <form action="{% url 'like_post' post.pk %}" method="POST">
                 <div id="like-button">
                     {% csrf_token %}
+                    {% if user.is_authenticated %}
                     <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like blog post button">Like</button>
+                    {% endif %}
                     <p>{{ total_likes }} likes</p>
                 </div>
             </form>
@@ -29,7 +31,7 @@
             {% endif %}
         </div>
     </div>
-
+    {% if user.is_authenticated %}
     <!-- Comment section -->
     {% if post.comments.all %}
         <hr class="colored-hr">
@@ -60,13 +62,14 @@
                     </div>
                     {% if user.is_authenticated and user.id == comment.author.id%}
                         <div class="edit-delete-container">
-                            <a href="{% url 'delete_comment' comment.pk %}" class="edit-delete-comment"> Delete </a>
-                            <a href="{% url 'comment_update' comment.pk %}" class="edit-delete-comment"> Edit </a>
+                            <a href="{% url 'delete_comment' comment.pk %}" class="edit-delete-post"> Delete </a>
+                            <a href="{% url 'comment_update' comment.pk %}" class="edit-delete-post"> Edit </a>
                         </div>
                     {% endif %}
                 </div>
             </div>
         {% endfor %}
+        {% endif %}
     {% endif %}
 
     <!-- Back and add comment buttons -->

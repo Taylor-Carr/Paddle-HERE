@@ -1,39 +1,203 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# PaddleHere - PROJECT README
 
-Welcome,
+## By  Taylor Carr
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+  
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+## Contents
 
-## Codeanywhere Reminders
+  
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+-  Project Overview
 
-`python3 -m http.server`
+-  Site Users goal
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- Site owner's goal
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+- Current features
 
-`http_server`
+- Future features 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- Project Initial ERD and data base design
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- Development strategy
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- Wireframes - Balsamiq
 
-To log into the Heroku toolbelt CLI:
+- Flow Chart
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- Development strategy - Agile Methodology
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Frontend Design choices 
 
----
+- Manual testing
 
-Happy coding!
+- Tech Stack and Tools used
+
+- Credits
+
+  
+  
+
+## Project Overview
+
+ 
+PaddleHere - a blogging platform enabling users to share and find paddle boarding locations in and around the UK.
+
+
+
+![iamresponsive](/assets/images/readme/iamresponsive.png)
+
+  
+
+### Site users goal:
+To share and find paddle boarding locations in and around the UK, and give their feedback or experience of the location on other users blog posts.
+
+ 
+### Site owner's goal:
+
+To allow users to share and find new paddle boarding locations. As well as allowing users to share their shared experiences of
+other users locations through commenting and liking.
+ 
+
+## Current features:
+  
+Un - Registered users can browse authorised users blog post. To access full CRUD functionality and to interact with authorised users, site visitors have to sign up. Once registered, users can browse and create blog posts. They can also like and comment on their favourite posts. Users also have the ability to like comments.  
+
+-   User registration
+-   User login / Logout
+-   Blog posts can be uploaded (CRUD)
+-   Posts can be liked 
+-   Comments can be left on a post (CRUD)
+-   Comments can be liked and unliked 
+-   Time / Date of posting
+-   Time / Date of comment
+
+
+
+## Future Features 
+
+- Categories for surfing, kayaking and wild swimming
+- User Profiles
+- Ability to upload photos with posts
+- "favouriting" for saving blog posts 
+- Weather API specific to posts
+- Google maps API specific 
+
+
+## Balsamiq - Wireframes
+
+  
+![PaddleHere - Landing Page](/assets/images/readme/wf1.png)
+
+  
+
+![PaddleHere - Blog Posts Page](/assets/images/readme/wf2.png)
+
+  
+
+![PaddleHere - Blog Details Page](/assets/images/readme/wf3.png)
+  
+
+### Project ERD's and Data base design
+
+  
+
+![Project ERD](/assets/images/ph datachsheme.png)
+
+  
+
+## Flowchart
+
+  
+
+![FlowChart](/assets/images/readme/ph flowchart.png)
+
+  
+
+## GitHub projects - User Stories 
+
+  
+To support an agile development methodology my chosen tool was GitHub projects. I outlined my prioritised user stories and extra features to ensure a MVP would be achieved.
+
+![Git Hub Project](/assets/images/readme/kanban ph.png)
+
+  
+
+
+## Frontend development - design elements 
+
+PaddleHere is a fully responsive mobile first website. Due to our target users being "on the go", a mobile users perspective was at the forefront of most of the design decisions. A lot of the elements of the website reflect this, especially the design of the card. Familiar to most IOS users. And the use of back buttons throughout the website. With this in mind, buttons were purposely placed at the bottom of the users screen for ease of use for mobile and tablet users.  
+
+Overall PaddleHere has a muted colour theme. A light blue accent colour for the obvious relation to water, but overall white to allow the blog posts (text) to stand out. To aid with the contrast of the white cards, #f9f9f9 was used. An off White, almost Grey. 
+
+The font pairing was chosen for readability and to apply a brand image. To support this Genty was used for the brand logo,  a surfer esque font. The main text Montserrat, was used for it's blatant readability and versatility as it was being used across the site for headings, main text and to highlight details such as author names and post dates and times. 
+
+
+
+
+## Manual Testing
+
+- All Navigation links work.
+
+- Appropriate navigation links show to authorised and un-authorised users respectively.
+
+- Burger icon and burger icon links work as expected.
+
+- User Registration form works as expected.
+
+- User sign in and logout work as expected.
+
+- Blog post works as expected with full CRUD functionality.
+
+- Post likes work as expected.
+
+- Blog post comment work as intended with full CRUD functionality.
+
+- Comment like and unlike works as intended.
+
+  
+  
+
+## Tech Stack & Tools used
+
+Lucid 
+
+GitHub Projects
+
+HTML5
+
+CSS3
+
+JavaScript.
+
+Python used for back-end programming.
+
+Git for version control.
+
+Bootstrap.
+
+Django used for back-end framework.
+
+ElephantSQL for Postgres database.
+
+Heroku was used to deploy the back-end.
+
+  
+  
+
+## Credits
+
+  
+
+Huge thanks to our facilitator David Calikes, Kevin and Martin at Code Institute for their exceptional guidance and support.
+
+Alls Well - Hackathon project
+
+Codemy
+
+Hero Image - Matt-Zhou   unsplash
+
+
+
+

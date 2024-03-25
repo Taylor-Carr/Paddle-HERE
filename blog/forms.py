@@ -25,10 +25,10 @@ class CommentForm(forms.ModelForm):
     def save(self, commit=True):
         instance = super(CommentForm, self).save(commit=False)
         if self.user:
-            instance.author = self.user  # Set the author field
+            instance.author = self.user
         if commit:
             instance.save()
-        return instance
+        return instance 
 
     class Meta:
         model = Comment

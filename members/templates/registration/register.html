@@ -8,7 +8,7 @@
         <p>Already have an account? <a href="{% url 'login' %}" class="signin-text">Sign in here</a></p>
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Confirm</button>
+        <button type="submit" class="primaryAction register-button">Confirm</button>
     </form>
 </div>
 {% endblock %}
