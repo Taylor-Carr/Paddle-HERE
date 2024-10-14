@@ -22,7 +22,8 @@ class Post(models.Model):
     location = models.CharField(max_length=100)
     body = models.TextField(max_length=800)
     post_date = models.DateField(auto_now_add=True)
-    category = models.CharField(max_length=100, default= 'England')
+    country = models.CharField(max_length=100, default= 'England')
+    category = models.CharField(max_length=100, default= 'Paddle Boarding')
     likes = models.ManyToManyField(User, related_name='blog_posts')
 
 

@@ -2,17 +2,19 @@ from django import forms
 from .models import Post, Comment
 
 countries = [('England', 'England'), ('Scotland', 'Scotland'), ('Wales', 'Wales'), ('Northern Ireland', 'Northern Ireland'),]
+sport = [('Surfing', 'Surfing'), ('Paddle Boarding', 'Paddle Boarding'), ('Kayaking', 'Kayaking'),]
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'category', 'location','author', 'body')
+        fields = ('title', 'category', 'country', 'location','author', 'body')
 
         widgets = {
            'title': forms.TextInput(attrs={'class': 'add-post' }),
            'location': forms.TextInput(attrs={'class': 'add-post', 'placeholder': 'eg. Newquay, Cornwall'}),
            'author': forms.TextInput(attrs={'class': 'add-post', 'value':'', 'id': 'userid', 'type': 'hidden' }),
-           'category': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = countries,),
+           'country': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = countries,),
+           'category': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = sport,),
            'body': forms.Textarea(attrs={'class': 'post-body' 'add-post' }),
         }
 
