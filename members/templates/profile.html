@@ -2,12 +2,20 @@
 
 {% block content %}
     <div id="main-content">
-        <form method="POST">
-            <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
-            <h1 class="form-heading">{{ comment.author.first_name }} {{ comment.author.last_name }}</h1>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="primaryAction sign-in-button" type="submit">Save Changes</button>
-        </form>
+        <h2>{{ user.first_name}} {{ user.last_name }}</h2>
+        <img src="{{ profile.image.url }}" alt="{{ user.username }}'s profile picture" class="profile-picture">
+        <br>
+        <h4>Account created - {{ user.date_joined }}</h4>
+
+        <br>
+        <br>
+        <ul>
+            {% for post in profile.posts.all %}
+                <li><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></li>
+            {% empty %}
+                <li><a href="{% url 'add_post' %}" id="navbarText">Share a Spot</a></li>
+                {% endfor %}
+        </ul>
+        <a class="" href="{% url 'edit_profile' user.username %}" id="navbarText">Edit Profile</a>
     </div>
 {% endblock %}
