@@ -4,6 +4,7 @@ from .models import Post, Comment, Category
 from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 
 
@@ -27,6 +28,18 @@ def like_comment(request, pk):
         return redirect ('register')
   
 
+def search_view(request):
+    query = request.GET.get('q')
+    results = Post.objects.all()
+
+    if query:
+        results = results.filter(
+            Q(location__icontains=query) |
+            Q(country__icontains=query) |
+            Q(category__icontains=query) 
+        )
+
+    return render(request, 'search_results.html', {'results': results, 'query':query})
 
 class HomeView(ListView):
     model = Post
