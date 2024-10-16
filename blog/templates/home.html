@@ -5,6 +5,12 @@
     <div class="blog-container">
         {% if user.is_authenticated %}
         <h1 class="blog-title">Find a spot<p class="title-circle">.</p></h1>
+
+        <form class="navbar-search d-flex mx-auto" method="GET" action="{% url 'search' %}">
+            <input class="form-control search-input" type="text" name="q" placeholder="Search by location, country, or category">
+            <button class="btn btn-primary search-btn ms-2" type="submit">Search</button>
+          </form>
+
             {% for post in object_list %}
                 <div class="blog-grid">
                     <div class="card">

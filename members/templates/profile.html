@@ -3,7 +3,7 @@
 {% block content %}
     <div id="main-content">
         <h2>{{ user.first_name}} {{ user.last_name }}</h2>
-        <!--<img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="profile-picture">-->
+        <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
         <p>{{ profile.bio }}</p>
         <br>
         <h4>Account created - {{ user.date_joined }}</h4>

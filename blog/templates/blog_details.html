@@ -9,7 +9,9 @@
         <p>{{ post.body }}</p>
     </div>
     <br>
-    <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
+    <h3 class="post-author post-date">Posted by:</h3>
+    <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
+    <h3 class="post-author post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
     <div class="edit-delete-container">
         <div id="like-form">    
             <form action="{% url 'like_post' post.pk %}" method="POST">
@@ -42,7 +44,9 @@
             <div class="comment">
                 <!-- Comment body -->
                 <div class="card-author-content">
-                    <h3 class="post-author post-date">Posted by: {{ comment.author.first_name }} {{ comment.author.last_name }} - {{ comment.date_added }}</h3>
+                    <h3 class="post-author post-date">Posted by:</h3>
+                    <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
+                    <h3 class="post-author post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
                 </div>
                 <br>
                 <div class="comment-body">

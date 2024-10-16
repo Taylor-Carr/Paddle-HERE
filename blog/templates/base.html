@@ -28,45 +28,55 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-  
+
 <!-- Nav Bar -->
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <a class="active  brand" href="{% url 'home' %}"><img src="/static/images/pd logo.jpg" aria-label="Company Logo"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      {% if user.is_authenticated %}
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <form method="GET" action="{% url 'search' %}">
-          <input type="text" name="q" placeholder="Search by location, country or category">
-          <button type="submit">Search</button>
-        </form>
+    <!-- Home Button -->
+    <a class="nav-bar brand" href="{% url 'home' %}"><img src="/static/images/pd logo.jpg" aria-label="Company Logo" height="60"></a>
+    <!-- Profile Picture Dropdown -->
+    {% if user.is_authenticated %}
+    <div class="dropdown profile-dropdown d-lg-none"> <!-- Visible only on small screens -->
+      <a class="dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+       <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="40" height="40">
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" href="{% url 'profile' user.username %}">Profile</a></li>
+        <li><a class="dropdown-item" href="{% url 'add_post' %}">Share a Spot</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    </div>
+    {% endif %}
 
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add_post' %}" id="navbarText">Share a Spot</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}" id="navbarText">Logout</a>
-          </li>
-          <li class="nav-item"></li>
-            <a class="nav-link" href="{% url 'profile' user.username %}" id="navbarText">Profile</a>
-          </li>
-        </ul>
-      {% else %}
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}" id="navbarText">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}" id="navbarText">Sign In</a>
-          </li>
-        </ul>
-      {% endif %}
-      <span class="navbar-text text-muted"> </span>
+
+    <!-- Navbar Links and Search Bar -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+        <!-- Logged-In User Profile Dropdown -->
+        <li class="nav-item dropdown d-none d-lg-block"> <!-- Visible only on large screens -->
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="40" height="40">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'profile' user.username %}">Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'add_post' %}">Share a Spot</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </li>
+        {% else %}
+        <!-- Logged-Out - Sign In and Sign Up Buttons -->
+        <li class="nav-item">
+          <a class="btn me-2" href="{% url 'login' %}">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn-sign-up" href="{% url 'register' %}">Sign Up</a>
+        </li>
+        {% endif %}
+      </ul>
     </div>
   </div>
 </nav>

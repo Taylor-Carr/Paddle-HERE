@@ -5,8 +5,12 @@ from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from members.models import UserProfile
 
 
+def profile_view(request):
+    profile = UserProfile.objects.get(user=request.user) if request.user.is_authenticated else None
+    return render(request, 'base.html', {'profile': profile})
 
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))

@@ -14,38 +14,53 @@ body {
 main {
   flex: 1;
 }
-/*     Nav Bar  */
 
-nav {
-  background: #94C5CC;
-  border-bottom: 1px solid #F5FBF9;
+.navbar {
+  background-color: #94C5CC;
+  padding: 0.5rem;
 }
 
-nav img {
-  margin-top: 10px;
-  margin-left: 1em;
-  margin-right: 1em;
-  width: 100px;
-  height: auto; 
-}
- 
-.navbar-nav .nav-item:nth-child(1) .nav-link,
-.navbar-nav .nav-item:nth-child(2) .nav-link,
-.navbar-nav .nav-item:nth-child(3) .nav-link,
-.navbar-nav .nav-item:nth-child(4) .nav-link {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 15px;
-    color:#F5FBF9;
-    margin-left: 0.5em;
-    margin-right: 25px;
-    border-bottom: 2px solid transparent; 
-    transition: border-color 0.2s ease;
-    position: relative;
-    padding-bottom: 0;
-    box-sizing: border-box;
+
+.navbar-nav {
+  justify-content: flex-end;
+  align-items: center;
 }
 
+/* Profile Picture */
+.navbar-nav .nav-link img {
+  border: 2px solid #F5FBF9;
+  border-radius: 50%;
+}
+
+
+
+/* Buttons for Sign In / Sign Up */
+.navbar .btn-sign-up {
+  background-color: #94C5CC;
+  border: 1px solid #f9f9f9;
+  border-radius: 8px;
+  border-color: #f9f9f9;
+  color: #f9f9f9;
+  margin-left: 10px;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar .btn-sign-up:hover {
+  background-color:#f5fbf9;
+  color: #94C5CC;
+
+}
+
+.navbar .btn {
+  color: #f9f9f9;
+  font-weight: 500;
+}
+
+.navbar .btn:hover {
+  text-decoration: underline;
+}
 
 /* Hero Section */
 
@@ -56,10 +71,12 @@ color: #F5FBF9;
 padding-top: 30px;
 padding-bottom: 100px;
 padding-right: 50px;
+margin: 25px;
 background-size: cover;
 background-position: center; 
 background-blend-mode: multiply;
 background-repeat: no-repeat; 
+border-radius: 12px;
 }
 
 .hero h2 {
@@ -468,12 +485,35 @@ footer {
 
 
 
-/* Media Querys for mobile 768 and under */
+/* NavBar*/
 
-/* Nav Bar */
-@media (max-width: 768px) {
-  nav img {
-      margin-left: 0.3em;
+
+@media (max-width: 767.98px) {
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .navbar-nav .nav-item {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .navbar-search {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .profile-dropdown {
+    display: block;
+    text-align: right;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-dropdown {
+    display: none;
   }
 }
 
