@@ -7,10 +7,12 @@
 <div class="container add-post-form">
 <form method="POST" class="add-post" id="addpost_form">
     <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
-    <h1>Add Comment</h1>
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create post</button>
+    <fieldset>
+        <legend>Add a comment to this post.</legend>
+        {{ form.as_p }}
+    </fieldset>
+    <button type="submit" aria-label="Submit comment">Create post</button>
 </form>
 </div>
 {% else %}

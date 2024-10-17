@@ -3,32 +3,33 @@
 {% block content %}
     <!-- Show posts for authenticated user only -->
     <div class="blog-container">
-        {% if user.is_authenticated %}
-        <h1 class="blog-title">Find a spot<p class="title-circle">.</p></h1>
+    {% if user.is_authenticated %}
+    <h1 class="blog-title">Find a spot<p class="title-circle">.</p></h1>
 
-        <form class="navbar-search d-flex mx-auto" method="GET" action="{% url 'search' %}">
-            <input class="form-control search-input" type="text" name="q" placeholder="Search by location, country, or category">
-            <button class="btn btn-primary search-btn ms-2" type="submit">Search</button>
-          </form>
+    <form class="navbar-search d-flex mx-auto" method="GET" action="{% url 'search' %}">
+        <input class="form-control search-input" type="text" name="q" placeholder="Search by location, country, or category">
+        <button class="btn btn-primary search-btn ms-2" type="submit">Search</button>
+        </form>
 
-            {% for post in object_list %}
-                <div class="blog-grid">
-                    <div class="card">
-                        <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
-                            <div class="post-title">{{ post.title }}</div>
-                            <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                            <div class="post-body">
-                                <p>{{ post.body | slice:":350" }}...</p>
-                            </div>
-                            <div class="card-author-content">
-                                <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
-                            </div>
-                        </a>
-                    </div>
+        {% for post in object_list %}
+            <article class="blog-grid">
+                <div class="card">
+                    <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                        <div class="post-title">{{ post.title }}</div>
+                        <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                        <div class="post-body">
+                            <p>{{ post.body | slice:":350" }}...</p>
+                        </div>
+                        <div class="card-author-content">
+                            <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
+                        </div>
+                    </a>
                 </div>
-            {% endfor %}
-    </div> <!-- Closing container for authenticated user posts -->
-        {% else %}
+            </article>
+        {% endfor %}
+    </div> 
+    <!-- Closing container for authenticated user posts -->
+    {% else %}
     <!-- Hero Section -->
             <div class="hero">
                 <div class="hero-container">
@@ -43,7 +44,7 @@
         <h1 class="blog-title">Recently Shared Spots<div class="title-circle">.</div></h1>
         <!-- Loop through all posts -->
         {% for post in object_list %}
-            <div class="blog-grid">
+            <article class="blog-grid">
                 <div class="card">
                     <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
                         <div class="post-title">{{ post.title }}</div>
@@ -51,12 +52,12 @@
                         <div class="post-body">
                             <p>{{ post.body | slice:":350" }}....</p>
                         </div>
-                        <div class="card-author-content">
+                        <footer class="card-author-content">
                             <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
-                        </div>
+                        </footer>
                     </a>
                 </div>
-            </div>
+            </article>
     </div>
         {% endfor %}
     {% endif %}

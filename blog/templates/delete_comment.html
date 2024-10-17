@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-{% if user.is_authenticated and user.id == comment.author.id %}
-<div id="main-content">
-  <form method="POST">
-    <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
-    <h1>Delete your comment</h1>
-    <br>
-    <div>{{ comment.body }}</div>
-    <br>
-    {% csrf_token %}
-    <button type="submit">Delete Comment</button>
-  </form>
-</div>
-{% else %}
-<h1 class="unauth-titles">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
-{% endif %}
-
+  {% if user.is_authenticated and user.id == comment.author.id %}
+    <div id="main-content">
+      <form method="POST">
+        <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
+        <h1>Delete Your Comment</h1>
+        <div class="comment-body">{{ comment.body }}</div>
+        <br>
+        {% csrf_token %}
+        <button type="submit" class="btn delete-button" aria-label="Delete comment">Delete Comment</button>
+      </form>
+    </div>
+  {% else %}
+    <h1 class="unauth-titles">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update, or delete a post.</h1>
+  {% endif %}
 {% endblock %}

@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Search results for: {{ query }}</h2>
-<ul>
-    {% for post in results %}
-        <li>
-            <div class="blog-grid">
-                <div class="card">
-                    <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
-                        <div class="post-title">{{ post.title }}</div>
-                        <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                        <div class="post-body">
-                            <p>{{ post.body | slice:":350" }}...</p>
-                        </div>
-                        <div class="card-author-content">
-                            <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </li>
-    {% empty %}
-        <h2>No posts found - please search again.</h2>
+    <h2>Search results for: {{ query }}</h2>
+    <ul class="search-results">
+        {% for post in results %}
+            <li>
+                <article class="blog-grid">
+                    <div class="card">
+                        <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <h4 class="post-location">{{ post.category }} - {{ post.location }}</h4>
+                            <div class="post-body">
+                                <p>{{ post.body | slice:":350" }}...</p>
+                            </div>
+                            <footer class="card-author-content">
+                                <p class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</p>
+                            </footer>
+                        </a>
+                    </div>
+                </article>
+            </li>
+        {% empty %}
+            <li>
+                <h2>No posts found - please search again.</h2>
+            </li>
         {% endfor %}
-</ul>
+    </ul>
 {% endblock %}

@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div id="main-content">
+    <section class="profile-section">
         <h2>{{ user.first_name}} {{ user.last_name }}</h2>
         <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
         <p>{{ profile.bio }}</p>
         <br>
         <h4>Account created - {{ user.date_joined }}</h4>
         <a class="" href="{% url 'edit_profile' user.username %}" id="navbarText">Edit Profile</a>
-        <br>
-        <br>
+    </section>
+
+
+       <section class="posts-section">
         <ul>
             {% for post in posts %}
             <li>
-                <div class="blog-container">
+                <article class="blog-container">
                     <div class="blog-grid">
                         <div class="card">
                             <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
@@ -28,7 +30,7 @@
                             </a>
                         </div>
                     </div>
-            </div>
+                </article>
             </li>
         {% empty %}
             <li>
@@ -36,5 +38,6 @@
             </li>
         {% endfor %}
         </ul>
-    </div>
+       </section>
+   
 {% endblock %}
