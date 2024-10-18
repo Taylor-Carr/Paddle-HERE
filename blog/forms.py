@@ -7,14 +7,16 @@ sport = [('Surfing', 'Surfing'), ('Paddle Boarding', 'Paddle Boarding'), ('Kayak
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'category', 'country', 'location','author', 'body')
+        fields = ('title', 'category', 'country', 'location', 'body', 'post_image', 'tags', 'proficiency_level')
 
         widgets = {
            'title': forms.TextInput(attrs={'class': 'add-post' }),
            'location': forms.TextInput(attrs={'class': 'add-post', 'placeholder': 'eg. Newquay, Cornwall'}),
-           'author': forms.TextInput(attrs={'class': 'add-post', 'value':'', 'id': 'userid', 'type': 'hidden' }),
            'country': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = countries,),
            'category': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = sport,),
+           'proficiency_level': forms.Select(attrs={'class': 'add-post form-control'}),
+           'tags': forms.Select(attrs={'class': 'add-post form-control'}),
+           'post_image':forms.ClearableFileInput(attrs={'class': 'add-post form-control'}),
            'body': forms.Textarea(attrs={'class': 'post-body' 'add-post' }),
         }
 

@@ -32,8 +32,6 @@ main {
   border-radius: 50%;
 }
 
-
-
 /* Buttons for Sign In / Sign Up */
 .navbar .btn-sign-up {
   background-color: #94C5CC;
@@ -61,6 +59,11 @@ main {
 .navbar .btn:hover {
   text-decoration: underline;
 }
+
+.profile-dropdown {
+  margin-right: 15px;
+}
+
 
 /* Hero Section */
 
@@ -106,6 +109,85 @@ border-radius: 12px;
   height: 20vw; 
 
 }
+
+/* Search bar */
+.search-position {
+  justify-content: center;
+}
+.search-form {
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  width: 0%; 
+}
+
+.search-input-group {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.search-input-group input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 8px 6px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+.search-input-group input:focus {
+  border-color: black;
+  outline: none;
+}
+
+#search-input {
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 10px;
+}
+
+#search-button {
+  border: none;
+  border-radius: 50%;
+  background-color: #94C5CC;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#search-button .bi-search {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.search-form-control {
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: #94C5CC;
+}
+
+.magnifying-glass {
+  font-weight: 300;
+}
+
+/* Search results template */
+.search-results {
+  list-style: none;
+}
 /* Unauthorised user templates ie sign up sign in links */
 
 .unauth-titles {
@@ -129,7 +211,7 @@ border-radius: 12px;
   color: black;
   font-size: 2em;
   letter-spacing: 3px;
-  border-bottom: 2px solid #94C5CC;
+  border-top: 2px solid #94C5CC;
   line-height: normal;
 }
 
@@ -159,10 +241,11 @@ border-radius: 12px;
 }
 
 .card {
+  overflow: hidden; 
   position: relative;
-  margin: 10px 50px 25px 50px;
-  padding: 10px;
-  flex: 1 0 200px;
+  margin: 10px auto; 
+  padding: 16px; 
+  width: 800px; 
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
@@ -365,7 +448,7 @@ border-radius: 12px;
   border-bottom-right-radius: 14px;
   border: 1px solid transparent;
   display: inline-block;
-  
+
 }
 
 .back-button {
@@ -424,7 +507,7 @@ form button[type="submit"] {
   background-color: #94C5CC; 
   color: #f5fbf9; 
   border: none;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -441,7 +524,7 @@ form textarea {
   width: 100%;
   padding: 5px; 
   margin-bottom: 10px; 
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 /* Background for form pages */

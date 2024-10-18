@@ -45,21 +45,30 @@ def search_view(request):
 
     return render(request, 'search_results.html', {'results': results, 'query':query})
 
+
+
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
-    ordering = ['-post_date']
+    
+    def get_queryset(self):
+        # Order posts by post_date in descending order
+        return Post.objects.all().order_by('-post_date')
 
 
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'blog_details.html'
-    
+    ordering = ['-post_date']
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        stuff = get_object_or_404(Post, id=self.kwargs['pk'])
-        total_likes = stuff.total_likes()
+        post = get_object_or_404(Post, id=self.kwargs['pk'])
+        total_likes = post.total_likes()
+
         context["total_likes"] = total_likes
+        context["post_image"] = post.post_image.url if post.post_image else None
+
         return context
 
 
@@ -67,7 +76,11 @@ class BlogDetailView(DetailView):
 class AddPostView(CreateView):
     model = Post
     form_class = PostForm
-    template_name = 'add_post.html' 
+    template_name = 'add_post.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class UpdatePostView(UpdateView):

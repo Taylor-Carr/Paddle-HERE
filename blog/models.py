@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
+from cloudinary.models import CloudinaryField 
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -17,15 +18,35 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+        
+    TAG_CHOICES = [
+        ('free parking', 'Free Parking'),
+        ('family_friendly', 'Family Friendly'),
+        ('no_parking', 'No Parking'),
+        ('pet_friendly', 'Pet Friendly'),
+        ('wheelchair_accessible', 'Wheelchair Accessible'),
+    ]
+
+    PROFICIENCY_CHOICES = [
+        ('beginner', 'Beginner'),
+        ('intermediate', 'Intermediate'),
+        ('advanced', 'Advanced'),
+    ]
+
     title = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=100)
     body = models.TextField(max_length=800)
+    post_image = CloudinaryField('image', blank = True, null='True')
     post_date = models.DateField(auto_now_add=True)
     country = models.CharField(max_length=100, default= 'England')
     category = models.CharField(max_length=100, default= 'Paddle Boarding')
+    proficiency_level = models.CharField(max_length=50, choices=PROFICIENCY_CHOICES, default='beginner')
+    tags = models.CharField(max_length=50, choices=TAG_CHOICES, blank=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
 
+    class Meta:
+        ordering = ['-post_date'] 
 
     def total_likes(self):
         return self.likes.count()

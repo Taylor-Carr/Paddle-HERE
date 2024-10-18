@@ -12,15 +12,26 @@
     <!-- Post Content -->
 
     <section class="post-body">
+        {% if post_image %}
+            <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" style="max-width: 100%; height: auto;">
+            <p>{{ post.body }}</p>
+        {% else %}
         <p>{{ post.body }}</p>
+        {% endif %}
     </section>
+
     
     <!-- Author Details -->
      <footer>
         <div class="post-author post-date">
             <h3>Posted by:</h3>
             <firure>
-                <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
+            {% if post.author.userprofile.profile_image %}
+                <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+            {% else %}
+                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+            {% endif %}
+               <!-- <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70"> --> 
                 <figcaption class="post-author post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</figcaption>
             </firure>
         </div>
@@ -59,7 +70,11 @@
                     <div class="card-author-content">
                         <h3 class="post-author post-date">Comment by:</h3>
                         <figure>
-                            <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
+                        {% if comment.author.userprofile.profile_image %}
+                            <img src="{{ comment.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                        {% else %}
+                            <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                        {% endif %}
                             <figcaption class="post-author post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</figcaption>
                         </figure>
                     </div>

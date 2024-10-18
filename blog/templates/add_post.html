@@ -3,7 +3,7 @@
 {% block content %}
     <div id="main-content">
         {% if user.is_authenticated %}
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Go back to the previous page"> Back </a>
             <h1 class="form-heading">Share a Spot</h1>
             {% csrf_token %}

@@ -1,16 +1,19 @@
 {% extends 'base.html' %} 
-
+{% load static %}
 {% block content %}
     <!-- Show posts for authenticated user only -->
     <div class="blog-container">
     {% if user.is_authenticated %}
-    <h1 class="blog-title">Find a spot<p class="title-circle">.</p></h1>
-
-    <form class="navbar-search d-flex mx-auto" method="GET" action="{% url 'search' %}">
-        <input class="form-control search-input" type="text" name="q" placeholder="Search by location, country, or category">
-        <button class="btn btn-primary search-btn ms-2" type="submit">Search</button>
-        </form>
-
+    <form class="d-flex w-100 search-form" method="get" action="{% url 'search' %}">
+        <div class="search-input-group">
+          <input class="search-form-control" type="search" placeholder="Search by location, country, or category" aria-label="Search" name="q" id="search-input">
+          <button class="btn" type="submit" id="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+    </form>
+    <h1 class="blog-title">Most recent spots<span class="title-circle">.</span></h1>
+    
         {% for post in object_list %}
             <article class="blog-grid">
                 <div class="card">
@@ -18,10 +21,23 @@
                         <div class="post-title">{{ post.title }}</div>
                         <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
                         <div class="post-body">
+                            {% if post.post_image %}
+                            <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" style="max-width: 100%; height: auto;">
+                            {% else %}
+                                <p>No image available for this post.</p>
+                            {% endif %}
                             <p>{{ post.body | slice:":350" }}...</p>
                         </div>
                         <div class="card-author-content">
-                            <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
+                            <h3>Posted by:</h3>
+                            <figure>
+                            {% if post.author.userprofile.profile_image %}
+                                <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                            {% else %}
+                                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                            {% endif %}
+                                <figcaption class="post-author post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</figcaption>
+                            </figure>
                         </div>
                     </a>
                 </div>
@@ -49,11 +65,25 @@
                     <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
                         <div class="post-title">{{ post.title }}</div>
                         <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                        <div class="post-body">
-                            <p>{{ post.body | slice:":350" }}....</p>
-                        </div>
+                            <section class="post-body">
+                                {% if post.post_image %}
+                                    <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" style="max-width: 100%; height: auto;">
+                                    <p>{{ post.body | slice:":350" }}....</p>
+                                {% else %}
+                                <p>{{ post.body | slice:":350" }}....</p>
+                                {% endif %}
+                            </section>
                         <footer class="card-author-content">
-                            <h3 class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</h3>
+                            <h3>Posted by:</h3>
+                            <firure>
+                                {% if post.author.userprofile.profile_image %}
+                                <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                            {% else %}
+                                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                            {% endif %}
+                               <!-- <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70"> -->  <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
+                                <figcaption class="post-author post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</figcaption>
+                            </firure>
                         </footer>
                     </a>
                 </div>

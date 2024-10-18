@@ -16,8 +16,9 @@ class SignUpForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio', 'profile_image']
+        fields = ['bio', 'profile_image', 'proficiency',]
         widgets = {
             'bio': forms.Textarea(attrs={'class': 'form-control'}),
-            'profile_image': forms.FileInput(attrs={'class': 'form-control'})
+            'profile_image': forms.FileInput(attrs={'class': 'form-control'}),
+            'proficiency': forms.Select(attrs={'class': 'form-control'}),
         }
