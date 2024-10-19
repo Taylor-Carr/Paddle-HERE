@@ -143,7 +143,6 @@ border-radius: 12px;
   border-radius: 20px;
   outline: none;
   box-shadow: none;
-  -webkit-appearance: none;
 }
 
 .search-input-group input:focus {
@@ -211,8 +210,8 @@ border-radius: 12px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: black;
-  font-size: 2em;
-  letter-spacing: 3px;
+  font-size: 1.8em;
+  letter-spacing: 1px;
   border-top: 2px solid #94C5CC;
   line-height: normal;
 }
@@ -245,7 +244,7 @@ border-radius: 12px;
 .card {
   overflow: hidden; 
   position: relative;
-  margin: 10px auto; 
+  margin: 20px auto; 
   padding: 16px; 
   width: 800px; 
   background-color: white;
@@ -258,28 +257,58 @@ border-radius: 12px;
   text-decoration: none !important;
 }
 
+.post-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card-author-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-left: 16px;
+}
+
+.author-figure {
+  margin: 0;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
 .post-title {
+  text-align: left;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
   font-size: 1.1vw;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color:black;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   padding-bottom: 5px;
-  margin-left: 20px;
 }
 
 .post-body {
   max-width: 100%;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  text-align: center;
   color:black;
   border-radius: 5px;
   margin: 15px;
   padding: 1rem;
 
+}
+
+.post-caption {
+  color:black;
+  margin: 15px;
+  padding-left: 16px;
 }
 
 .post-location {
@@ -288,17 +317,17 @@ border-radius: 12px;
   font-weight: bold;
   font-weight: 700;
   color: black;
-  padding-top: 0.3rem;
-  margin-left: 20px;
+  padding-top: 1rem;
+  margin-left: 15px;
+  padding-left: 16px;
 }
 
-.post-author {
+.post-author a {
   font-family: 'Montserrat', sans-serif;
   font-size: 1vw;
   font-weight: bold;
-  color: #7f7f7f;
-  padding-left: 0.5rem;
-  margin-left: 20px;  
+  color: #94C5CC;
+  text-decoration: none;  
 }
 
 .post-date {
@@ -306,18 +335,11 @@ border-radius: 12px;
   font-size: 0.9vw;
   font-weight: bold;
   color:#7f7f7f;
-  padding-left: 0.5rem;
   padding-bottom: 0.5rem;
-  margin-left: 20px;
 }
 
 /* Edit and delete post links */
 
-.card-author-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .edit-delete-container {
   display:flex;
