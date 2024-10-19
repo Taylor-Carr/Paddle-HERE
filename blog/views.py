@@ -52,7 +52,7 @@ class HomeView(ListView):
     template_name = 'home.html'
     
     def get_queryset(self):
-        # Order posts by post_date in descending order
+
         return Post.objects.all().order_by('-post_date')
 
 
