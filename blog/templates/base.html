@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!--Bootstrap--->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
@@ -30,20 +30,25 @@
 <body class="d-flex flex-column h-100 main-bg">
 
 <!-- Nav Bar -->
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <!-- Home Button -->
-    <a class="nav-bar brand" href="{% url 'home' %}"><img src="/static/images/pd logo.jpg" aria-label="Company Logo" height="60"></a>
+    <a class="nav-bar brand" href="{% url 'home' %}">
+      <img src="/static/images/pd logo.jpg" aria-label="Company Logo" height="60">
+    </a>
 
-    <!-- Profile Picture Dropdown -->
-    {% if user.is_authenticated %}
-
+    <!-- Profile Picture Dropdown (Mobile) -->
+    {% if request.user.is_authenticated %}
     <div class="dropdown profile-dropdown d-lg-none"> 
       <a class="dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-       <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="40" height="40">
+        {% if request.user.userprofile.profile_image %}
+          <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle" width="50" height="50">
+        {% else %}
+          <img src="/static/images/default profile pic.jpg" alt="Default profile picture" class="rounded-circle" width="70" height="70">
+        {% endif %}
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-        <li><a class="dropdown-item" href="{% url 'profile' user.username %}">Profile</a></li>
+        <li><a class="dropdown-item" href="{% url 'profile' request.user.username %}">Profile</a></li>
         <li><a class="dropdown-item" href="{% url 'add_post' %}">Share a Spot</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
@@ -51,19 +56,21 @@
     </div>
     {% endif %}
 
-
-    <!-- Navbar Links  -->
+    <!-- Navbar Links (Desktop) -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        {% if user.is_authenticated %}
+        {% if request.user.is_authenticated %}
         <!-- Logged-In User Profile Dropdown -->
         <li class="nav-item dropdown d-none d-lg-block"> 
-          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="40" height="40">
+          <a class="dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {% if request.user.userprofile.profile_image %}
+              <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle" width="50" height="50">
+            {% else %}
+              <img src="/static/images/default profile pic.jpg" alt="Default profile picture" class="rounded-circle" width="70" height="70">
+            {% endif %}
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{% url 'profile' user.username %}">Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'profile' request.user.username %}">Profile</a></li>
             <li><a class="dropdown-item" href="{% url 'add_post' %}">Share a Spot</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>

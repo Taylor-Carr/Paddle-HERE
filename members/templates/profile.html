@@ -2,12 +2,14 @@
 
 {% block content %}
     <section class="profile-section">
-        <h2>{{ user.first_name}} {{ user.last_name }}</h2>
-        <img src="{{ profile.profile_image.url }}" alt="{{ user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
+        <h2>{{ profile.user.first_name}} {{ profile.user.last_name }}</h2>
+        <img src="{{ profile.profile_image.url }}" alt="{{ profile.user.username }}'s profile picture" class="rounded-circle" alt="User Profile" width="70" height="70">
         <p>{{ profile.bio }}</p>
         <br>
-        <h4>Account created - {{ user.date_joined }}</h4>
-        <a class="" href="{% url 'edit_profile' user.username %}" id="navbarText">Edit Profile</a>
+        <h4>Account created - {{ profile.user.date_joined }}</h4>
+        {% if request.user == profile.user %}
+        <a href="{% url 'edit_profile' user.username %}" id="navbarText">Edit Profile</a>
+        {% endif %}
     </section>
 
 

@@ -34,7 +34,7 @@ def edit_profile(request, username):
     return render(request, 'edit_profile.html', {'form': form, 'profile': profile})
 
 def profile_view(request, username):
-    user =get_object_or_404(User, username=username)
+    user = get_object_or_404(User, username=username)
     profile = get_object_or_404(UserProfile, user=user)
     posts = Post.objects.filter(author=user)
     context = {

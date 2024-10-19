@@ -15,11 +15,12 @@ main {
   flex: 1;
 }
 
+.container-fluid {
+  max-width: 1200px;
+}
 .navbar {
   background-color: #94C5CC;
-  padding: 0.5rem;
 }
-
 
 .navbar-nav {
   justify-content: flex-end;
@@ -28,10 +29,14 @@ main {
 
 /* Profile Picture */
 .navbar-nav .nav-link img {
-  border: 2px solid #F5FBF9;
+  border: 5px solid #F5FBF9;
   border-radius: 50%;
 }
 
+.dropdown-toggle {
+  color: white;
+  font-size: 1.2rem;
+}
 /* Buttons for Sign In / Sign Up */
 .navbar .btn-sign-up {
   background-color: #94C5CC;
@@ -40,7 +45,7 @@ main {
   border-color: #f9f9f9;
   color: #f9f9f9;
   margin-left: 10px;
-  padding: 5px 20px 5px 20px;
+  padding: 0px 20px 0px 20px;
   text-decoration: none;
   font-weight: 500;
 }
@@ -63,7 +68,6 @@ main {
 .profile-dropdown {
   margin-right: 15px;
 }
-
 
 /* Hero Section */
 
@@ -112,7 +116,7 @@ border-radius: 12px;
 
 /* Search bar */
 .search-position {
-  justify-content: center;
+  justify-content: left;
 }
 .search-form {
   background: transparent;
@@ -154,9 +158,9 @@ border-radius: 12px;
 }
 
 #search-button {
+  background-color: #94C5CC;
   border: none;
   border-radius: 50%;
-  background-color: #94C5CC;
   height: 2rem;
   width: 2rem;
   padding: 0;
@@ -170,19 +174,17 @@ border-radius: 12px;
 }
 
 #search-button .bi-search {
-  font-size: 1rem;
-  color: #fff;
+  font-size: 10px;
+  font-weight: 400;
+  color: white;
 }
 
 .search-form-control {
   border-radius: 20px;
   box-sizing: border-box;
-  color: #94C5CC;
 }
 
-.magnifying-glass {
-  font-weight: 300;
-}
+
 
 /* Search results template */
 .search-results {
