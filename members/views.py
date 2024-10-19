@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import UserProfile
 from blog.models import Post
+from django.contrib import messages
 
 
 class UserRegisterView(generic.CreateView):
@@ -32,6 +33,19 @@ def edit_profile(request, username):
         form = UserProfileForm(instance=request.user.userprofile)
 
     return render(request, 'edit_profile.html', {'form': form, 'profile': profile})
+
+@login_required 
+def delete_profile(request, username):
+    user = get_object_or_404(User, username = username)
+    user_profile = get_object_or_404(UserProfile, user=user)
+
+    if request.method == 'POST':
+        user_profile.delete()
+        user.delete()
+        messages.success(request, 'Your profile has been deleted.')
+        return redirect('home')
+    return render(request, 'delete_profile.html', {'user': user})
+
 
 def profile_view(request, username):
     user = get_object_or_404(User, username=username)
