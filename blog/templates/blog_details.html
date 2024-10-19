@@ -36,27 +36,28 @@
                 <p>No image available for this post.</p>
             {% endif %}
         </div>
-    </section>
-
- 
-    <!--- Post Actions -->
+            <!--- Post Actions -->
     <div class="edit-delete-container">
         <div id="like-form">    
             <form action="{% url 'like_post' post.pk %}" method="POST">
-                    {% csrf_token %}
-                    {% if user.is_authenticated %}
-                     <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like blog post button">Like</button>
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                <div id="like-button">
+                    <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like blog post button">Like</button>
                     {% endif %}
                     <p>{{ total_likes }} likes</p>
+                </div>
             </form>
         </div>
         <div class="edit-delete-container">
-            {% if user.is_authenticated and user.id == post.author.id %}
+          {% if user.is_authenticated and user.id == post.author.id %}
             <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post" aria-label="delete blog post"> Delete </a>
             <a href="{% url 'update_post' post.pk %}" class="edit-delete-post" aria-label="edit blog post"> Edit </a>
-        {% endif %}
+          {% endif %}
         </div>
     </div>
+    </section>
+
 
     <!-- Comments Sections -->
     {% if user.is_authenticated %}
