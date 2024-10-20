@@ -13,6 +13,7 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=250, blank=True)
     proficiency = models.CharField(max_length=20, choices=USER_PROFICIENCY_CHOICES, blank=True)
     profile_image = CloudinaryField('image', blank = True, null='True')
+    banner_image = CloudinaryField('image', blank = True, null='True')
 
     def __str__(self):
         return self.user.username

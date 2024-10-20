@@ -69,6 +69,9 @@ main {
   margin-right: 15px;
 }
 
+.rounded-circle {
+  border: 1px solid #fff;
+}
 /* Hero Section */
 
 .hero {
@@ -239,18 +242,6 @@ border-radius: 12px;
   background-repeat: no-repeat; 
 }
 
-.recents-title {
-  text-align: center;
-  align-items: center; 
-  justify-content: center; 
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: black;
-  font-size: 1.8em;
-  letter-spacing: 1px;
-  line-height: normal;
-  z-index: 10;
-}
 
 /* Unauthorised user templates ie sign up sign in links */
 
@@ -548,6 +539,113 @@ border-radius: 12px;
   border: 1px solid transparent;
   display: inline-block;
 }
+
+/* Profile Section */
+
+.profile-section {
+  max-width: 800px;
+  margin: 15px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  background-color: #f0f0f0;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px 0px 10px;
+  background-color: #fff;
+  margin: 0px 10px 0 10px;
+}
+.profile-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.proficiency {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  padding: 5px 8px 5px 8px;
+  background-color: #94C5CC;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.profile-bio {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  margin-top: 10px;
+  color: #333;
+}
+
+.joined-date {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: end;
+  font-size: 0.9em;
+  margin-top: 10px;
+  color: lightgray;
+}
+
+.profile-actions {
+  margin-top: 5px;
+  display: flex;
+  justify-content: end;
+  color: #94C5CC;
+}
+
+.profile-edit {
+  margin-top: 5px;
+  color: #94C5CC;
+}
+
+.profile-delete {
+  margin-top: 5px;
+  margin-left: 15px;
+  color: #94C5CC;
+}
+/*profile posts section */
+
+.profile-post-list {
+  list-style: none;
+}
+
+.recents-title {
+  text-align: center;
+  align-items: center; 
+  justify-content: center; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: black;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  line-height: normal;
+  z-index: 10;
+}
+
 
 /* Forms login, signup, share, delete */
 
