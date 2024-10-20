@@ -21,6 +21,15 @@
     </div>
     
     <h1 class="recents-title">Most recent spots<span class="title-circle">.</span></h1>
+
+    <div class="category-links">
+        <div class="category-list">
+            {% for category in categories %}
+            <a href="{% url 'category_detail' category %}" class="category-links">{{ category }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
         {% for post in object_list %}
             <article class="blog-grid">
                 <div class="card">

@@ -46,6 +46,31 @@ def search_view(request):
     return render(request, 'search_results.html', {'results': results, 'query':query})
 
 
+def post_list(requets):
+    categories = Category.objects.all()
+    selected_category = request.GET.get('category')
+    posts = Post.objects.all()
+
+    if selected_category:
+        posts = posts.filter(category__name=selected_category)
+
+    context = {
+        'posts' : posts,
+        'categories' : categories,
+        'selected_category' : selected_category
+    } 
+    return render(request, 'home.html', context)
+
+
+def category_view(request, category_name):
+    posts = Post.objects.filter(category=category_name).order_by('-post_date')
+    categories = Post.objects.values_list('category', flat=True).distinct()
+    return render(request, 'category_detail.html', {
+        'posts': posts, 
+        'categories': categories, 
+        'category': category_name
+    })
+
 
 class HomeView(ListView):
     model = Post
@@ -54,6 +79,14 @@ class HomeView(ListView):
     def get_queryset(self):
 
         return Post.objects.all().order_by('-post_date')
+
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Post.objects.values_list('category', flat=True).distinct()
+
+        return context
 
 
 class BlogDetailView(DetailView):

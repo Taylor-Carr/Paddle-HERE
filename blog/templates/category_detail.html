@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="home-image-container">
+    <img src="{% static '/images/homebackground.png'%}" class="home-background-image">
+    <h1 class="home-title">Find and share locations from around the UK.</h1>
+<!-- Search Bar -->
+    <form class="d-flex w-100 search-form" method="get" action="{% url 'search' %}">
+        <div class="search-input-group">
+            <input class="search-form-control" type="search" placeholder="Search by location, country, or sport" aria-label="Search" name="q" id="search-input">
+            <button type="submit" id="search-button">
+                <i class="fa-solid fa-magnifying-glass" id="search-button"></i>
+            </button>
+        </div>
+    </form>
+</div>
+<h1 class="blog-title">All Posts in {{ category }}<div class="title-circle">.</div></h1>
+<div class="blog-container">
+    {% for post in posts %}
+    <article class="blog-grid">
+        <div class="card">
+            <div class="card-author-content">
+                <figure class="author-figure">
+                {% if post.author.userprofile.profile_image %}
+                    <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                {% else %}
+                    <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                {% endif %}
+                </figure>
+                <div class="author-info">
+                    <figcaption class="post-author">
+                        <a href="{% url 'profile' post.author.username %}">
+                            {{ post.author.first_name }} {{ post.author.last_name }} 
+                        </a>
+                    </figcaption>
+                    <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                </div>
+            </div>
+            <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                <p class="post-caption">{{ post.body | slice:":350" }}...</p>
+                <div class="post-body">
+                    {% if post.post_image %}
+                    <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
+                    {% else %}
+                        <p>No image for this post.</p>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+    </article>
+{% endfor %}
+</div> 
+
+{% endblock %}
