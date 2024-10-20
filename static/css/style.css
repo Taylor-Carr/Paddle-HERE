@@ -37,6 +37,7 @@ main {
   color: white;
   font-size: 1.2rem;
 }
+
 /* Buttons for Sign In / Sign Up */
 .navbar .btn-sign-up {
   background-color: #94C5CC;
@@ -70,8 +71,9 @@ main {
 }
 
 .rounded-circle {
-  border: 1px solid #fff;
+  border: 1px solid #FBFDF3;
 }
+
 /* Hero Section */
 
 .hero {
@@ -220,6 +222,25 @@ border-radius: 12px;
   color: #94C5CC;
   display:inline;
   z-index: 10;
+}
+/* Category links */
+
+.category-links {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 15px;
+  color: #94C5CC;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.category-links:hover {
+  color: #333;
+}
+
+.category-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* home image */
@@ -439,6 +460,7 @@ border-radius: 12px;
   font-size: 1.5vh;
   margin-right: 10px;
   padding: 3px 8px;
+  text-overflow: ellipsis;
   
 }
 
@@ -446,7 +468,7 @@ border-radius: 12px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8em;
   margin: 0;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 /* Comment Section */
