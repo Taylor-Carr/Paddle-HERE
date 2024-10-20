@@ -124,6 +124,11 @@ border-radius: 12px;
   border: none;
   box-shadow: none;
   width: 0%; 
+  z-index: 10; 
+  position: absolute;      
+  top: 30%;             
+  left: 50%;               
+  transform: translateX(-50%); 
 }
 
 .search-input-group {
@@ -183,12 +188,70 @@ border-radius: 12px;
   box-sizing: border-box;
 }
 
-
-
-/* Search results template */
 .search-results {
   list-style: none;
 }
+
+/* home title */
+
+.home-title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: black;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  line-height: normal;
+  z-index: 10;
+}
+
+.title-circle {
+  margin-left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4em;
+  color: #94C5CC;
+  display:inline;
+  z-index: 10;
+}
+
+/* home image */
+
+.home-image-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden; 
+}
+
+.home-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  width: 100%;
+  height: 100vh; 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+.recents-title {
+  text-align: center;
+  align-items: center; 
+  justify-content: center; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: black;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  line-height: normal;
+  z-index: 10;
+}
+
 /* Unauthorised user templates ie sign up sign in links */
 
 .unauth-titles {
@@ -213,18 +276,9 @@ border-radius: 12px;
   font-size: 1.8em;
   letter-spacing: 1px;
   border-top: 2px solid #94C5CC;
-  line-height: normal;
 }
 
-.title-circle {
-  margin-left: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4em;
-  color: #94C5CC;
-  display:inline;
-}
+
 /*blog post home and details page*/
 
 .blog-container {
@@ -655,7 +709,7 @@ footer {
     flex-wrap: wrap; 
     justify-content: center; 
     gap: 1.5rem;
-    background-color: #f9f9f9;
+    background-color: #FBFDF3;
   }
   
   .card {
@@ -682,7 +736,7 @@ footer {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.6vw;
     font-weight: bold;
-    color: #7f7f7f;
+    color: #94C5CC;
     padding-left: 0rem;
   }
   
@@ -804,7 +858,7 @@ footer {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.4vw;
   font-weight: bold;
-  color: #7f7f7f;
+  color: #94C5CC;
   padding-left: 0rem;
 }
 
