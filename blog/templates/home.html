@@ -1,15 +1,14 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% block content %}
-    <!-- Show posts for authenticated user only -->
-     
-    <div class="blog-container">
-    {% if user.is_authenticated %}
 
+<!-- Show posts for authenticated user only -->     
+<div class="blog-container">
+{% if user.is_authenticated %}
     <div class="home-image-container">
         <img src="{% static '/images/homebackground.png'%}" class="home-background-image">
-        <h1 class="home-title">Find and share locations from around the UK.</h1>
-    <!-- Search Bar -->
+        <h1 class="home-title">Find and share paddleboarding, surfing, and kayaking spots across the UK.</h1>
+<!-- Search Bar and Share button -->
         <form class="d-flex w-100 search-form" method="get" action="{% url 'search' %}">
             <div class="search-input-group">
                 <input class="search-form-control" type="search" placeholder="Search by location, country, or sport" aria-label="Search" name="q" id="search-input">
@@ -17,104 +16,108 @@
                     <i class="fa-solid fa-magnifying-glass" id="search-button"></i>
                 </button>
             </div>
+            <div class="home-button-container">
+                <a class="btn home-share-button" href="{% url 'add_post' %}">Share a Spot</a>
+            </div>
         </form>
     </div>
-    
+<!-- Category Section-->
+<section>
     <h1 class="recents-title">Most recent spots<span class="title-circle">.</span></h1>
-
     <div class="category-links">
         <div class="category-list">
             {% for category in categories %}
-            <a href="{% url 'category_detail' category %}" class="category-links">{{ category }}</a>
+                <a href="{% url 'category_detail' category.name %}" class="category-links">{{ category.name }}</a>
             {% endfor %}
         </div>
     </div>
-
-        {% for post in object_list %}
-            <article class="blog-grid">
-                <div class="card">
-                    <div class="card-author-content">
-                        <figure class="author-figure">
-                        {% if post.author.userprofile.profile_image %}
-                            <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
-                        {% else %}
-                            <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
-                        {% endif %}
-                        </figure>
-                        <div class="author-info">
-                            <figcaption class="post-author">
-                                <a href="{% url 'profile' post.author.username %}">
-                                    {{ post.author.first_name }} {{ post.author.last_name }} 
-                                </a>
-                            </figcaption>
-                            <figcaption class="post-date">{{ post.post_date }}</figcaption>
-                        </div>
-                    </div>
-                    <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
-                        <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                        <p class="post-caption">{{ post.body | slice:":350" }}...</p>
-                        <div class="post-body">
-                            {% if post.post_image %}
-                            <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
-                            {% else %}
-                                <p>No image for this post.</p>
-                            {% endif %}
-                        </div>
-                    </a>
-                </div>
-            </article>
-        {% endfor %}
-    </div> 
-
-    <!-- Closing container for authenticated user posts -->
-    {% else %}
-    <!-- Hero Section -->
-            <div class="hero">
-                <div class="hero-container">
-                    <div class="hero-media-query">
-                        <h2>PaddleHere - a place to share and find new water sport locations in and around the UK.</h2>
-                        <p>Sign up or login to find a spot or share a spot.</p>
-                    </div>
+</section>
+<!--Blog Posts for auth users -->
+{% for post in object_list %}
+    <article class="blog-grid">
+        <div class="card">
+            <div class="card-author-content">
+                <figure class="author-figure">
+                {% if post.author.userprofile.profile_image %}
+                    <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                {% else %}
+                    <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                {% endif %}
+                </figure>
+                <div class="author-info">
+                    <figcaption class="post-author">
+                        <a href="{% url 'profile' post.author.username %}">
+                            {{ post.author.first_name }} {{ post.author.last_name }} 
+                        </a>
+                    </figcaption>
+                    <figcaption class="post-date">{{ post.post_date }}</figcaption>
                 </div>
             </div>
-    <!-- Container for blog posts -->
-    <div class="blog-container">
-        <h1 class="blog-title">Recently Shared Spots<div class="title-circle">.</div></h1>
-        <!-- Loop through all posts -->
-        {% for post in object_list %}
-        <article class="blog-grid">
-            <div class="card">
-                <div class="card-author-content">
-                    <figure class="author-figure">
-                    {% if post.author.userprofile.profile_image %}
-                        <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+            <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                <p class="post-caption">{{ post.body | slice:":350" }}...</p>
+                <div class="post-body">
+                    {% if post.post_image %}
+                    <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
                     {% else %}
-                        <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                        <p>No image for this post.</p>
                     {% endif %}
-                    </figure>
-                    <div class="author-info">
-                        <figcaption class="post-author">
-                            <a href="{% url 'profile' post.author.username %}">
-                                {{ post.author.first_name }} {{ post.author.last_name }} 
-                            </a>
-                        </figcaption>
-                        <figcaption class="post-date">{{ post.post_date }}</figcaption>
-                    </div>
                 </div>
-                <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
-                    <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-                    <p class="post-caption">{{ post.body | slice:":350" }}...</p>
-                    <div class="post-body">
-                        {% if post.post_image %}
-                        <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
-                        {% else %}
-                            <p>No image available for this post.</p>
-                        {% endif %}
-                    </div>
-                </a>
+            </a>
+        </div>
+    </article>
+{% endfor %}
+</div> 
+<!-- Closing container for authenticated user posts -->
+{% else %}
+<!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-container">
+                <div class="hero-media-query">
+                    <h2>PaddleHere - a place to share and find new water sport locations in and around the UK.</h2>
+                    <p>Sign up or login to find a spot or share a spot.</p>
+                </div>
             </div>
-        </article>
-    </div>
-        {% endfor %}
-    {% endif %}
+        </div>
+<!-- Container for blog posts -->
+<div class="blog-container">
+    <h1 class="blog-title">Recently Shared Spots<div class="title-circle">.</div></h1>
+    <!-- Loop through all posts -->
+    {% for post in object_list %}
+    <article class="blog-grid">
+        <div class="card">
+            <div class="card-author-content">
+                <figure class="author-figure">
+                {% if post.author.userprofile.profile_image %}
+                    <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                {% else %}
+                    <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                {% endif %}
+                </figure>
+                <div class="author-info">
+                    <figcaption class="post-author">
+                        <a href="{% url 'profile' post.author.username %}">
+                            {{ post.author.first_name }} {{ post.author.last_name }} 
+                        </a>
+                    </figcaption>
+                    <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                </div>
+            </div>
+            <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                <p class="post-caption">{{ post.body | slice:":350" }}...</p>
+                <div class="post-body">
+                    {% if post.post_image %}
+                    <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
+                    {% else %}
+                        <p>No image available for this post.</p>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+    </article>
+</div>
+{% endfor %}
+{% endif %}
+
 {% endblock %}

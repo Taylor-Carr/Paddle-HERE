@@ -46,8 +46,9 @@ def search_view(request):
     return render(request, 'search_results.html', {'results': results, 'query':query})
 
 
-def post_list(requets):
-    categories = Category.objects.all()
+def post_list(request):
+
+    fixed_categories = Category.objects.all()
     selected_category = request.GET.get('category')
     posts = Post.objects.all()
 
@@ -55,38 +56,40 @@ def post_list(requets):
         posts = posts.filter(category__name=selected_category)
 
     context = {
-        'posts' : posts,
-        'categories' : categories,
-        'selected_category' : selected_category
-    } 
+        'posts': posts,
+        'fixed_categories': fixed_categories,  
+        'selected_category': selected_category,
+    }
+    
     return render(request, 'home.html', context)
 
-
 def category_view(request, category_name):
-    posts = Post.objects.filter(category=category_name).order_by('-post_date')
-    categories = Post.objects.values_list('category', flat=True).distinct()
+    posts = Post.objects.filter(category=category_name).order_by('-post_date') 
+    categories = Category.objects.all() 
     return render(request, 'category_detail.html', {
         'posts': posts, 
         'categories': categories, 
         'category': category_name
     })
 
-
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
     
-    def get_queryset(self):
-
-        return Post.objects.all().order_by('-post_date')
-
-
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = Post.objects.values_list('category', flat=True).distinct()
-
+        context['categories'] = Category.objects.all() 
         return context
+    
+def get_queryset(self):
+    return Post.objects.all().order_by('-post_date')
+
+def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    
+    context['fixed_categories'] = ['Kayaking', 'Paddle Boarding', 'Surfing']
+
+    return context
 
 
 class BlogDetailView(DetailView):
@@ -119,7 +122,7 @@ class AddPostView(CreateView):
 class UpdatePostView(UpdateView):
     model = Post
     template_name = 'update_post.html'
-    fields = ['title', 'location', 'body' ]
+    fields = ['title', 'location', 'country', 'category', 'proficiency_level', 'tags','body','post_image',]
 
 
 class DeletePostView(DeleteView):

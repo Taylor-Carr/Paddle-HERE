@@ -35,9 +35,9 @@ class Post(models.Model):
 
     title = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    location = models.CharField(max_length=100)
+    location = models.CharField(max_length=150)
     body = models.TextField(max_length=800)
-    post_image = CloudinaryField('image', blank = True, null='True')
+    post_image = CloudinaryField('image', blank = True, null=True)
     post_date = models.DateField(auto_now_add=True)
     country = models.CharField(max_length=100, default= 'England')
     category = models.CharField(max_length=100, default= 'Paddle Boarding')
