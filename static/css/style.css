@@ -295,6 +295,26 @@ border-radius: 12px;
   list-style: none;
 }
 
+.unauth-home-title {
+  margin-top: 10px;
+  text-align: center;
+  align-items: center; 
+  justify-content: center; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: black;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  border-top: 2px solid #94C5CC;
+}
+
+.unauth-post-author {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: #94C5CC;
+  text-decoration: none;  
+}
 /* Category links */
 
 .category-links {
@@ -1275,6 +1295,20 @@ footer {
     align-items: center;
   }
 
+  .unauth-home-title {
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center; 
+    justify-content: center; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+    border-top: 2px solid #94C5CC;
+  }
+
   /* Search Reasults*/
 
   .search-results {
@@ -1314,6 +1348,20 @@ footer {
     justify-content: right;
     align-items: center;
   }
+
+  .unauth-home-title {
+    margin-top: 10px;
+    text-align: center;
+    align-items: center; 
+    justify-content: center; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    border-top: 2px solid #94C5CC;
+  }
+  
 }
 
 @media (min-width: 768px) and (max-width: 990px) {
@@ -1326,6 +1374,19 @@ footer {
   }
   .profile-section {
     margin: 15px;
+  }
+
+  .unauth-home-title {
+    margin-top: 10px;
+    text-align: center;
+    align-items: center; 
+    justify-content: center; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    border-top: 2px solid #94C5CC;
   }
 }
 
