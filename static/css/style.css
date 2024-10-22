@@ -75,6 +75,30 @@ main {
   border: 1px solid #FBFDF3;
 }
 
+/* Alerts / messages */
+
+.alert-container {
+  margin-bottom: 20px;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px
+}
+
+.success {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid black;
+}
+
+.error {
+  background-color: #f0f0f0;
+  color: red;
+  border: 1px solid black;
+}
+
 /* Hero Section */
 
 .hero {

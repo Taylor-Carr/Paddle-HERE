@@ -14,12 +14,21 @@ class SignUpForm(UserCreationForm):
 
 
 class UserProfileForm(forms.ModelForm):
+    delete_profile_image = forms.BooleanField(required=False, label='Delete Profile Picture', widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+    delete_banner_image = forms.BooleanField(required=False, label='Delete Profile Banner', widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+
     class Meta:
         model = UserProfile
-        fields = ['bio', 'profile_image', 'banner_image', 'proficiency',]
+        fields = ['proficiency', 'bio', 'profile_image', 'delete_profile_image','banner_image', 'delete_banner_image']
         widgets = {
-            'bio': forms.Textarea(attrs={'class': 'form-control'}),
-            'profile_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'banner_image': forms.FileInput(attrs={'class': 'form-control'}),
+            'bio': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Describe your paddling journey:', 'rows': 4}),
+            'profile_image': forms.FileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),
+            'banner_image': forms.FileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),
             'proficiency': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+        labels = {
+            'profile_image': 'Upload Profile Picture',
+            'banner_image': 'Upload Profile Banner',
+            'bio': 'Update your bio:',
         }
