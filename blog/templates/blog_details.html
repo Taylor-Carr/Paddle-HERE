@@ -12,116 +12,121 @@
         </div>
     </form>
 </section>
-<article class="card">
-    <!-- Post Header -->
-     <header>
-        <div class="card-author-content">
-            <figure class="author-figure">
-            {% if post.author.userprofile.profile_image %}
-                <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
-            {% else %}
-                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
-            {% endif %}
-            </figure>
-            <div class="author-info">
-                <figcaption class="post-author">
-                    <a href="{% url 'profile' post.author.username %}">
-                        {{ post.author.first_name }} {{ post.author.last_name }} 
-                    </a>
-                </figcaption>
-                <figcaption class="post-date">{{ post.post_date }}</figcaption>
+<div class="blog-container">
+    <section class="blog-grid">
+    <article class="card">
+        <!-- Post Header -->
+         <header>
+            <div class="card-author-content">
+                <figure class="author-figure">
+                {% if post.author.userprofile.profile_image %}
+                    <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                {% else %}
+                    <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                {% endif %}
+                </figure>
+                <div class="author-info">
+                    <figcaption class="post-author">
+                        <a href="{% url 'profile' post.author.username %}">
+                            {{ post.author.first_name }} {{ post.author.last_name }} 
+                        </a>
+                    </figcaption>
+                    <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content -->
+        <section class="post-body">
+            <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+            <p class="post-caption">{{ post.body | slice:":350" }}...</p>
+            <div class="post-body">
+                {% if post.post_image %}
+                <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
+                {% else %}
+                    <p>No image for this post.</p>
+                {% endif %}
+            </div>
+                <!--- Post Actions -->
+        <div class="edit-delete-container">
+            <div id="like-form">    
+                <form action="{% url 'like_post' post.pk %}" method="POST">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+                    <div id="like-button">
+                        <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like blog post button">Like</button>
+                        {% endif %}
+                        <p>{{ total_likes }} likes</p>
+                    </div>
+                </form>
+            </div>
+            <div class="edit-delete-container">
+              {% if user.is_authenticated and user.id == post.author.id %}
+                <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post" aria-label="delete blog post"> Delete </a>
+                <a href="{% url 'update_post' post.pk %}" class="edit-delete-post" aria-label="edit blog post"> Edit </a>
+              {% endif %}
             </div>
         </div>
-    </header>
-    <!-- Post Content -->
-    <section class="post-body">
-        <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
-        <p class="post-caption">{{ post.body | slice:":350" }}...</p>
-        <div class="post-body">
-            {% if post.post_image %}
-            <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
-            {% else %}
-                <p>No image for this post.</p>
-            {% endif %}
-        </div>
-            <!--- Post Actions -->
-    <div class="edit-delete-container">
-        <div id="like-form">    
-            <form action="{% url 'like_post' post.pk %}" method="POST">
-                {% csrf_token %}
-                {% if user.is_authenticated %}
-                <div id="like-button">
-                    <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like blog post button">Like</button>
-                    {% endif %}
-                    <p>{{ total_likes }} likes</p>
-                </div>
-            </form>
-        </div>
-        <div class="edit-delete-container">
-          {% if user.is_authenticated and user.id == post.author.id %}
-            <a href="{% url 'delete_post' post.pk %}" class="edit-delete-post" aria-label="delete blog post"> Delete </a>
-            <a href="{% url 'update_post' post.pk %}" class="edit-delete-post" aria-label="edit blog post"> Edit </a>
-          {% endif %}
-        </div>
-    </div>
-    </section>
-<!-- Comments Sections -->
-{% if user.is_authenticated %}
-{% if post.comments.all %}
-    <section>
-        <h2 class="comments-title">Comments</h2>
-        {% for comment in post.comments.all %}
-            <article class="comment">
-                <header>
-                    <div class="card-author-content">
-                        <figure class="author-figure">
-                        {% if comment.author.userprofile.profile_image %}
-                            <img src="{{ comment.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="50" height="50">
-                        {% else %}
-                            <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="50" height="50">
-                        {% endif %}
-                        </figure>
-                        <div class="author-info">
-                            <figcaption class="post-author"><a href="{% url 'profile' post.author.username %}">
-                                {{ post.author.first_name }} {{ post.author.last_name }} 
-                            </a>
-                            </figcaption> 
-                            <figcaption class="post-date">{{ post.post_date }}</figcaption>
-                        </div>
-                    </div>
-                </header>
-                <div class="comment-body">
-                    <p>{{comment.body}}</p>
-                </div>
-                <!-- Comment Actions -->
-                <div class="edit-delete-container">
-                    <div id="like-form">
-                        <form action="{% url 'like_comment' comment.id %}" method="POST">
-                            <div id="like-button">
-                                {% csrf_token %}
-                                <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like comment button">Like</button>
-                                <p>{{ comment.total_comment_likes }} likes</p>
+        </section>
+    <!-- Comments Sections -->
+    {% if user.is_authenticated %}
+    {% if post.comments.all %}
+        <section>
+            <h2 class="comments-title">Comments</h2>
+            {% for comment in post.comments.all %}
+                <article class="comment">
+                    <header>
+                        <div class="card-author-content">
+                            <figure class="author-figure">
+                            {% if comment.author.userprofile.profile_image %}
+                                <img src="{{ comment.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="50" height="50">
+                            {% else %}
+                                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="50" height="50">
+                            {% endif %}
+                            </figure>
+                            <div class="author-info">
+                                <figcaption class="post-author"><a href="{% url 'profile' post.author.username %}">
+                                    {{ post.author.first_name }} {{ post.author.last_name }} 
+                                </a>
+                                </figcaption> 
+                                <figcaption class="post-date">{{ post.post_date }}</figcaption>
                             </div>
-                        </form>
-                    </div>
-                    {% if user.is_authenticated and user.id == comment.author.id%}
-                        <div class="edit-delete-container">
-                            <a href="{% url 'delete_comment' comment.pk %}" class="edit-delete-post"> Delete </a>
-                            <a href="{% url 'comment_update' comment.pk %}" class="edit-delete-post"> Edit </a>
                         </div>
-                    {% endif %}
-                </div>
-            </article>
-        {% endfor %}
-    </section>
+                    </header>
+                    <div class="comment-body">
+                        <p>{{comment.body}}</p>
+                    </div>
+                    <!-- Comment Actions -->
+                    <div class="edit-delete-container">
+                        <div id="like-form">
+                            <form action="{% url 'like_comment' comment.id %}" method="POST">
+                                <div id="like-button">
+                                    {% csrf_token %}
+                                    <button type="submit" name="post_id" value="{{post.id}}" class="like-button" aria-label="like comment button">Like</button>
+                                    <p>{{ comment.total_comment_likes }} likes</p>
+                                </div>
+                            </form>
+                        </div>
+                        {% if user.is_authenticated and user.id == comment.author.id%}
+                            <div class="edit-delete-container">
+                                <a href="{% url 'delete_comment' comment.pk %}" class="edit-delete-post"> Delete </a>
+                                <a href="{% url 'comment_update' comment.pk %}" class="edit-delete-post"> Edit </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+        {% endif %}
     {% endif %}
-{% endif %}
-<!-- Back and add comment buttons -->
-    <div class="button-container">
-        <a href="{% url 'add_comment' post.pk %}" class="btn comment-button"> Add a comment </a>
-        <a href="{% url 'home' %}" class="btn back-button" aria-label="back button"> Back </a>
-    </div>
-</article>
+    <!-- Back and add comment buttons -->
+        <div class="button-container">
+            <a href="{% url 'add_comment' post.pk %}" class="btn comment-button"> Add a comment </a>
+            <a href="{% url 'home' %}" class="btn back-button" aria-label="back button"> Back </a>
+        </div>
+    </article>
+</section>
+</div>
+
 {% endblock %}  
 
 

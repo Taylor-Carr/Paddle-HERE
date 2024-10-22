@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <div id="main-content">
-        <form method="POST">
-            <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
-            <h1 class="form-heading">Sign In</h1>
-            <p>Don't have an account? <a href="{% url 'register' %}" class="signin-text">Sign up here</a></p>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="primaryAction sign-in-button" type="submit">Sign In</button>
-        </form>
-    </div>
+<div class="post-header-section">
+    <h1 class="post-header-title">Welcome Back! Log In to Your Account<span class="title-circle">.</span></h1>
+</div>
+<div id="main-content">
+    <form method="POST">
+        <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
+        <h1 class="form-heading">Sign In</h1>
+        <p>Don't have an account? <a href="{% url 'register' %}" class="signin-text">Sign up here</a></p>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="primaryAction sign-in-button" type="submit">Sign In</button>
+    </form>
+</div>
 {% endblock %}

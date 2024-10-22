@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
-    <h2>Delete Profile</h2>
-
-    <p>Are you sure you want to delete your profile, {{ user.username }}? This action cannot be undone.</p>
-
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit" class="btn">Delete My Profile</button>
-        <a href="{% url 'profile' user.username %}" class="btn">Cancel</a>
-    </form>
-
+<div class="post-header-section">
+    <h1 class="post-header-title">Are you sure you want to delete your profile, {{ user.username }}?<span class="title-circle">.</span></h1>
+</div>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn">Delete My Profile</button>
+    <a href="{% url 'profile' user.username %}" class="btn">Cancel</a>
+</form>
 {% endblock %}

@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
 {% if user.is_authenticated %}
-
-<div class="container add-post-form">
-<form method="POST" class="add-post" id="addpost_form">
-    <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
-    {% csrf_token %}
-    <fieldset>
-        <legend>Add a comment to this post.</legend>
-        {{ form.as_p }}
-    </fieldset>
-    <button type="submit" aria-label="Submit comment">Add Comment</button>
-</form>
+<div class="post-header-section">
+    <h1 class="post-header-title">Share Your Thoughts on This Spot<span class="title-circle">.</span></h1>
 </div>
-{% else %}
-
-<h1 class="unauth-titles">Please <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}"> Sign Up</a> to post a comment.</h1>
+    <div class="container add-comment-form">
+        <form method="POST" class="add-post" id="addpost_form">
+            <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
+            {% csrf_token %}
+            <fieldset>
+                <legend>Add a comment to this post.</legend>
+                {{ form.as_p }}
+            </fieldset>
+            <button type="submit" aria-label="Submit comment">Add Comment</button>
+        </form>
+    </div>
+    {% else %}
+    <h1 class="unauth-titles">Please <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}"> Sign Up</a> to post a comment.</h1>
 {% endif %}
 
 {% endblock %}

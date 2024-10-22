@@ -42,9 +42,9 @@
     <div class="dropdown profile-dropdown d-lg-none"> 
       <a class="dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         {% if request.user.userprofile.profile_image %}
-          <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle" width="50" height="50">
+          <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle">
         {% else %}
-          <img src="/static/images/default profile pic.jpg" alt="Default profile picture" class="rounded-circle" width="70" height="70">
+          <img src="/static/images/default profile pic.jpg" alt="Default profile picture" class="rounded-circle">
         {% endif %}
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
@@ -54,6 +54,16 @@
         <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
       </ul>
     </div>
+    {% else %}
+      <!-- Logged-Out - Sign In and Sign Up Buttons -->
+       <div class="mobile-nav-buttons">
+        <li class="nav-item d-block d-lg-none">
+          <a class="btn me-2 sign-in-btn" href="{% url 'login' %}">Sign In</a>
+        </li>
+        <li class="nav-item d-block d-lg-none">
+          <a class="btn-sign-up" href="{% url 'register' %}">Sign Up</a>
+        </li>
+       </div>
     {% endif %}
 
     <!-- Navbar Links (Desktop) -->
@@ -64,9 +74,9 @@
         <li class="nav-item dropdown d-none d-lg-block"> 
           <a class="dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {% if request.user.userprofile.profile_image %}
-              <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle" width="50" height="50">
+              <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle">
             {% else %}
-              <img src="/static/images/default profile pic.jpg" alt="Default profile picture" class="rounded-circle" width="70" height="70">
+              <img src="/static/images/default profile pic.jpg" alt="Default profile picture" class="rounded-circle">
             {% endif %}
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -100,6 +110,7 @@
 
 <!--- Footer -->
 <footer class="footer mt-auto">
+  <img src="{% static '/images/footerimage.png'%}" class="footer-image" alt="Footer Background>
   <div class="white-background m-0">
     <div class="blue">
     <div class="footer-text">

@@ -9,6 +9,7 @@ body {
   background-color: #FBFDF3;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -16,7 +17,7 @@ main {
 }
 
 .container-fluid {
-  max-width: 1200px;
+  max-width: 1400px;
 }
 .navbar {
   background-color: #94C5CC;
@@ -46,7 +47,7 @@ main {
   border-color: #f9f9f9;
   color: #f9f9f9;
   margin-left: 10px;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px 5px 20px;
   text-decoration: none;
   font-weight: 500;
 }
@@ -119,6 +120,79 @@ border-radius: 12px;
 
 }
 
+
+/* home title */
+.home-title {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: black;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  line-height: normal;
+  z-index: 10;
+  text-align: center;
+  max-width: 90%;
+}
+
+.title-circle {
+  margin-left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4em;
+  color: #94C5CC;
+  display:inline;
+  z-index: 10;
+}
+
+.home-button-container {
+  margin-top: 15px;
+  width: 100%;                 
+  display: flex;             
+  justify-content: center;  
+}
+
+.home-share-button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-top: 20px;
+  padding: 5px 15px;
+  z-index: 10;
+  color: #fff;
+  background-color: #94C5CC;
+  text-align: center;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  width: auto;
+}
+.home-share-button:hover {
+  border: 1px solid #94C5CC
+}
+
+.home-image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+/* home image */
+.home-image {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  position: absolute;
+  display: block;
+  object-fit: cover;
+}
+
 /* Search bar */
 .search-position {
   justify-content: left;
@@ -128,7 +202,7 @@ border-radius: 12px;
   padding: 0;
   border: none;
   box-shadow: none;
-  width: 0%; 
+  width: 100%; 
   z-index: 10; 
   position: absolute;      
   top: 25%;             
@@ -147,12 +221,12 @@ border-radius: 12px;
 .search-input-group input {
   border: none;
   outline: none;
-  width: 100%;
   padding: 8px 6px;
   box-sizing: border-box;
   border-radius: 20px;
   outline: none;
   box-shadow: none;
+  width: 100%;
 }
 
 .search-input-group input:focus {
@@ -197,56 +271,6 @@ border-radius: 12px;
   list-style: none;
 }
 
-/* home title */
-.home-title {
-  position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: black;
-  font-size: 1.8em;
-  letter-spacing: 1px;
-  line-height: normal;
-  z-index: 10;
-}
-
-.title-circle {
-  margin-left: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4em;
-  color: #94C5CC;
-  display:inline;
-  z-index: 10;
-}
-
-.home-button-container {
-  margin-top: 15px;
-  width: 100%;                 
-  display: flex;             
-  justify-content: center;  
-}
-
-.home-share-button {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  margin-top: 20px;
-  padding: 5px 15px;
-  z-index: 10;
-  color: #fff;
-  background-color: #94C5CC;
-  text-align: center;
-  border: none;
-  border-radius: 12px;
-  text-decoration: none;
-  width: auto;
-}
-.home-share-button:hover {
-  border: 1px solid #94C5CC
-}
 /* Category links */
 
 .category-links {
@@ -265,26 +289,6 @@ border-radius: 12px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-/* home image */
-
-.home-image-container {
-  text-align: center;
-  position: relative;
-  width: 100%;
-  overflow: hidden; 
-}
-
-.home-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  width: 100%;
-  height: 100vh; 
-  background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat; 
 }
 
 
@@ -425,7 +429,7 @@ border-radius: 12px;
 
 .post-author a {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1vw;
+  font-size: 1em;
   font-weight: bold;
   color: #94C5CC;
   text-decoration: none;  
@@ -433,7 +437,7 @@ border-radius: 12px;
 
 .post-date {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.9vw;
+  font-size: 1em;
   font-weight: bold;
   color:#7f7f7f;
   padding-bottom: 0.5rem;
@@ -684,10 +688,16 @@ border-radius: 12px;
   margin-left: 15px;
   color: #94C5CC;
 }
+
+.rounded-circle {
+  width: 70px;
+  height: 70px;
+}
 /*profile posts section */
 
 .profile-post-list {
   list-style: none;
+  padding: 0;
 }
 
 .recents-title {
@@ -728,6 +738,23 @@ border-radius: 12px;
   z-index: 10;
 }
 /* Forms login, signup, share, delete */
+.form-image-container {
+  max-width: 1200px;
+  margin: 0 auto; 
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+.form-background-image {
+  width: 100%;
+  max-width: 100%; 
+  bottom: 0; 
+}
+
 
 form {
   display: flex;
@@ -807,6 +834,15 @@ footer {
   width:100%;
   }
 
+.footer-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .blue {
   width: 100%;
   position: relative;
@@ -853,6 +889,7 @@ footer {
   .profile-dropdown {
     display: block;
     text-align: right;
+    margin-right: 15px;
   }
 }
 
@@ -899,12 +936,6 @@ footer {
     padding: 5px;
   }
   
-  .post-title, .post-location {
-    font-size: 2.8vw;
-    letter-spacing: 0.5px;
-    padding-top: 0.4rem;
-  }
-  
   .post-body {
     text-align: left;
     margin: 3px;
@@ -912,7 +943,7 @@ footer {
   
   .post-author {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.6vw;
+    font-size: 1rem;
     font-weight: bold;
     color: #94C5CC;
     padding-left: 0rem;
@@ -920,7 +951,7 @@ footer {
   
   .post-date {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.2vw;
+    font-size: 0.8em;
     font-weight: bold;
     color:#7f7f7f;
     padding-left: 0.3rem;
@@ -939,16 +970,153 @@ footer {
     margin-right: 8px;
     margin-bottom: 22px;
   }
+
+  .post-title {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color:black;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+  }
   
+  .post-location {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 0.7em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color:black;
+    padding-bottom: 5px;
+  }
+ 
+
 }
+/* home title section */
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 17px; 
+    text-align: center; 
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .title-circle {
+    font-size: 1.8em; 
+  }
+
+  .home-button-container {
+    margin-top: 10px; 
+    width: 50%;
+    padding: 0 10px; 
+  }
+
+  .home-share-button {
+    padding:8px 15px; 
+    width: 100%;
+    max-width: 250px; 
+    box-sizing: border-box; 
+  }
+  
+.home-title-container {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  margin: 10px 0;
+  padding-bottom: 10px;
+}
+
+
+.search-form {
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  width: 80%; 
+  z-index: 10; 
+  position: absolute;      
+  top: 25%;             
+  left: 50%;               
+  transform: translateX(-50%); 
+}
+
+.search-input-group {
+  position: relative;
+  width: 80%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.search-input-group input {
+  border: none;
+  outline: none;
+  padding: 8px 6px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+#search-input {
+  font-size: 14px;
+  padding-left: 10px;
+}
+}
+
+
 
 /* Comment Section */
 
 @media screen and (max-width: 767px) {
+
   .comments-title {
     font-size: 1.5em;
     letter-spacing: -1px;
-   }
+  }
+
+  .profile-section {
+    margin-left: auto;  
+    margin-right: auto; 
+    width: 95%;         
+    max-width: 600px;    
+}
+
+  .rounded-circle {
+      width: 70px;
+      height: 70px;
+  }
+
+  .profile-name {
+      font-size: 1.4rem;
+  }
+
+  .profile-bio {
+      font-size: 1.1rem;
+  }
+
+  .profile-actions .btn {
+      margin: 10px;
+  }
+  ul .profile-posts-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  ul .profile-posts-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .author-info {
+    font-size: 1em;
+  }
 }
 
 
@@ -1034,7 +1202,7 @@ footer {
 }
 .post-author {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.4vw;
+  font-size: 16px;
   font-weight: bold;
   color: #94C5CC;
   padding-left: 0rem;
@@ -1042,10 +1210,104 @@ footer {
 
 .post-date {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.4vw;
+  font-size: 1em;
   font-weight: bold;
   color:#7f7f7f;
   padding-left: 0.3rem;
   padding-bottom: 0.5rem;
+}
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .rounded-circle {
+    width: 60px;
+    height: 60px;
+}
+ .home-share-button {
+  font-size: 12px;
+ }
+  /* Auth home */
+  #search-input {
+    font-size: 13px;
+    padding-left: 10px;
+  }
+
+  .home-title {
+    font-size: 19px; 
+    text-align: center; 
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .recents-title {
+    font-size: 1.6em;
+  }
+  /* un auth home nav*/
+
+  .mobile-nav-buttons {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  /* Search Reasults*/
+
+  .search-results {
+    padding-left: 0;
+  }
+
+  /* Comment and back button details*/
+  .back-button {
+    font-size: 11px;
+  }
+  .comment-button {
+    font-size: 11px;
+  }
+
+  .recents-title {
+    line-height: normal;
+  }
+
+  .form-back-button {
+    font-size: 11px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 900px) {
+  .mobile-nav-buttons {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+}
+
+@media (min-width: 901px) {
+  .mobile-nav-buttons {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+    .navbar .dropdown.profile-dropdown {
+        display: block !important;
+    }
+    .rounded-circle {
+      width: 70px;
+      height: 70px;
+  }
+  .profile-section {
+    margin: 15px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .rounded-circle {
+    width: 60px;
+    height: 60px;
 }
 }

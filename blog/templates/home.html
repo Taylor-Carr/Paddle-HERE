@@ -3,11 +3,11 @@
 {% block content %}
 
 <!-- Show posts for authenticated user only -->     
-<div class="blog-container">
 {% if user.is_authenticated %}
     <div class="home-image-container">
-        <img src="{% static '/images/homebackground.png'%}" class="home-background-image">
-        <h1 class="home-title">Find and share paddleboarding, surfing, and kayaking spots across the UK.</h1>
+        <div class="home-title-container">
+            <h1 class="home-title">Find and share locations to paddle across the UK.</h1>
+        </div>
 <!-- Search Bar and Share button -->
         <form class="d-flex w-100 search-form" method="get" action="{% url 'search' %}">
             <div class="search-input-group">
@@ -20,6 +20,7 @@
                 <a class="btn home-share-button" href="{% url 'add_post' %}">Share a Spot</a>
             </div>
         </form>
+        <img src="{% static '/images/homebackground.png'%}" class="home-background-image">
     </div>
 <!-- Category Section-->
 <section>
@@ -32,6 +33,7 @@
         </div>
     </div>
 </section>
+<div class="blog-container">
 <!--Blog Posts for auth users -->
 {% for post in object_list %}
     <article class="blog-grid">

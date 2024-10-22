@@ -3,6 +3,9 @@
 {% block content %}
   {% if user.is_authenticated and user.id == comment.author.id %}
     <div class="main-content">
+      <div class="post-header-section">
+        <h1 class="post-header-title">Share Your Thoughts on This Spot<span class="title-circle">.</span></h1>
+    </div>
       <form method="POST">
         <a href="{% url 'home' %}" class="btn back-button" aria-label="back button">Back</a>
           <h1>Update your comment</h1>

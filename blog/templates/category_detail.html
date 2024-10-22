@@ -13,9 +13,12 @@
                 <i class="fa-solid fa-magnifying-glass" id="search-button"></i>
             </button>
         </div>
+        <div class="home-button-container">
+            <a class="btn home-share-button" href="{% url 'add_post' %}">Share a Spot</a>
+        </div>
     </form>
 </div>
-<h1 class="blog-title">All Posts in {{ category }}<div class="title-circle">.</div></h1>
+<h1 class="recents-title">Posts in {{ category }}<div class="title-circle">.</div></h1>
 <div class="blog-container">
     {% for post in posts %}
     <article class="blog-grid">
