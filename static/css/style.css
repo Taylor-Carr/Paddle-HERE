@@ -17,7 +17,7 @@ main {
 }
 
 .container-fluid {
-  max-width: 1400px;
+  max-width: 1200px;
 }
 .navbar {
   background-color: #94C5CC;
@@ -215,6 +215,7 @@ border-radius: 12px;
   position: absolute;
   display: block;
   object-fit: cover;
+  max-width: 1200px;
 }
 
 /* Search bar */
@@ -357,6 +358,16 @@ border-radius: 12px;
   box-shadow: none;
   width: 0%; 
   z-index: 10;                
+}
+
+/* header title image */
+
+.post-header-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-width: 100%;
+
 }
 
 /* Add blog post title styling */
@@ -955,6 +966,10 @@ footer {
   .hero-container {
     height: 20vw; 
   }
+  .post-header-image {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Blog post home and details, edit delete post*/
@@ -1111,6 +1126,11 @@ footer {
 #search-input {
   font-size: 14px;
   padding-left: 10px;
+}
+
+.post-header-image {
+  width: 100%;
+  height: auto;
 }
 }
 
@@ -1329,6 +1349,14 @@ footer {
 
   .form-back-button {
     font-size: 11px;
+  }
+
+  .category-links {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 10px;
+    color: #94C5CC;
+    text-decoration: none;
+    font-size: 14px;
   }
 }
 

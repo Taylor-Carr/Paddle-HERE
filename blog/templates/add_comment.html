@@ -5,6 +5,7 @@
 {% if user.is_authenticated %}
 <div class="post-header-section">
     <h1 class="post-header-title">Share Your Thoughts on This Spot<span class="title-circle">.</span></h1>
+    <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
 </div>
     <div class="container add-comment-form">
         <form method="POST" class="add-post" id="addpost_form">

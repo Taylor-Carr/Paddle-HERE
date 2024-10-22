@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load static %}
+{% block content %}
+{% if messages %}
+    <div class="alert-container">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %} {{ message.tags }} {% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
 <section class="post-header-section">
     <h1 class="post-header-title">Keep discovering new spots<span class="title-circle">.</span></h1>
     <form class="d-flex w-100 search-form-details" method="get" action="{% url 'search' %}">
@@ -11,18 +20,19 @@
             </button>
         </div>
     </form>
+    <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
 </section>
-<div class="blog-container">
-    <section class="blog-grid">
+<section class="blog-container">
+<div class="blog-grid">
     <article class="card">
         <!-- Post Header -->
          <header>
             <div class="card-author-content">
                 <figure class="author-figure">
                 {% if post.author.userprofile.profile_image %}
-                    <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="70" height="70">
+                    <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle">
                 {% else %}
-                    <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="70" height="70">
+                    <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle">
                 {% endif %}
                 </figure>
                 <div class="author-info">
@@ -124,9 +134,8 @@
             <a href="{% url 'home' %}" class="btn back-button" aria-label="back button"> Back </a>
         </div>
     </article>
-</section>
 </div>
-
+</section>
 {% endblock %}  
 
 

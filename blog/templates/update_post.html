@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
     {% if user.is_authenticated and user.id == post.author.id %}
         <div class="main-content">
             <div class="post-header-section">
                 <h1 class="post-header-title">Update Your Spot<span class="title-circle">.</span></h1>
+                <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
             </div>
             <form method="POST" aria-labelledby="update-post-heading">
                 <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>

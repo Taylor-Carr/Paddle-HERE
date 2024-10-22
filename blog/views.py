@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Comment, Category
 from .forms import PostForm, CommentForm
@@ -123,6 +124,20 @@ class UpdatePostView(UpdateView):
     model = Post
     template_name = 'update_post.html'
     fields = ['title', 'location', 'country', 'category', 'proficiency_level', 'tags','body','post_image',]
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Your post has been updated.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error updating your post, please check the form and try again.')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('blog_details', kwargs={'pk': self.object.pk})
+
+
+
 
 
 class DeletePostView(DeleteView):
