@@ -482,6 +482,26 @@ border-radius: 12px;
   padding-left: 16px;
 }
 
+.tags-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+.tags-proficiency {
+  text-decoration: none;
+  background-color: #94C5CC;
+  color: #fff;
+  border-radius: 14px;
+  padding: 2px 10px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8vw;
+  letter-spacing: 1px;
+}
+
 .post-author a {
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;

@@ -23,15 +23,35 @@
             <li>
                 <article class="blog-grid">
                     <div class="card">
-                        <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
-                            <h3 class="post-title">{{ post.title }}</h3>
-                            <h4 class="post-location">{{ post.category }} - {{ post.location }}</h4>
-                            <div class="post-body">
-                                <p>{{ post.body | slice:":350" }}...</p>
+                        <div class="card-author-content">
+                            <figure class="author-figure">
+                            {% if post.author.userprofile.profile_image %}
+                                <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle">
+                            {% else %}
+                                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle">
+                            {% endif %}
+                            </figure>
+                            <div class="author-info">
+                                <figcaption class="post-author">
+                                    <a href="{% url 'profile' post.author.username %}">
+                                        {{ post.author.first_name }} {{ post.author.last_name }} 
+                                    </a>
+                                </figcaption>
+                                <figcaption class="post-date">{{ post.post_date }}</figcaption>
                             </div>
-                            <footer class="card-author-content">
-                                <p class="post-author post-date">Posted by: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</p>
-                            </footer>
+                        </div>
+                        <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
+                            <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                            <div class="tags-container">
+                                <p class="tags-proficiency">{{ post.tags }}</p>
+                                <p class="tags-proficiency">{{ post.proficiency_level }}</p>
+                            </div>
+                            <p class="post-caption">{{ post.body | slice:":350" }}...</p>
+                            <div class="post-body">
+                                {% if post.post_image %}
+                                <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
+                                {% endif %}
+                            </div>
                         </a>
                     </div>
                 </article>

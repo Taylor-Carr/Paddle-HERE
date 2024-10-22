@@ -57,12 +57,14 @@
             </div>
             <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
                 <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                <div class="tags-container">
+                    <p class="tags-proficiency">{{ post.tags }}</p>
+                    <p class="tags-proficiency">{{ post.proficiency_level }}</p>
+                </div>
                 <p class="post-caption">{{ post.body | slice:":350" }}...</p>
                 <div class="post-body">
                     {% if post.post_image %}
                     <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
-                    {% else %}
-                        <p>No image for this post.</p>
                     {% endif %}
                 </div>
             </a>
@@ -81,7 +83,7 @@
         </div>
     </div>
 </div>
-<!-- Container for blog posts -->
+<!-- Container for un auth blog posts -->
 <div class="blog-container">
     <h1 class="unauth-home-title">Sign Up To Share and Find Spots<div class="title-circle">.</div></h1>
     {% for post in object_list %}
@@ -106,12 +108,14 @@
             </div>
             <div href="#" class="underline-removed">
                 <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
+                <div class="tags-container">
+                    <p class="tags-proficiency">{{ post.tags }}</p>
+                    <p class="tags-proficiency">{{ post.proficiency_level }}</p>
+                </div>
                 <p class="post-caption">{{ post.body | slice:":350" }}...</p>
                 <div class="post-body">
                     {% if post.post_image %}
                     <img src="{{ post.post_image.url }}" alt="{{ post.title }} image" class="post-image">
-                    {% else %}
-                        <p>No image available for this post.</p>
                     {% endif %}
                 </div>
             </div>

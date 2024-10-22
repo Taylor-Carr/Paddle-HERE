@@ -21,10 +21,10 @@ class Post(models.Model):
         
     TAG_CHOICES = [
         ('free parking', 'Free Parking'),
-        ('family_friendly', 'Family Friendly'),
-        ('no_parking', 'No Parking'),
-        ('pet_friendly', 'Pet Friendly'),
-        ('wheelchair_accessible', 'Wheelchair Accessible'),
+        ('family friendly', 'Family Friendly'),
+        ('no parking', 'No Parking'),
+        ('pet friendly', 'Pet Friendly'),
+        ('wheelchair accessible', 'Wheelchair Accessible'),
     ]
 
     PROFICIENCY_CHOICES = [
