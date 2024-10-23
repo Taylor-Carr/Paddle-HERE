@@ -6,7 +6,7 @@
     <img src="{% static '/images/homebackground.png'%}" class="home-background-image">
     <h1 class="home-title">Find and share locations from around the UK.</h1>
 <!-- Search Bar -->
-    <form class="d-flex w-100 search-form" method="get" action="{% url 'search' %}">
+    <form class="d-flex w-100" method="get" action="{% url 'search' %}" id="search-form">
         <div class="search-input-group">
             <input class="search-form-control" type="search" placeholder="Search by location, country, or sport" aria-label="Search" name="q" id="search-input">
             <button type="submit" id="search-button">
@@ -43,7 +43,9 @@
             <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
                 <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
                 <div class="tags-container">
+                    {% if post.tags %}
                     <p class="tags-proficiency">{{ post.tags }}</p>
+                    {% endif %}
                     <p class="tags-proficiency">{{ post.proficiency_level }}</p>
                 </div>
                 <p class="post-caption">{{ post.body | slice:":350" }}...</p>
@@ -55,7 +57,6 @@
             </a>
         </div>
     </article>
-{% endfor %}
+    {% endfor %}
 </div> 
-
 {% endblock %}

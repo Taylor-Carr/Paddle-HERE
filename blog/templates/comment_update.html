@@ -1,33 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  {% if user.is_authenticated and user.id == comment.author.id %}
-    <div class="main-content">
-      <div class="post-header-section">
-        <h1 class="post-header-title">Share Your Thoughts on This Spot<span class="title-circle">.</span></h1>
-        <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
-    </div>
-      <form method="POST">
-        <a href="{% url 'home' %}" class="btn back-button" aria-label="back button">Back</a>
-          <h1>Update your comment</h1>
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Update</button>
-      </form>
-    </div>
-    
-  {% else %}
-
-  <div id="main-content">
-    <form method="POST">
-        <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
-        <h1 class="form-heading">Sign Up</h1>
-        <p>Already have an account? <a href="{% url 'login' %}" class="signin-text">Sign in here</a></p>
+{% if user.is_authenticated and user.id == comment.author.id %}
+  <div class="main-content">
+    <div class="post-header-section">
+      <h1 class="post-header-title">Share Your Thoughts on This Spot<span class="title-circle">.</span></h1>
+      <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
+  </div>
+    <form method="POST" id="user-form">
+      <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
+        <h1>Update your comment</h1>
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="primaryAction register-button">Confirm</button>
+        <button type="submit">Update</button>
     </form>
   </div>
-
-  {% endif %}
+{% else %}
+<div id="main-content">
+  <form method="POST">
+      <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
+      <h1 class="form-heading">Sign Up</h1>
+      <p>Already have an account? <a href="{% url 'login' %}" class="signin-text">Sign in here</a></p>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="primaryAction register-button">Confirm</button>
+  </form>
+</div>
+{% endif %}
 {% endblock %}

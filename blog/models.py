@@ -18,22 +18,6 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-        
-    TAG_CHOICES = [
-        ('free parking', 'Free Parking'),
-        ('family friendly', 'Family Friendly'),
-        ('no parking', 'No Parking'),
-        ('pet friendly', 'Pet Friendly'),
-        ('wheelchair accessible', 'Wheelchair Accessible'),
-    ]
-
-    PROFICIENCY_CHOICES = [
-        ('beginner', 'Beginner'),
-        ('intermediate', 'Intermediate'),
-        ('advanced', 'Advanced'),
-    ]
-
-    title = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=150)
     body = models.TextField(max_length=800)
@@ -41,8 +25,8 @@ class Post(models.Model):
     post_date = models.DateField(auto_now_add=True)
     country = models.CharField(max_length=100, default= 'England')
     category = models.CharField(max_length=100, default= 'Paddle Boarding')
-    proficiency_level = models.CharField(max_length=50, choices=PROFICIENCY_CHOICES, default='beginner')
-    tags = models.CharField(max_length=50, choices=TAG_CHOICES, blank=True)
+    proficiency_level = models.CharField(max_length=50, default='beginner')
+    tags = models.CharField(max_length=50, blank=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
 
     class Meta:

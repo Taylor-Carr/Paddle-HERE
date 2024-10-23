@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 <section class="profile-section">
     <div class="profile-info">
@@ -16,7 +15,9 @@
                 <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle">
             {% endif %}
             <h2 class="profile-name">{{ profile.user.first_name}} {{ profile.user.last_name }}</h2>
+            {% if profile.proficiency %}
             <figcaption class="proficiency">{{ profile.get_proficiency_display }}</figcaption>
+            {% endif %}
             <p class="profile-bio">{{ profile.bio }}</p>
             <h4 class="joined-date">Joined - {{ profile.user.date_joined }}</h4>
         </div>
@@ -28,7 +29,6 @@
         {% endif %}
     </div>
 </section>
-
 <!--Post Section-->
 <section class="profile-posts-section">
 <h1 class="recents-title">Recent posts<span class="title-circle">.</span></h1>
@@ -57,7 +57,9 @@
                 <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
                     <h2 class="post-location">{{ post.category }} - {{ post.location }}</h2>
                     <div class="tags-container">
+                        {% if post.tags %}
                         <p class="tags-proficiency">{{ post.tags }}</p>
+                        {% endif %}
                         <p class="tags-proficiency">{{ post.proficiency_level }}</p>
                     </div>
                     <p class="post-caption">{{ post.body | slice:":350" }}...</p>

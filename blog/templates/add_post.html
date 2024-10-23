@@ -7,9 +7,9 @@
     <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
 </div>
 <div id="main-content">
-    <!-- Post form -->
+<!-- Add Post form -->
     {% if user.is_authenticated %}
-    <form method="post" enctype="multipart/form-data" action="{% url 'add_post' %}">
+    <form method="post" enctype="multipart/form-data" action="{% url 'add_post' %}" id="user-form">
         <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Go back to the previous page"> Back </a>
         <h1 class="form-heading">Share a Spot</h1>
         {% csrf_token %}

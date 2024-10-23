@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 class UserProfile(models.Model):
     USER_PROFICIENCY_CHOICES = [
-        ('begginer', 'Begginer'),
+        ('beginner', 'Beginner'),
         ('intermediate', 'Intermediate'),
         ('advanced', 'Advanced'),
     ]

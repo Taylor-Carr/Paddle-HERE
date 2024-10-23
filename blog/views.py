@@ -7,6 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from members.models import UserProfile
+import cloudinary.uploader
 
 
 def profile_view(request):
@@ -109,7 +110,6 @@ class BlogDetailView(DetailView):
         return context
 
 
-
 class AddPostView(CreateView):
     model = Post
     form_class = PostForm
@@ -117,13 +117,18 @@ class AddPostView(CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, 'Your post has been created successfully.')
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error creating your post. Please check the form and try again.')
+        return super().form_invalid(form)
 
 
 class UpdatePostView(UpdateView):
     model = Post
+    form_class = PostForm
     template_name = 'update_post.html'
-    fields = ['title', 'location', 'country', 'category', 'proficiency_level', 'tags','body','post_image',]
 
     def form_valid(self, form):
         messages.success(self.request, 'Your post has been updated.')
@@ -137,13 +142,15 @@ class UpdatePostView(UpdateView):
         return reverse_lazy('blog_details', kwargs={'pk': self.object.pk})
 
 
-
-
-
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, 'Your Post was deleted successfully.')
+        return super().form_valid(form)
+
 
 class AddCommentView(CreateView):
     model = Comment
@@ -155,7 +162,13 @@ class AddCommentView(CreateView):
         post = get_object_or_404(Post, pk=self.kwargs['pk'])
         form.instance.post = post
         form.instance.author = self.request.user
+        messages.success(self.request, 'Your comment was added to the post successfully.')
         return super().form_valid(form)
+
+        def form_invalid(self, form):
+            messages.error(self.request, 'There was an error adding your comment, please check the form and try again.')
+            return super().form_valid(form)
+
 
 class UpdateCommentView(UpdateView):
     model = Comment
@@ -163,10 +176,23 @@ class UpdateCommentView(UpdateView):
     fields = ['body']
     success_url = reverse_lazy('home')
 
+    def form_valid(self, form):
+        messages.success(self.request, 'Your comment was updated successfully.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'There was an error updating your comment. Please check the form and try again.')
+        return super().form_invalid(form)
+
 class DeleteCommentView(DeleteView):
     model = Comment
     template_name = 'delete_comment.html'
     success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Your comment was deleted successfully.')
+        return super().form_valid(form)
+
 
 
 

@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% load static%}
-
 {% block content %}
 <div class="post-header-section">
     <h1 class="post-header-title">Customize Your Paddling Profile<span class="title-circle">.</span></h1>
     <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
 </div>
 <div id="main-content">
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" id="user-form">
         <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
         <h1 class="form-heading">Profile - {{ user.first_name}} {{ user.last_name }}</h1>
         {% csrf_token %}

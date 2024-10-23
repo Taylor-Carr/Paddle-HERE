@@ -222,17 +222,22 @@ border-radius: 12px;
 .search-position {
   justify-content: left;
 }
-.search-form {
+#search-form {
   background: transparent;
   padding: 0;
   border: none;
   box-shadow: none;
-  width: 100%; 
   z-index: 10; 
   position: absolute;      
   top: 25%;             
   left: 50%;               
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 80%;
+  margin: auto;
+  max-width: 400px; 
 }
 
 .search-input-group {
@@ -351,15 +356,6 @@ border-radius: 12px;
 
 /* Blog details page header */ 
 
-.search-form-details {
-  background: transparent;
-  padding: 0;
-  border: none;
-  box-shadow: none;
-  width: 0%; 
-  z-index: 10;                
-}
-
 /* header title image */
 
 .post-header-image {
@@ -367,7 +363,7 @@ border-radius: 12px;
   height: auto;
   object-fit: cover;
   max-width: 100%;
-
+  z-index: -1;
 }
 
 /* Add blog post title styling */
@@ -831,10 +827,10 @@ border-radius: 12px;
 }
 
 
-form {
+#user-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   width: 80%;
   margin: auto;
   margin-bottom: 10px;
@@ -845,6 +841,7 @@ form {
   border: 1px solid white;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
 }
 
 form h1 {
@@ -882,13 +879,30 @@ form input[type="email"],
 form input[type="title"],
 form input[type="category"],
 form input[type="location"],
+form input[type="country"],
 form textarea {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
-  padding: 5px; 
-  margin-bottom: 10px; 
+  padding: 10px; 
+  margin-bottom: 10px;
   border-radius: 5px;
+}
+
+#post_image-clear_id {
+  margin: 5px;
+}
+form label {
+  margin-right: 10px;
+  text-align: left;
+  font-weight: 700;
+}
+
+form select {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 10px;
 }
 
 /* Background for form pages */
@@ -1111,17 +1125,21 @@ footer {
 }
 
 
-.search-form {
+#search-form {
   background: transparent;
   padding: 0;
   border: none;
   box-shadow: none;
-  width: 80%; 
   z-index: 10; 
   position: absolute;      
   top: 25%;             
   left: 50%;               
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: auto;
+  max-width: 400px; 
 }
 
 .search-input-group {
@@ -1305,6 +1323,35 @@ footer {
 /* Mobile */
 
 @media (max-width: 600px) {
+
+  .post-header-title {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 1em;
+    letter-spacing: 1px;
+    line-height: normal;
+    z-index: 10;
+    margin-bottom: 10px;
+  }
+
+  #search-form {
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    position: absolute;      
+    top: 30%;             
+    left: 50%;               
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    max-width: 400px; 
+  }
+  
   .rounded-circle {
     width: 60px;
     height: 60px;
@@ -1327,6 +1374,10 @@ footer {
   .recents-title {
     font-size: 1.6em;
   }
+
+  .tags-proficiency {
+    font-size: 10px;
+  }
   /* un auth home nav*/
 
   .mobile-nav-buttons {
@@ -1348,6 +1399,7 @@ footer {
     letter-spacing: 1px;
     border-top: 2px solid #94C5CC;
   }
+  
 
   /* Search Reasults*/
 
@@ -1382,6 +1434,23 @@ footer {
 
 /* Tablet */
 @media (min-width: 601px) and (max-width: 900px) {
+
+  #search-form {
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  z-index: 10; 
+  position: absolute;      
+  top: 25%;             
+  left: 50%;               
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: auto;
+  max-width: 400px; 
+}
   .mobile-nav-buttons {
     display: flex;
     justify-content: right;
@@ -1413,12 +1482,12 @@ footer {
 }
 
 @media (min-width: 768px) and (max-width: 990px) {
-    .navbar .dropdown.profile-dropdown {
-        display: block !important;
-    }
-    .rounded-circle {
-      width: 70px;
-      height: 70px;
+  .navbar .dropdown.profile-dropdown {
+      display: block !important;
+  }
+  .rounded-circle {
+    width: 70px;
+    height: 70px;
   }
   .profile-section {
     margin: 15px;
@@ -1435,6 +1504,10 @@ footer {
     font-size: 1.8em;
     letter-spacing: 1px;
     border-top: 2px solid #94C5CC;
+  }
+
+  .tags-proficiency {
+    font-size: 12px;
   }
 }
 

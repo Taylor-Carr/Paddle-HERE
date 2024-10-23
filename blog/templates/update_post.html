@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    {% if user.is_authenticated and user.id == post.author.id %}
-        <div class="main-content">
-            <div class="post-header-section">
-                <h1 class="post-header-title">Update Your Spot<span class="title-circle">.</span></h1>
-                <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
-            </div>
-            <form method="POST" aria-labelledby="update-post-heading">
-                <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Update</button>
-            </form>
+{% if user.is_authenticated and user.id == post.author.id %}
+    <div class="main-content">
+        <div class="post-header-section">
+            <h1 class="post-header-title">Update Your Spot<span class="title-circle">.</span></h1>
+            <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
         </div>
-    {% else %}
-        <div class="unauth-message">
-            <h1>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update, or delete a post.</h1>
-        </div>
-    {% endif %}
+        <form method="POST" enctype="multipart/form-data" aria-labelledby="update-post-heading" id="user-form">
+            <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+    </div>
+{% else %}
+    <div class="unauth-message">
+        <h1>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update, or delete a post.</h1>
+    </div>
+{% endif %}
 {% endblock %}

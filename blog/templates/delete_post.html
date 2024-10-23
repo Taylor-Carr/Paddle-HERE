@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
 {% if user.is_authenticated and user.id == post.author.id %}
 <div class="post-header-section">
   <h1 class="post-header-title">Are you sure you want to delete your post?<span class="title-circle">.</span></h1>
   <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
 </div>
 <div id="main-content">
-  <form method="POST">
+  <form method="POST" id="user-form">
     <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
     <h1>Delete your post?</h1>
     <br>
@@ -24,5 +23,4 @@
 {% else %}
 <h1 class="unauth-titles">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to share, update or delete a post.</h1>
 {% endif %}
-
 {% endblock %}

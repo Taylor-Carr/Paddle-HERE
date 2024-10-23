@@ -17,6 +17,13 @@ class UserRegisterView(generic.CreateView):
     template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
 
+    def form_valid(self, form):
+        
+        response = super().form_valid(form)
+
+        messages.success(self.request, 'Your account has been created. Click on the profile icon to edit your profile.')
+        return response
+
     
 @login_required
 def edit_profile(request, username):

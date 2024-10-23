@@ -3,21 +3,31 @@ from .models import Post, Comment
 
 countries = [('England', 'England'), ('Scotland', 'Scotland'), ('Wales', 'Wales'), ('Northern Ireland', 'Northern Ireland'),]
 sport = [('Surfing', 'Surfing'), ('Paddle Boarding', 'Paddle Boarding'), ('Kayaking', 'Kayaking'),]
+proficiency_level = [('beginners', 'Beginners'),('intermediate', 'Intermediate'),('advanced', 'Advanced'),]
+tags = [('', 'Select a tag for your post?'), ('free parking', 'Free Parking'), ('family friendly', 'Family Friendly'), ('no parking', 'No Parking'), ('pet friendly', 'Pet Friendly'),('wheelchair accessible', 'Wheelchair Accessible'),]
+
 
 class PostForm(forms.ModelForm):
+
     class Meta:
         model = Post
-        fields = ('title', 'category', 'country', 'location', 'body', 'post_image', 'tags', 'proficiency_level')
+        fields = ('location', 'country', 'category', 'tags', 'proficiency_level', 'body', 'post_image',)
 
         widgets = {
-           'title': forms.TextInput(attrs={'class': 'add-post' }),
            'location': forms.TextInput(attrs={'class': 'add-post', 'placeholder': 'eg. Newquay, Cornwall'}),
            'country': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = countries,),
            'category': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = sport,),
-           'proficiency_level': forms.Select(attrs={'class': 'add-post form-control'}),
-           'tags': forms.Select(attrs={'class': 'add-post form-control'}),
+           'proficiency_level': forms.Select(attrs={'class': 'add-post form-control'}, choices = proficiency_level,),
+           'tags': forms.Select(attrs={'class': 'add-post form-control', 'placeholder': 'e.g. Free Parking..'}, choices = tags,),
            'post_image':forms.ClearableFileInput(attrs={'class': 'add-post form-control'}),
            'body': forms.Textarea(attrs={'class': 'post-body' 'add-post' }),
+        }
+
+        labels = {
+            'body': 'Tell us about this spot:',
+            'proficiency_level': 'Best for:',
+            'post_image': 'Upload an image:',
+            'category': 'Sport:',
         }
 
 
@@ -37,6 +47,4 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body',)
-        widgets = {
-           'body': forms.Textarea(attrs={'class': 'add-post'}),
-        }
+        widgets = {'body': forms.Textarea(attrs={'class': 'add-post'}),}

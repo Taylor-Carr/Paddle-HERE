@@ -6,7 +6,7 @@
     <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
 </div>
 <div id="main-content">
-    <form method="POST">
+    <form method="POST" id="user-form">
         <a href="#" onclick="history.back();" class="btn form-back-button" aria-label="Back button">Back</a>
         <h1 class="form-heading">Sign In</h1>
         <p>Don't have an account? <a href="{% url 'register' %}" class="signin-text">Sign up here</a></p>
