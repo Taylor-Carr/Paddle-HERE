@@ -419,7 +419,6 @@ border-radius: 12px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  border: 1.5px solid white;
 }
 
 .underline-removed {
@@ -558,6 +557,11 @@ figure {
   margin-left: 5px;
 }
 
+#like-form-comment {
+  order: -1;
+  margin-left: 5px;
+}
+
 #like-form form {
   border-radius: initial;
   border: initial;
@@ -571,7 +575,16 @@ figure {
 
 /* Styles text and center with button */
 
-#like-button {
+#like-button-1 {
+  display: flex;
+  align-items: center;
+  font-size: 2.4vh;
+  padding-top: 0.2vh;
+  width:auto;
+  margin-left: 5px;
+}
+
+#like-button-2 {
   display: flex;
   align-items: center;
   font-size: 2.4vh;
@@ -581,7 +594,7 @@ figure {
 }
 
 
-#like-button button {
+#like-button-1 button {
   border-radius: 0;
   height: 3vh;
   font-size: 1.5vh;
@@ -591,12 +604,30 @@ figure {
   
 }
 
-#like-button p {
+#like-button-1 p {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8em;
   margin: 0;
   white-space: nowrap;
 }
+
+#like-button-2 button {
+  border-radius: 0;
+  height: 3vh;
+  font-size: 1.5vh;
+  margin-right: 10px;
+  padding: 3px 8px;
+  text-overflow: ellipsis;
+  
+}
+
+#like-button-2 p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  margin: 0;
+  white-space: nowrap;
+}
+
 
 /* Comment Section */
 
@@ -1259,12 +1290,34 @@ footer {
     padding: initial;
     font-size: initial;
   }
+
+  #like-form-comment form {
+    border-radius: initial;
+    border: initial;
+    box-shadow: initial;
+    margin: initial;
+    padding: initial;
+    font-size: initial;
+  }
   
   #like-form {
     margin-right: auto;
   }
+
+  #like-form-comment {
+    margin-right: auto;
+  }
   
-  #like-button {
+  #like-button-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2vh;
+    border-radius: 2px;
+    margin-left: 2vh;
+  }
+
+  #like-button-2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1291,7 +1344,7 @@ footer {
     margin-bottom: 22px;
   }
 
-  #like-button button {
+  #like-button-1 button {
     border-radius: 0;
     height: 2vh;
     font-size: 1vh;
@@ -1299,7 +1352,24 @@ footer {
     padding: 3px 8px;
     
   }
-  #like-button {
+  #like-button-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2vh;
+    border-radius: 2px;
+    margin-left: 2vh;
+  }
+
+  #like-button-1 button {
+    border-radius: 0;
+    height: 2vh;
+    font-size: 1vh;
+    margin-right: 10px;
+    padding: 3px 8px;
+    
+  }
+  #like-button-1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
