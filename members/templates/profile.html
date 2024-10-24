@@ -21,7 +21,7 @@
             <div class="profile-info">
                 <img src="{{ profile.profile_image.url }}" alt="{{ profile.user.username }}'s profile picture" class="rounded-circle" alt="User Profile">
             {% else %}
-                <img src="{% static '/images/defaultprofilepic.jpg' %}" alt="Default profile picture" class="rounded-circle">
+                <img src="{% static '/images/defaultprofilepic.png' %}" alt="Default profile picture" class="rounded-circle">
             {% endif %}
             <h2 class="profile-name">{{ profile.user.first_name}} {{ profile.user.last_name }}</h2>
             {% if profile.proficiency %}
@@ -55,7 +55,7 @@
                     {% if post.author.userprofile.profile_image %}
                         <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle">
                     {% else %}
-                        <img src="{% static '/images/defaultprofilepic.jpg' %}" alt="Default profile picture" class="rounded-circle">
+                        <img src="{% static '/images/defaultprofilepic.png' %}" alt="Default profile picture" class="rounded-circle">
                     {% endif %}
                     </figure>
                     <div class="author-info">

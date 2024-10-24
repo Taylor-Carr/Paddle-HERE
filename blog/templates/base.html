@@ -41,7 +41,7 @@
         {% if request.user.userprofile.profile_image %}
           <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle">
         {% else %}
-          <img src="/static/images/defaultprofilepic.jpg" alt="Default profile picture" class="rounded-circle">
+          <img src="/static/images/defaultprofilepic.png" alt="Default profile picture" class="rounded-circle">
         {% endif %}
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdownMobile">
@@ -72,7 +72,7 @@
             {% if request.user.userprofile.profile_image %}
               <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}'s profile picture" class="rounded-circle">
             {% else %}
-              <img src="/static/images/defaultprofilepic.jpg" alt="Default profile picture" class="rounded-circle">
+              <img src="/static/images/defaultprofilepic.png" alt="Default profile picture" class="rounded-circle">
             {% endif %}
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdownDesktop">

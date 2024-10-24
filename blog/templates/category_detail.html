@@ -18,7 +18,11 @@
         </div>
     </form>
 </div>
+{% if posts %}
 <h1 class="recents-title">Posts in {{ category }}<span class="title-circle">.</span></h1>
+{% else %}
+<h1 class="recents-title">Not Posts in {{ category }}<span class="title-circle">.</span></h1>
+{% endif %}
 <div class="blog-container">
     {% for post in posts %}
     <article class="blog-grid">
@@ -28,7 +32,7 @@
                 {% if post.author.userprofile.profile_image %}
                     <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle">
                 {% else %}
-                    <img src="{% static '/images/defaultprofilepic.jpg' %}" alt="Default profile picture" class="rounded-circle">
+                    <img src="{% static '/images/defaultprofilepic.png' %}" alt="Default profile picture" class="rounded-circle">
                 {% endif %}
                 </figure>
                 <div class="author-info">

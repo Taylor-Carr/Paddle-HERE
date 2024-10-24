@@ -1,6 +1,9 @@
-# PaddleHere - ## PROJECT README
+# PaddleHere - Taylor Carr
 
-## By Taylor Carr
+![Responsive](/static/images/readme/responsive.png)
+
+
+---
 
 
 ## Contents
@@ -18,13 +21,13 @@
 
 - [Project ERD and Database Design](#project-erd-and-database-design)
 
-- [Development strategy](#development-strategy)
+- [Development Strategy](#development-strategy)
 
 - [Wireframes](#wireframes)
 
 - [Flow Chart](#flow-chart)
 
-- [Frontend Design Choices](#frontend-design)
+- [Frontend Design](#frontend-design)
 
 - [Manual testing and Validation](#maunal-testing)
 
@@ -92,7 +95,7 @@
 
 ---
 
-## Balsamiq - Wireframes
+## Wireframes
 
   
 ![PaddleHere - Landing Page](/static/images/readme/wf1.png)
@@ -114,7 +117,7 @@
 
   
 
-## Flowchart
+## Flow chart
 
   
 
@@ -188,6 +191,9 @@ Each section of the site was manually tested to ensure it functions as expected,
 
 ## 2. Responsive Design Testing
 
+To ensure a seamless user experience across devices, I used a responsive design checker.
+
+![Responsive](/static/images/readme/responsive.png)
 
 ## 3. Code Validation
 
