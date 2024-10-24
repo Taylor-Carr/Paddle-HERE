@@ -324,6 +324,11 @@ I created a `Procfile` in the root directory of my project to instruct Heroku on
 
 ![Deploy](/static/images/readme/deploy.png)
 
+### Live Application
+
+You can view the live application by clicking the link below:
+
+[Visit the Heroku Site](https://paddlehere-0bbeb424045b.herokuapp.com/)
 
 ---
 
