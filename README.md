@@ -374,6 +374,19 @@ Any bugs encountered during development were documented, including steps to repr
 
 ---
 
+# Known Limitations
+
+## Form Rendering
+
+-**Current limitation**:
+Currently all forms, render as static full page forms. This can interrupt the user experience as it takes away from the content the user is interacting with.
+
+-**Planned Improvement**:
+A future inhancement will involve converting forms into pop-up modals,allowing the user to interact with the site for fluidly adn reducing page loading times.
+
+
+---
+
 # Deployment Process
 
 This outlines the steps I followed to deploy my Django application to Heroku.

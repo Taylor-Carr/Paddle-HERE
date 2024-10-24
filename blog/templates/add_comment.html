@@ -12,7 +12,9 @@
         <a href="#" onclick= "history.back();" class="btn form-back-button"> Back</a>
         {% csrf_token %}
         <fieldset>
-            <legend>Add a comment to this post.</legend>
+            <legend>
+                Add a comment to this post.
+            </legend>
             {{ form.as_p }}
         </fieldset>
         <button type="submit" aria-label="Submit comment">Add Comment</button>
