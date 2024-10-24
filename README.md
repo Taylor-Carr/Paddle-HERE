@@ -13,11 +13,11 @@
 
 -  [Site Users' Goals](#site-users-goals)
 
-- [Site owner's Goals](#site-owners-goals)
+- [Site Owner's Goals](#site-owners-goals)
 
-- [Current features](#current-features)
+- [Current Features](#current-features)
 
-- [Future features](#future-features) 
+- [Future Features](#future-features) 
 
 - [Project ERD and Database Design](#project-erd-and-database-design)
 
@@ -29,7 +29,7 @@
 
 - [Frontend Design](#frontend-design)
 
-- [Manual testing and Validation](#maunal-testing)
+- [Manual Testing](#maunal-testing)
 
 - [Deployment Process](#deployment-process)
 
@@ -60,14 +60,14 @@
 - **Engage with Community**: Users can interact with others by commenting on posts, liking posts and comments and viewing other users profiles and previous posts.
  
 
-### Site owner's goal:
+### Site Owner's Goals:
 
 - **Facilitate Discovery**: Enable users to easily locate new paddle boarding, surfing and kayaking locations.
 
 - **Encourage Interaction**: Allow Users to engage with content through comments and likes.
  
 
-### Current features
+### Current Features
   
 - **User Authentication**: Users can register and log in to their accounts, creating profiles that showcase their experiences and preferences.
 
@@ -109,7 +109,7 @@
 ![PaddleHere - Blog Details Page](/static/images/readme/wf3.png)
   
 
-### Project ERD's and Data base design
+### Project ERD and Database Design
 
   
 
@@ -117,7 +117,7 @@
 
   
 
-## Flow chart
+## Flow Chart
 
   
 
