@@ -167,5 +167,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-X_FRAME_OPTIONS = 'ALLOW-FROM https://responsinator.com'
+X_FRAME_OPTIONS = 'ALLOW-FROM https://responsivedesignchecker.com'
 
