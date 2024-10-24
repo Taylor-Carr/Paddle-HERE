@@ -226,19 +226,127 @@ Validation tools were used to check the quality of the HTML and CSS for complian
 
 Every user story and corresponding feature was tested to ensure it meets the outlined functionality.
 
-### User Registration & Login
+### User Sign Up & Sign In
 
 **Expected:**  
-- Users should be able to register, log in, and access personalized content like blog post details, profiles, commenting etc.
-- Un-Authorised users should not be able to access site beyond un auth home page without registering.
+- Users should be able to sign up, sign in, and access personalised content such as blog post details, user profiles (theirs and other users'), commenting, liking and searching by location and or filtering by sport.
+- Unauthorized users should be prevented from accessing any part of the site beyond the public homepage.
 
 **Testing:**  
-- Registered account using valid and invalid inputs.
-- Logged in, logged out, and tested redirection to profile pages.
+- Attempted to register accounts using both valid (e.g., correct email and password) and invalid inputs (e.g., missing fields, weak passwords).
+- Successfully logged in with registered accounts and verified redirection to user profile page creation.
+- Attempted to access restricted pages without logging in to confirm proper redirection to the homepage.
 
 **Result:**  
-- Functionality worked as expected.
-- Success messages were shown.
+- User registration was successful, with appropriate success messages for valid inputs and error messages for invalid inputs displayed clearly.
+- Account creation successful message displays, prompting user to edit profile.
+- The login/logout process worked seamlessly, correctly redirecting users to the auth or un-auth home page after logging in and after logging out.
+- Unauthorized users were correctly blocked from accessing restricted content, maintaining site security.
+
+---
+
+### Search Functionality
+
+**Expected:**  
+- Users should be able to input a specific location, country or sport into the search bar and receive relevant blog posts in response.
+- Users searching with invalid search terms or for empty categories / locations should recieve a message notifying them that there are no results for their query.
+
+**Testing:**  
+- Conducted searches using various keywords, including partial words and phrases, to assess search accuracy and relevance.
+
+**Result:**  
+- Search functionality operated as expected, returning accurate blog post results that matched the entered search term.
+- Incorrect search terms would return a message notifying them that there are no results for their query.
+
+---
+
+### Category Filtering
+
+**Expected:**  
+- Users should be able to filter blog posts based on pre defined categories (paddle boarding, surfing, kayaking) to find content relevant to their chosen sport.
+
+**Testing:**  
+- Tested the filtering system by creating posts in different categories and selecting different category links on the home page and observing the resulting post lists for accuracy.
+
+**Result:**  
+- The filtering feature functioned correctly, displaying only the posts associated with the selected category.
+
+---
+
+### Commenting
+
+**Expected:**  
+- Users should have the ability to comment on blog posts facilitating user interaction, users should also be able to edit and delete their own comments.
+
+**Testing:**  
+- Posted multiple comments on various blog entries from various accounts.
+
+**Result:**  
+- Commenting feature worked as expected, with real-time updates displayed on the post. Users weren't able to delete or alter other users comments.
+
+---
+
+### Liking Comments and Posts
+
+**Expected:**  
+- Users should be able to like comments and posts made by other users, indicating approval and fostering interaction.
+- Only one like should be given for that given user on the given post or comment. 
+- If un-liked, the like should be removed, effecting the overall number of likes.
+
+**Testing:**  
+- Liked various comments and blog posts on various different accounts to verify that the like feature was functional.
+
+**Result:**  
+- The liking and un-liking functionality performed as expected, with a clear increase and decrease in like counts displayed immediately. Users could not like the same post or comment more than once.
+
+---
+
+### Profile Management
+
+**Expected:**  
+- Users should be able to update their profile information (such as bio, banner image, profiency level and profile picture) and delete their accounts if desired.
+- When a user profile is edited they recieve a success message.
+- User should only be able to alter their own profile. 
+- Profile pages should also display a users previous blog posts giving them the option to quickly find, edit or delete their posts. Or promt them to share a post if they have no previous posts.
+
+**Testing:**  
+- Updated all profile fields, including changing and deleting the profile picture and banner image, re-writing bio, changing profiency level. 
+- Uploading blog posts before and after updating profile.
+- Visted various other user profiles. 
+
+**Result:**  
+- Profile updates were processed successfully, with users receiving confirmation messages for change was made. Account deletion was effective, removing the user data as expected while notifying users of the outcome.
+- Users could not alter other users profiles, only profile owners were presented with the option to delete or update their profile.
+- After creating posts for specific users and performing updates to their profiles, the recent blog post were un-affected and rendered correctly for the author of the post on their profile.
+
+---
+
+### Adding Posts
+
+**Expected:**  
+- Users should be able to create, edit and delete there blog posts with a specific location of there choosing, a country (pre defined), in a category (pre defined), with a description, an image, a pre defined tag, profficiency level related to the location.
+
+**Testing:**  
+- Created multiple posts using valid inputs and or empty fields including text and image uploads, and verified their visibility on the blog and within their chosen category and search term.
+- Deleted blog posts specific to the sign in author.
+- Attemped to edit and delete other users blog posts.
+
+**Result:**  
+- The post-creation functionality worked as intended, with new posts appearing immediately on the site home page and on the relative profile pages of the author, and confirmation messages were displayed successfully.
+- Users could not delete or alter a post they were the author of.
+
+---
+
+### Editing Posts
+
+**Expected:**  
+- Users should be able to edit or delete their existing blog posts to update content or correct mistakes.
+
+**Testing:**  
+- Deleted and edited several posts, changing specific locations, caption(body text), tags, proffiency levels, images, category and country. Then saved the changes to verify updates.
+
+**Result:**  
+- Post editing operated smoothly, reflecting changes immediately on the site, with users receiving confirmation of successful edits.
 
 
 ## 5. Bug Documentation
