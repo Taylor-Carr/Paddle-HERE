@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% if messages %}
+    <div class="alert-container">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %} {{ message.tags }} {% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
 <section class="profile-section">
     <div class="profile-info">
         {% if profile.banner_image.url %}
@@ -12,7 +21,7 @@
             <div class="profile-info">
                 <img src="{{ profile.profile_image.url }}" alt="{{ profile.user.username }}'s profile picture" class="rounded-circle" alt="User Profile">
             {% else %}
-                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle">
+                <img src="{% static '/images/defaultprofilepic.jpg' %}" alt="Default profile picture" class="rounded-circle">
             {% endif %}
             <h2 class="profile-name">{{ profile.user.first_name}} {{ profile.user.last_name }}</h2>
             {% if profile.proficiency %}
@@ -31,7 +40,11 @@
 </section>
 <!--Post Section-->
 <section class="profile-posts-section">
-<h1 class="recents-title">Recent posts<span class="title-circle">.</span></h1>
+{% if posts %}
+<h1 class="recents-title">Your recent posts<span class="title-circle">.</span></h1>
+{% else %}
+<h1 class="recents-title">Share a spot<span class="title-circle">.</span></h1>
+{% endif %}
 <ul class="profile-post-list">
     {% for post in posts %}
     <li class="profile-post-list">
@@ -42,16 +55,20 @@
                     {% if post.author.userprofile.profile_image %}
                         <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle">
                     {% else %}
-                        <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle">
+                        <img src="{% static '/images/defaultprofilepic.jpg' %}" alt="Default profile picture" class="rounded-circle">
                     {% endif %}
                     </figure>
                     <div class="author-info">
-                        <figcaption class="post-author">
-                            <a href="{% url 'profile' post.author.username %}">
-                                {{ post.author.first_name }} {{ post.author.last_name }} 
-                            </a>
-                        </figcaption>
-                        <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                        <figure>
+                            <figcaption class="post-author">
+                                <a href="{% url 'profile' post.author.username %}">
+                                    {{ post.author.first_name }} {{ post.author.last_name }} 
+                                </a>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                        </figure>
                     </div>
                 </div>
                 <a href="{% url 'blog_details' post.pk %}" class="underline-removed">
@@ -73,19 +90,7 @@
         </article>
     </li>
 {% empty %}
-<div class="home-button-container">
-    <a class="btn home-share-button" href="{% url 'add_post' %}">Share a Spot</a>
-</div>
 {% endfor %}
 </ul>
 </section>
-{% if messages %}
-    <div class="alert-container">
-        {% for message in messages %}
-        <div class="alert {% if message.tags %} {{ message.tags }} {% endif %}">
-            {{ message }}
-        </div>
-        {% endfor %}
-    </div>
-{% endif %}
 {% endblock %}

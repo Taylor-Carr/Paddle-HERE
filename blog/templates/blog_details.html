@@ -14,7 +14,7 @@
     <h1 class="post-header-title">Share your thoughts on this spot<span class="title-circle">.</span></h1>
     <img src="{% static '/images/postdetailimage.png'%}" class="post-header-image" alt="header-image">
 </section>
-<section class="blog-container">
+<div class="blog-container">
 <div class="blog-grid">
     <article class="card">
         <!-- Post Header -->
@@ -24,16 +24,20 @@
                 {% if post.author.userprofile.profile_image %}
                     <img src="{{ post.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle">
                 {% else %}
-                    <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle">
+                    <img src="{% static '/images/defaultprofilepic.jpg' %}" alt="Default profile picture" class="rounded-circle">
                 {% endif %}
                 </figure>
                 <div class="author-info">
-                    <figcaption class="post-author">
-                        <a href="{% url 'profile' post.author.username %}">
-                            {{ post.author.first_name }} {{ post.author.last_name }} 
-                        </a>
-                    </figcaption>
-                    <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                    <figure>
+                        <figcaption class="post-author">
+                            <a href="{% url 'profile' post.author.username %}">
+                                {{ post.author.first_name }} {{ post.author.last_name }} 
+                            </a>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                    </figure>
                 </div>
             </div>
         </header>
@@ -86,15 +90,18 @@
                             {% if comment.author.userprofile.profile_image %}
                                 <img src="{{ comment.author.userprofile.profile_image.url }}" alt="{{ post.author.username }}'s profile picture" class="rounded-circle"  width="50" height="50">
                             {% else %}
-                                <img src="{% static '/images/default profile pic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="50" height="50">
+                                <img src="{% static '/images/defaultprofilepic.jpg' %}" alt="Default profile picture" class="rounded-circle"  width="50" height="50">
                             {% endif %}
                             </figure>
                             <div class="author-info">
-                                <figcaption class="post-author"><a href="{% url 'profile' post.author.username %}">
-                                    {{ post.author.first_name }} {{ post.author.last_name }} 
-                                </a>
-                                </figcaption> 
-                                <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                                <figure>
+                                    <figcaption class="post-author">
+                                        <a href="{% url 'profile' post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <figcaption class="post-date">{{ post.post_date }}</figcaption>
+                                </figure>
                             </div>
                         </div>
                     </header>
@@ -131,7 +138,7 @@
         </div>
     </article>
 </div>
-</section>
+</div>
 {% endblock %}  
 
 

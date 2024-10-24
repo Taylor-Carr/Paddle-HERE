@@ -1,89 +1,96 @@
-# PaddleHere - PROJECT README
+# PaddleHere - ## PROJECT README
 
-## By  Taylor Carr
+## By Taylor Carr
 
-  
 
 ## Contents
 
   
+-  [Project Overview](#project-overview)
 
--  Project Overview
+-  [Site Users' Goals](#site-users-goals)
 
--  Site Users goal
+- [Site owner's Goals](#site-owners-goals)
 
-- Site owner's goal
+- [Current features](#current-features)
 
-- Current features
+- [Future features](#future-features) 
 
-- Future features 
+- [Project ERD and Database Design](#project-erd-and-database-design)
 
-- Project Initial ERD and data base design
+- [Development strategy](#development-strategy)
 
-- Development strategy
+- [Wireframes](#wireframes)
 
-- Wireframes - Balsamiq
+- [Flow Chart](#flow-chart)
 
-- Flow Chart
+- [Frontend Design Choices](#frontend-design)
 
-- Development strategy - Agile Methodology
+- [Manual testing and Validation](#maunal-testing)
 
-- Frontend Design choices 
+- [Deployment Process](#deployment-process)
 
-- Manual testing
+- [Tech Stack and Tools used](#tech-stack-and-tools-used)
 
-- Tech Stack and Tools used
-
-- Credits
+- [Credits](#credits)
 
   
-  
+---
+
 
 ## Project Overview
 
  
-PaddleHere - a blogging platform enabling users to share and find paddle boarding locations in and around the UK.
+**PaddleHere** - is a blogging platform designed to enable users to discover, share and find paddle boarding, surfing and kayaking locations in and around the UK. Our mission is to create a community where enthusiasts can connect and share there experiences.
 
 
+---
 
 
+### Site Users' Goals:
 
-  
 
-### Site users goal:
-To share and find paddle boarding locations in and around the UK, and give their feedback or experience of the location on other users blog posts.
+- **Discover Locations and Compare Experiences**: Users can search for and find paddle boarding, surfing and kayaking locations (spots) within the UK They can also read others' experiences and reviews of these locations.
 
+- **Share Locations and Experiences**: Users can create and share their own posts that include locations specific title, country, caption, images, tags, proficiency level. This allows them to document their adventures in detail and contribute to the wider community.
+
+- **Engage with Community**: Users can interact with others by commenting on posts, liking posts and comments and viewing other users profiles and previous posts.
  
+
 ### Site owner's goal:
 
-To allow users to share and find new paddle boarding locations. As well as allowing users to share their shared experiences of
-other users locations through commenting and liking.
+- **Facilitate Discovery**: Enable users to easily locate new paddle boarding, surfing and kayaking locations.
+
+- **Encourage Interaction**: Allow Users to engage with content through comments and likes.
  
 
-## Current features:
+### Current features
   
-Un - Registered users can browse authorised users blog post. To access full CRUD functionality and to interact with authorised users, site visitors have to sign up. Once registered, users can browse and create blog posts. They can also like and comment on their favourite posts. Users also have the ability to like comments.  
+- **User Authentication**: Users can register and log in to their accounts, creating profiles that showcase their experiences and preferences.
 
--   User registration
--   User login / Logout
--   Blog posts can be uploaded (CRUD)
--   Posts can be liked 
--   Comments can be left on a post (CRUD)
--   Comments can be liked and unliked 
--   Time / Date of posting
--   Time / Date of comment
+- **Profile Managaement**: Users can manage their profile including adding a profile picture, banner image, bio and proficiency level, helping to personalise there experience on the platform 
+
+- **Blog Post Creation**: Users can create and update their blog posts related to their chosen sport within the categories. Each post can include A location specific title, location and country (pre defined), a caption, image, a pre defined tag and their opinion on the profficency level related to the location.
+
+- **Commenting System**: Users can respond to posts via comments, facilitating disussions and promoting enagagement within the community.
+
+- **Like Funcionality**: Users can like posts and comments, helping users to identitfy popular location or opinions of locations/posts.
+
+- **Categories**: Users can filter blog posts by category, these categorys are pre defined by sport. 
+
+- **Search Functionality**: Users can search blog posts more specifically through exact location, country or sport.
 
 
 
-## Future Features 
+### Future Features 
 
-- Categories for surfing, kayaking and wild swimming
-- User Profiles
-- Ability to upload photos with posts
-- "favouriting" for saving blog posts 
-- Weather API specific to posts
-- Google maps API specific 
+- **Saving Posts**: Users will be able to save their favourite blog posts to re visit at a later date.
 
+- **Current Weather API**: Users will be provided with current weather condition at the location of the blog post.
+
+- **Google Maps API**: Users will be able to quickly find the exact location of a post through an interactive map, othering directions and a visual representation of the location.
+
+---
 
 ## Balsamiq - Wireframes
 
@@ -115,94 +122,243 @@ Un - Registered users can browse authorised users blog post. To access full CRUD
 
   
 
-## GitHub projects - User Stories 
+## Developement Strategy 
 
   
-To support an agile development methodology my chosen tool was GitHub projects. I outlined my prioritised user stories and extra features to ensure a MVP would be achieved.
+To implement an agile development methodology, I utilized GitHub Projects as my primary tool. I documented prioritized user stories and additional features, ensuring that a Minimum Viable Product (MVP) could be effectively achieved.
 
 ![GitHub Projects](/static/images/readme/kanbanph.png)
 
   
+---
 
+## Frontend Design
 
-## Frontend development - design elements 
+**PaddleHere** is a fully responsive, mobile-first website desinged with the on-the-go users in mind. Mobile usability was a key consideration throughtout the design proccess, resulting in features such as:
 
-PaddleHere is a fully responsive mobile first website. Due to our target users being "on the go", a mobile users perspective was at the forefront of most of the design decisions. A lot of the elements of the website reflect this, especially the design of the card. Familiar to most IOS users. And the use of back buttons throughout the website. With this in mind, buttons were purposely placed at the bottom of the users screen for ease of use for mobile and tablet users.  
+- **Card Layouts** familiar to IOS users.
 
-Overall PaddleHere has a muted colour theme. A light blue accent colour for the obvious relation to water, but overall white to allow the blog posts (text) to stand out. To aid with the contrast of the white cards, #f9f9f9 was used. An off White, almost Grey. 
+- **Back Buttons** for intuitive navigation.
 
-The font pairing was chosen for readability and to apply a brand image. To support this Genty was used for the brand logo,  a surfer esque font. The main text Montserrat, was used for it's blatant readability and versatility as it was being used across the site for headings, main text and to highlight details such as author names and post dates and times. 
+- **Bottom-Placed Buttons** for easy access on mobile and tablet devices.
 
+### Colour Scheme
 
+The design features a muted colour palette with:
 
+- **Light Blue Accents** to tie in with the overall watersports theme.
+
+- A prodimently **Off white background** to highlight blog posts and other ui elements.
+
+- **Bottom-Placed Buttons** for easy access on mobile and tablet devices.
+
+### Typography
+
+The typography was chosen to reflect the brands identity and over all theme of the website aswell as maintaining readability:
+
+- **Genty** is used for the brand logo, offering a surfer-inspired look. 
+
+- **Montserrat** is used across the site for its headings, body text and key details (such as author headings, post timestamps etc) due to it's readability and versatility.
+
+---
 
 ## Manual Testing
  
- Exstensive manual testing was carried out through out the project. Multiple accounts were registered through the sign up form. Logged out to, then signed back in to test the respective forms.
- 
-Both accounts were then used to test the share blog functionality, update blog functionality, comment, comment update, delete comment and like / unlike. Only authorised users were shown the appropriate content and able to update or delete, their own posts and comments. 
+Each section of the site was manually tested to ensure it functions as expected, including buttons, links, input fields, and navigation. Tests covered both "happy flows" (where everything works as intended) and exception/bad flows (handling incorrect input or edge cases).
+
+## 1. Buttons & Links
+
+**Expected:**  
+- Buttons should trigger the appropriate action (e.g. submission, navigation) when clicked and return a success or error message if related to a form submission. 
+- Links should navigate to the correct page or section.
+
+![Profile before](/static/images/readme/userstoryfirst.png)
+![Profile after](/static/images/readme/userstorysecond.png)
+
+**Testing:**  
+- Clicked on all buttons, including "Submit," "Edit," and "Delete" on posts and comments.
+- Tested all navigation links from the navbar, navbar dropdown, footer, and internal links.
+
+**Result:**  
+- All buttons and links responded as expected.
+- All functions with related success and error messages work as intended.
+
+**Fix:**  
+- No fixes were necessary.
+
+## 2. Responsive Design Testing
 
 
-- All Navigation links work.
+## 3. Code Validation
 
-- Appropriate navigation links show to authorised and un-authorised users respectively.
+Validation tools were used to check the quality of the HTML and CSS for compliance with web standards.
 
-- Burger icon and burger icon links work as expected.
 
-- User Registration form works as expected.
+### HTML & CSS Validation
 
-- User sign in and logout work as expected.
+![CSS validation](/static/images/readme/cssvalidation.png)
 
-- Blog post works as expected with full CRUD functionality, create, update and delete. Posts also display the correct 
-  author and date/time.
+**Tools Used:**  
+- W3C Validator for HTML  
+- CSS Validator for CSS
 
-- Post likes work as expected.
+**Result:**  
 
-- Blog post comment work as intended with full CRUD functionality, create, update and delete.
+#Validation errors for html: 
 
-- Comment like and unlike works as intended.
+- Figcaption elements were not nested in figure elements.
+- Div nested in header title H1 element.
+- Form select inputs had a max input of characters. 
 
-  
-  
+**Fix:**  
+- Figcaptions were nested in figure elements.
+- Nested div in header title H1 was changed to a span element.
+- Max characters in form select inputs were removed.
 
-## Tech Stack & Tools used
 
-Lucid 
+## 4. Testing User Stories and Features
 
-GitHub Projects
+Every user story and corresponding feature was tested to ensure it meets the outlined functionality.
 
-HTML5
+### User Registration & Login
 
-CSS3
+**Expected:**  
+- Users should be able to register, log in, and access personalized content like blog post details, profiles, commenting etc.
+- Un-Authorised users should not be able to access site beyond un auth home page without registering.
 
-JavaScript.
+**Testing:**  
+- Registered account using valid and invalid inputs.
+- Logged in, logged out, and tested redirection to profile pages.
 
-Python used for back-end programming.
+**Result:**  
+- Functionality worked as expected.
+- Success messages were shown.
 
-Git for version control.
 
-Bootstrap.
+## 5. Bug Documentation
 
-Django used for back-end framework.
+Any bugs encountered during development were documented, including steps to reproduce, analysis, and resolution.
 
-ElephantSQL for Postgres database.
+### Bug: Inconsistent Category Links
 
-Heroku was used to deploy the back-end.
+![Category bug](/static/images/readme/categorybug.png)
 
-  
+**Description:**  
+
+- Category links on posts were dynamically generated based on user-created categories, leading to inconsistencies in the displayed categories as new posts were added.
+
+**Testing:**  
+- Tested the behavior by creating multiple posts with different categories and observed that the links were not aligned with predefined category options.
+
+
+**Result:**  
+- Categories appeared incorrectly, causing confusion and navigation issues for users.
+
+**Fix:**  
+- Decoupled category display from user input by implementing a predefined set of categories. I ensured that only these categories were rendered as clickable links, resulting in consistent behavior across the site.
+
+
+---
+
+# Deployment Process
+
+This outlines the steps I followed to deploy my Django application to Heroku.
+
+## Prerequisites
+
+Before starting, I ensured the following:
+
+- A **Heroku** account was created.
+- My project was fully tested locally and ready for deployment.
+- Set DEBUG to False.
+
+
+## Steps I Followed
+
+### 1. Create a Procfile
+
+I created a `Procfile` in the root directory of my project to instruct Heroku on how to run the application.
+
+### 2. Log in to Heroku
+
+- I logged in to the [Heroku dashboard](https://dashboard.heroku.com/).
+
+### 3. Created a New App on the Heroku Dashboard
+
+- I clicked on **New** > **Create New App**.
+- I chose a unique app name and selected my region.
+- I clicked **Create App**.
+
+### 4. Configure Environment Variables
+
+- I navigated to the **Settings** tab in Heroku.
+- In the **Config Vars** section, I clicked **Reveal Config Vars** and added the my environment variables.
+
+![Config](/static/images/readme/config.png)
+
+
+### 5. Set Buildpacks
+
+- In the **Settings** tab, I located the **Buildpacks** section.
+- I clicked on **Add Buildpacks** and selected **Python** as the buildpack.
+
+![Packs](/static/images/readme/packs.png)
+
+### 6. Connect GitHub to Heroku
+
+- From the **Deploy** tab on the Heroku dashboard, I selected **GitHub** as the deployment method.
+- I searched for my repository name and clicked **Connect** to link the repository to my Heroku app.
+
+![Connect](/static/images/readme/connect.png)
+
+### 7. Enable Automatic Deploys
+
+- Under **Automatic Deploys**, I enabled automatic deployment from the main branch on GitHub.
+- I triggered a manual deploy for the first deployment using the **Deploy Branch** button.
+
+![Deploy](/static/images/readme/deploy.png)
+
+
+---
+
+## Tech Stack & Tools Used
+
+- **Lucid**: For wireframing and diagraming
+
+- **GitHub Projects**: For project management and mapping of user stories.
+
+- **GitHub**: Used for version control.
+
+- **HTML5**: Markup language for structuring the content.
+
+- **CSS3**: For styling and responsive design.
+
+- **Bootstrap**: For responsive front-end design.
+
+- **JavaScript**: For client-side functionality and interactive elements.
+
+- **Python**: Used for back-end programming and logic.
+
+- **django**: Used as the back-end framework.
+
+- **Cloudinary**: For image storage.
+
+- **Heroku**: For deploying the back-end application.
+
   
 
 ## Credits
 
-  
+Special thanks to the following people and resources for their guidance and support:
 
-Huge thanks to our facilitator David Calikes, Kevin and Martin at Code Institute for their exceptional guidance and support.
 
-Alls Well - Hackathon project
+- **David Calikes**, **Kevin** and **Martin** at Code Institute for their exceptional guidance and support.
 
-Codemy
+- **Alls Well** - Hackathon project for inspiration.
 
-Hero Image - Matt-Zhou   unsplash
+- **Codemy**
+
+- **Hero Image** - **Matt-Zhou** - Unsplash
 
 
 

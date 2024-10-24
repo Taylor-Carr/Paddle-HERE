@@ -23,10 +23,10 @@ class Post(models.Model):
     body = models.TextField(max_length=800)
     post_image = CloudinaryField('image', blank = True, null=True)
     post_date = models.DateField(auto_now_add=True)
-    country = models.CharField(max_length=100, default= 'England')
-    category = models.CharField(max_length=100, default= 'Paddle Boarding')
-    proficiency_level = models.CharField(max_length=50, default='beginner')
-    tags = models.CharField(max_length=50, blank=True)
+    country = models.CharField(default= 'England')
+    category = models.CharField(default= 'Paddle Boarding')
+    proficiency_level = models.CharField( default='beginner')
+    tags = models.CharField(blank=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
 
     class Meta:

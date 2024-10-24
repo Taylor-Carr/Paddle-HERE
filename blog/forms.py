@@ -18,7 +18,7 @@ class PostForm(forms.ModelForm):
            'country': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = countries,),
            'category': forms.Select(attrs={'class': 'add-post' 'form-control'}, choices = sport,),
            'proficiency_level': forms.Select(attrs={'class': 'add-post form-control'}, choices = proficiency_level,),
-           'tags': forms.Select(attrs={'class': 'add-post form-control', 'placeholder': 'e.g. Free Parking..'}, choices = tags,),
+           'tags': forms.Select(attrs={'class': 'add-post form-control',}, choices = tags,),
            'post_image':forms.ClearableFileInput(attrs={'class': 'add-post form-control'}),
            'body': forms.Textarea(attrs={'class': 'post-body' 'add-post' }),
         }
